@@ -1,0 +1,49 @@
+.success-container {
+  padding: 20px 40px;
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 255, 255);
+}
+
+.page-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.story-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #e4f1f154;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.story-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.story-content h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.stars {
+  color: orange;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.story-content p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.posted-by {
+  font-size: 13px;
+  color: #666;
+}
