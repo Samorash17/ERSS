@@ -1,0 +1,109 @@
+import React, { useState } from "react";
+import "../styles/LoginForm.css";
+
+function LoginForm() {
+    const [mobileNo, setMobileNo] = useState("");
+    const [dateOfBirth, setDateOfBirth] = useState("");
+    const [captchaInput, setCaptchaInput] = useState("");
+    const [rememberMe, setRememberMe] = useState(false);
+    const [captcha, setCaptcha] = useState(generateCaptcha());
+
+    // Generate random captcha
+    function generateCaptcha() {
+        const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        let text = "";
+        for (let i = 0; i < 5; i++) {
+            text += chars[Math.floor(Math.random() * chars.length)];
+        }
+        return text;
+    }
+
+    const refreshCaptcha = () => setCaptcha(generateCaptcha());
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (captchaInput.toLowerCase() !== captcha.toLowerCase()) {
+            alert("Error: Invalid CAPTCHA!");
+            return;
+        }
+
+        alert("Login Successful! (Simulated)");
+
+        setMobileNo("");
+        setDateOfBirth("");
+        setCaptchaInput("");
+        setRememberMe(false);
+        refreshCaptcha();
+    };
+
+    return (
+        <div className="login-container">
+            <form className="login-form" onSubmit={handleSubmit}>
+
+                <div className="form-group">
+                    <label htmlFor="mobileNo">Mobile No</label>
+                    <input
+                        type="text"
+                        id="mobileNo"
+                        value={mobileNo}
+                        placeholder="Mobile No"
+                        onChange={(e) => setMobileNo(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="dateOfBirth">Date of Birth</label>
+                    <input
+                        type="date"
+                        id="dateOfBirth"
+                        value={dateOfBirth}
+                        onChange={(e) => setDateOfBirth(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="form-group captcha-group">
+                    <label htmlFor="captchaInput">Captcha</label>
+
+                    <div className="captcha-display-area">
+                        <span className="captcha-image">{captcha}</span>
+                        <button
+                            type="button"
+                            className="refresh-btn"
+                            onClick={refreshCaptcha}
+                        >
+                            ↻
+                        </button>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="captchaInput"
+                        placeholder="Enter captcha here"
+                        value={captchaInput}
+                        onChange={(e) => setCaptchaInput(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="remember-me-group">
+                    <input
+                        type="checkbox"
+                        id="rememberMe"
+                        checked={rememberMe}
+                        onChange={(e) => setRememberMe(e.target.checked)}
+                    />
+                    <label htmlFor="rememberMe">Remember me</label>
+                </div>
+
+                <button type="submit" className="login-btn">
+                    Login
+                </button>
+            </form>
+        </div>
+    );
+}
+
+export default LoginForm;
