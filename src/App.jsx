@@ -1,7 +1,7 @@
-import SuccessStories from "./SuccessStories";
-import "./App.css";
 import React from "react";
-import "./SuccessStories.css";
+import SuccessStories from "./pages/SuccessStories.jsx";
+import "./App.css";
+import "./styles/SuccessStories.css";
 
 function App() {
   return <SuccessStories />;

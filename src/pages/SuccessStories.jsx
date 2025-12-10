@@ -1,5 +1,5 @@
 import React from "react";
-import "./SuccessStories.css";
+import "../styles/SuccessStories.css";
 
 const stories = [
   {
