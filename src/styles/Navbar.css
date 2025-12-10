@@ -1,0 +1,223 @@
+.header-container {
+  width: 100%;
+  font-family: sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white; /* Ensure background is opaque when sticky */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds shadow when scrolling */
+}
+
+body {
+    margin: 0;
+}
+
+/* Top Bar Styles */
+.top-bar {
+  background-color: #1a3c6e; /* Dark Blue */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  font-size: 14px;
+}
+
+.contact-info {
+  font-weight: 500;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons .icon {
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.download-btn {
+  background-color: #d9534f; /* Reddish color */
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Branding Section Styles */
+.branding-section {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.brand-left, .brand-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.brand-right {
+  justify-content: center;
+}
+
+.brand-center {
+  flex: 0 0 auto;
+  margin: 0 20px;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+}
+
+.center-logo {
+  height: 80px;
+  width: auto;
+}
+
+.brand-text {
+  color: #0056b3; /* Blue text */
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+/* Navigation Menu Styles */
+.main-nav {
+  background: linear-gradient(to bottom, #5b9bd5 0%, #4a8bc2 100%); /* Light blue gradient */
+  border-top: 1px solid #3a7bb2;
+  border-bottom: 1px solid #3a7bb2;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.nav-link.active {
+  color: #ffff00; /* Yellow for active/home */
+}
+
+/* Hamburger Button Styles */
+.hamburger-btn {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 auto; /* Center it */
+}
+
+.hamburger-line {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .branding-section {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .branding-section.open {
+    display: flex;
+  }
+
+  .brand-left, .brand-right {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .brand-right {
+    flex-direction: column-reverse; /* Keep logo on top or bottom consistently if desired, or just column */
+  }
+
+  .brand-center {
+    margin: 10px 0;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+  }
+
+  .logo, .center-logo {
+    height: 60px;
+  }
+
+  /* Mobile Navigation */
+  .hamburger-btn {
+    display: flex; /* Show on mobile */
+  }
+
+  .nav-list {
+    display: none; /* Hide menu by default on mobile */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #4a8bc2; /* Match nav background */
+  }
+
+  .nav-list.open {
+    display: flex; /* Show when open */
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 15px;
+  }
+}
