@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/HelplineSection.css';
-
-const agentImage = "https://placehold.co/300x400?text=Agent";
-const icon247 = "https://placehold.co/80x80?text=24/7";
+import agentImage from '../assets/helpline-homepage.png';
+import icon247 from '../assets/helpline-icon.png';
 
 const HelplineSection = () => {
   return (

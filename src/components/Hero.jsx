@@ -1,13 +1,10 @@
-import React from 'react';
 import '../styles/Hero.css';
-
-// Placeholders for images - replace these with actual assets later
-const mapImage = "https://placehold.co/150x150?text=Map";
-const policeLogo = "https://placehold.co/150x150?text=Police+Logo";
-const cmImage = "https://placehold.co/100x100?text=CM";
-const dgpImage = "https://placehold.co/100x100?text=DGP";
-const buildingImage = "https://placehold.co/600x400?text=Building";
-const risingLogo = "https://placehold.co/80x80?text=Rising+2047";
+import mapImage from '../assets/pic-hero-1.png';
+import policeLogo from '../assets/pic-hero-2.jpg';
+import cmImage from '../assets/pic-hero-3_mod.png';
+import dgpImage from '../assets/pic-hero-4_mod.png';
+import buildingImage from '../assets/pic-hero-5.jpg';
+import risingLogo from '../assets/pic-hero-rising.jpg';
 
 const Hero = () => {
   return (

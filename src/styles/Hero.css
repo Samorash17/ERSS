@@ -32,12 +32,12 @@
 }
 
 .hero-map {
-  height: 100px; /* Reduced from 150px */
+  height: 190px; /* Reduced from 150px */
   object-fit: contain;
 }
 
 .hero-police-logo {
-  height: 100px; /* Reduced from 150px */
+  height: 190px; /* Reduced from 150px */
   object-fit: contain;
 }
 

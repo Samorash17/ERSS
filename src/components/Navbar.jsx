@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../styles/Navbar.css';
-
-const govLogo = "https://placehold.co/80x80?text=Gov+Logo";
-const erssLogo = "https://placehold.co/80x80?text=ERSS+Logo";
-const policeLogo = "https://placehold.co/80x80?text=Police+Logo";
+import govLogo from '../assets/logo-nav-1.jpg';
+import erssLogo from '../assets/logo-nav-2.png';
+import policeLogo from '../assets/logo-nav-3.jpg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,16 +59,16 @@ const Navbar = () => {
           <span className="hamburger-line"></span>
         </button>
         <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
-          <li><Link to="/" className="nav-link active" onClick={() => setIsMenuOpen(false)}>HOME</Link></li>
-          <li><Link to="/features" className="nav-link" onClick={() => setIsMenuOpen(false)}>KEY FEATURES</Link></li>
-          <li><Link to="/how-it-works" className="nav-link" onClick={() => setIsMenuOpen(false)}>HOW IT WORKS</Link></li>
-          <li><Link to="/request-help" className="nav-link" onClick={() => setIsMenuOpen(false)}>REQUEST HELP</Link></li>
-          <li><Link to="/citizen-login" className="nav-link" onClick={() => setIsMenuOpen(false)}>CITIZEN LOGIN</Link></li>
-          <li><Link to="/officer-login" className="nav-link" onClick={() => setIsMenuOpen(false)}>OFFICER LOGIN</Link></li>
-          <li><Link to="/media" className="nav-link" onClick={() => setIsMenuOpen(false)}>MEDIA GALLERY</Link></li>
-          <li><Link to="/success-stories" className="nav-link" onClick={() => setIsMenuOpen(false)}>SUCCESS STORIES</Link></li>
-          <li><Link to="/faqs" className="nav-link" onClick={() => setIsMenuOpen(false)}>FAQs</Link></li>
-          <li><Link to="/feedback" className="nav-link" onClick={() => setIsMenuOpen(false)}>FEEDBACK</Link></li>
+          <li><NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>HOME</NavLink></li>
+          <li><NavLink to="/features" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>KEY FEATURES</NavLink></li>
+          <li><NavLink to="/how-it-works" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>HOW IT WORKS</NavLink></li>
+          <li><NavLink to="/request-help" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>REQUEST HELP</NavLink></li>
+          <li><NavLink to="/citizen-login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>CITIZEN LOGIN</NavLink></li>
+          <li><NavLink to="/officer-login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>OFFICER LOGIN</NavLink></li>
+          <li><NavLink to="/media" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>MEDIA GALLERY</NavLink></li>
+          <li><NavLink to="/success-stories" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>SUCCESS STORIES</NavLink></li>
+          <li><NavLink to="/faqs" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>FAQs</NavLink></li>
+          <li><NavLink to="/feedback" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>FEEDBACK</NavLink></li>
         </ul>
       </nav>
     </header>
