@@ -1,12 +1,42 @@
-// App.js
-import React from 'react';
-import LoginForm from './pages/LoginForm'; // Adjust path if necessary
+import './App.css'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './pages/home'
+import NotFound from './pages/NotFound'
+
+const RootLayout = () => {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+    </>
+  )
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      }
+    ],
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <LoginForm />
-    </div>
-  );
+    <RouterProvider router={router} />
+  )
 }
-export default App;
+
+export default App
