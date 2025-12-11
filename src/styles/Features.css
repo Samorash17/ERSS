@@ -1,0 +1,61 @@
+/* Page Background */
+body {
+  background-color: #eef2f7;
+}
+
+/* Blue Box (Card) Wrapper */
+.features-wrapper {
+  max-width: 950px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #e5f1ff;
+  border-radius: 12px;
+  border: 1px solid #bcd6f5;
+  box-shadow: 0 4px 10px rgba(0, 68, 125, 0.15);
+}
+
+/* Heading */
+.features-heading {
+  text-align: center;
+  color: #004b87;
+  margin-bottom: 35px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* List container */
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Each Feature Item */
+.feature-item {
+  background-color: #ffffff;
+  padding: 18px 20px;
+  border-left: 6px solid #0058a3;
+  border-radius: 6px;
+  border: 1px solid #dce5ef;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Professional hover effect */
+.feature-item:hover {
+  background-color: #f3f8ff;
+  border-left-color: #003f73;
+  cursor: default;
+}
+
+.feature-item h3 {
+  margin: 0 0 8px;
+  color: #003f73;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.feature-item p {
+  margin: 0;
+  color: #333;
+  line-height: 1.6;
+}
