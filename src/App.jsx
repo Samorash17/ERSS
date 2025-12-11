@@ -1,7 +1,7 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Home from './pages/Home'
+import Home from './pages/home'
 import NotFound from './pages/NotFound'
 
 const RootLayout = () => {
