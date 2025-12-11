@@ -1,0 +1,151 @@
+/* src/faq.css */
+
+/* --- ERSS Header and Layout Styles --- */
+
+.erss-layout {
+    width: 100%;
+    display: block;
+}
+
+.erss-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.logo-section h1 {
+    font-size: 1em;
+    font-weight: 500;
+    color: #cc0000;
+    margin: 0;
+    padding-left: 10px;
+}
+
+.logo-placeholder {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+}
+
+/* --- Navigation Links --- */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #cc0000;
+    border-bottom: 2px solid #cc0000;
+}
+
+/* --- Right Section --- */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.download-btn {
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* --- FAQ Specific Styling Overrides --- */
+
+.faq-list-wrapper {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    background-color: #f9f9f9;
+}
+
+.faq-question {
+    font-weight: normal;
+    font-size: 1.05em;
+    padding: 5px 10px;
+}
+
+.faq-answer {
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 15px 10px;
+    margin: 10px 0;
+    color: #333;
+    font-weight: 400;
+    text-align: left;
+}
+
+/* --- Orange Indicator Style --- */
+.indicator-open,
+.indicator-closed {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #f7931e;
+    margin-left: 10px;
+}
+
+/* --- Dark Mode Override for FAQ Box (Ensure white background) --- */
+@media (prefers-color-scheme: dark) {
+    .erss-header {
+        background-color: #1a1a1a;
+        /* Dark header background */
+        color: white;
+    }
+
+    .erss-header a,
+    .erss-header h1 {
+        color: white;
+    }
+
+    .nav-links a.active {
+        color: #ff4d4d;
+        /* Brighter accent color */
+        border-bottom-color: #ff4d4d;
+    }
+
+    .faq-item {
+        background-color: #2e2e2e;
+        /* Slightly lighter than background */
+        border-bottom-color: #444;
+    }
+
+    .faq-answer {
+        background-color: #444;
+        /* Dark answer box */
+        color: white;
+        border-color: #555;
+    }
+
+    .faq-question {
+        color: #ccc;
+        /* Light gray text */
+    }
+}
