@@ -1,25 +1,29 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/home'
 import NotFound from './pages/NotFound'
 import SOS from './pages/sos'
 import Features from './pages/Features'
 import Works from './pages/works'
 import LoginForm from './pages/LoginForm'
+import officer_login from './pages/officer_login'
 import SuccessStories from './pages/SuccessStories'
 import FAQ from './pages/FAQ'
 import Media from './pages/Media'
 import Feedback from './pages/Feedback'
+import Login from './pages/officer_login'
 
 const RootLayout = () => {
   return (
-    <>
+    <div className="app-layout">
       <Navbar />
-      <main>
+      <main className="main-content">
         <Outlet />
       </main>
-    </>
+      <Footer />
+    </div>
   )
 }
 
@@ -51,7 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: "officer-login",
-        element: <LoginForm />,
+        element: <Login />,
       },
       {
         path: "success-stories",

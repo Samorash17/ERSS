@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/LoginForm.css";
+import RequiredLabel from "../components/RequiredLabel";
 
 function LoginForm() {
     const [mobileNo, setMobileNo] = useState("");
@@ -42,7 +43,7 @@ function LoginForm() {
             <form className="login-form" onSubmit={handleSubmit}>
 
                 <div className="form-group">
-                    <label htmlFor="mobileNo">Mobile No</label>
+                    <RequiredLabel>Mobile No</RequiredLabel>
                     <input
                         type="text"
                         id="mobileNo"
@@ -54,7 +55,7 @@ function LoginForm() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="dateOfBirth">Date of Birth</label>
+                    <RequiredLabel>Date of Birth</RequiredLabel>
                     <input
                         type="date"
                         id="dateOfBirth"
@@ -65,7 +66,7 @@ function LoginForm() {
                 </div>
 
                 <div className="form-group captcha-group">
-                    <label htmlFor="captchaInput">Captcha</label>
+                    <RequiredLabel>Captcha</RequiredLabel>
 
                     <div className="captcha-display-area">
                         <span className="captcha-image">{captcha}</span>
