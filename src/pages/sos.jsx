@@ -1,5 +1,5 @@
-import { useState } from 'react';
-// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { useState, useCallback } from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import RequiredLabel from '../components/RequiredLabel';  // <-- imported component
 import '../styles/sos.css';
 
@@ -21,17 +21,17 @@ const SOS = () => {
   });
 
   // Map state
-  // const [markerPosition, setMarkerPosition] = useState({
-  //   lat: 17.4065,
-  //   lng: 78.4772
-  // });
+  const [markerPosition, setMarkerPosition] = useState({
+    lat: 17.4065,
+    lng: 78.4772
+  });
 
   const [locationInput, setLocationInput] = useState('');
 
-  // const mapContainerStyle = {
-  //   width: '100%',
-  //   height: '300px'
-  // };
+  const mapContainerStyle = {
+    width: '100%',
+    height: '300px'
+  };
 
   // Handle input change
   const handleInputChange = (e) => {
@@ -43,30 +43,30 @@ const SOS = () => {
   };
 
   // Map click
-  // const onMapClick = useCallback((e) => {
-  //   const lat = e.latLng.lat();
-  //   const lng = e.latLng.lng();
+  const onMapClick = useCallback((e) => {
+    const lat = e.latLng.lat();
+    const lng = e.latLng.lng();
     
-  //   setMarkerPosition({ lat, lng });
-  //   setFormData(prev => ({
-  //     ...prev,
-  //     latitude: lat.toFixed(6),
-  //     longitude: lng.toFixed(6)
-  //   }));
-  // }, []);
+    setMarkerPosition({ lat, lng });
+    setFormData(prev => ({
+      ...prev,
+      latitude: lat.toFixed(6),
+      longitude: lng.toFixed(6)
+    }));
+  }, []);
 
-  // // Marker drag
-  // const onMarkerDragEnd = useCallback((e) => {
-  //   const lat = e.latLng.lat();
-  //   const lng = e.latLng.lng();
+  // Marker drag
+  const onMarkerDragEnd = useCallback((e) => {
+    const lat = e.latLng.lat();
+    const lng = e.latLng.lng();
 
-  //   setMarkerPosition({ lat, lng });
-  //   setFormData(prev => ({
-  //     ...prev,
-  //     latitude: lat.toFixed(6),
-  //     longitude: lng.toFixed(6)
-  //   }));
-  // }, []);
+    setMarkerPosition({ lat, lng });
+    setFormData(prev => ({
+      ...prev,
+      latitude: lat.toFixed(6),
+      longitude: lng.toFixed(6)
+    }));
+  }, []);
 
   // Submit
   const handleSubmit = (e) => {
@@ -233,7 +233,7 @@ const SOS = () => {
             </div>
 
             <div className="map-container">
-              {/* <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}>
+              <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}>
                 <GoogleMap
                   mapContainerStyle={mapContainerStyle}
                   center={markerPosition}
@@ -246,7 +246,7 @@ const SOS = () => {
                     onDragEnd={onMarkerDragEnd}
                   />
                 </GoogleMap>
-              </LoadScript> */}
+              </LoadScript>
             </div>
 
             <p className="map-note">NB: Drag the marker to redefine the position</p>
