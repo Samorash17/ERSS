@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
 import '../styles/Navbar.css';
 import govLogo from '../assets/logo-nav-1.jpg';
 import erssLogo from '../assets/logo-nav-2.png';
@@ -7,6 +9,7 @@ import policeLogo from '../assets/logo-nav-3.jpg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,7 +20,7 @@ const Navbar = () => {
       {/* Top Bar */}
       <div className="top-bar">
         <div className="contact-info">
-          <span>helpline@telangana.gov.in, mobile:+918712674000</span>
+          <span>{t('navbar.contact')}</span>
         </div>
         <div className="social-icons">
           {/* Placeholders for social icons */}
@@ -28,8 +31,9 @@ const Navbar = () => {
           <span className="icon"></span>
         </div>
         <div className="app-download">
+          <LanguageSelector />
           <button className="download-btn">
-            <span className="android-icon">🤖</span> Download 112 App
+            <span className="android-icon">🤖</span> {t('navbar.downloadApp')}
           </button>
         </div>
       </div>
@@ -37,16 +41,16 @@ const Navbar = () => {
       {/* Middle Branding Section */}
       <div className={`branding-section ${isMenuOpen ? 'open' : ''}`}>
         <div className="brand-left">
-          <img src={govLogo} alt="Government of Telangana" className="logo" />
-          <h1 className="brand-text">GOVERNMENT OF TELANGANA</h1>
+          <img src={govLogo} alt={t('navbar.govTitle')} className="logo" />
+          <h1 className="brand-text">{t('navbar.govTitle')}</h1>
         </div>
         
         <div className="brand-center">
-           <img src={erssLogo} alt="ERSS Dial 112" className="center-logo" />
+           <img src={erssLogo} alt={t('navbar.erssTitle')} className="center-logo" />
         </div>
 
         <div className="brand-right">
-          <h2 className="brand-text">EMERGENCY RESPONSE SUPPORT SYSTEM</h2>
+          <h2 className="brand-text">{t('navbar.erssTitle')}</h2>
           <img src={policeLogo} alt="Telangana Police" className="logo" />
         </div>
       </div>
@@ -76,3 +80,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
