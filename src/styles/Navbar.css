@@ -56,6 +56,12 @@ body {
   gap: 5px;
 }
 
+.app-download {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* Branding Section Styles */
 .branding-section {
   background-color: white;
