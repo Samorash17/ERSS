@@ -27,17 +27,9 @@ const SOS = () => {
     lat: 17.4065,
     lng: 78.4772
   });
-  const [markerPosition, setMarkerPosition] = useState({
-    lat: 17.4065,
-    lng: 78.4772
-  });
 
   const [locationInput, setLocationInput] = useState('');
 
-  const mapContainerStyle = {
-    width: '100%',
-    height: '300px'
-  };
   const mapContainerStyle = {
     width: '100%',
     height: '300px'
@@ -56,9 +48,6 @@ const SOS = () => {
   const onMapClick = useCallback((e) => {
     const lat = e.latLng.lat();
     const lng = e.latLng.lng();
-  const onMapClick = useCallback((e) => {
-    const lat = e.latLng.lat();
-    const lng = e.latLng.lng();
     
     setMarkerPosition({ lat, lng });
     setFormData(prev => ({
@@ -67,30 +56,12 @@ const SOS = () => {
       longitude: lng.toFixed(6)
     }));
   }, []);
-    setMarkerPosition({ lat, lng });
-    setFormData(prev => ({
-      ...prev,
-      latitude: lat.toFixed(6),
-      longitude: lng.toFixed(6)
-    }));
-  }, []);
 
   // Marker drag
   const onMarkerDragEnd = useCallback((e) => {
     const lat = e.latLng.lat();
     const lng = e.latLng.lng();
-  // Marker drag
-  const onMarkerDragEnd = useCallback((e) => {
-    const lat = e.latLng.lat();
-    const lng = e.latLng.lng();
 
-    setMarkerPosition({ lat, lng });
-    setFormData(prev => ({
-      ...prev,
-      latitude: lat.toFixed(6),
-      longitude: lng.toFixed(6)
-    }));
-  }, []);
     setMarkerPosition({ lat, lng });
     setFormData(prev => ({
       ...prev,

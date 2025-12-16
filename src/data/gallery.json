@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Launch Event",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Launch+Event",
+        "date": "2024-01-15"
+    },
+    {
+        "id": 2,
+        "title": "Control Room",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Control+Room",
+        "date": "2024-02-20"
+    },
+    {
+        "id": 3,
+        "title": "Fleet Flag-off",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Fleet+Flag-off",
+        "date": "2024-03-10"
+    }
+]

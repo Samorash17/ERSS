@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "question": "What is 112?",
+        "answer": "112 is the Single Emergency number, people in distress can call 24h/7 in all 36 states/UTs of India to get immediate assistance from the fire brigade, a medical team or the police."
+    },
+    {
+        "id": 2,
+        "question": "Is 112 a free number?",
+        "answer": "Yes, the single emergency number is free everywhere."
+    },
+    {
+        "id": 3,
+        "question": "When can I call an emergency number?",
+        "answer": "You can call 112 when you urgently need a fire brigade, an ambulance or the police."
+    }
+]

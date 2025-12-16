@@ -8,12 +8,19 @@ import SOS from './pages/sos'
 import Features from './pages/Features'
 import Works from './pages/works'
 import LoginForm from './pages/LoginForm'
-import officer_login from './pages/officer_login'
+import OfficerLogin from './pages/officer_login'
 import SuccessStories from './pages/SuccessStories'
 import FAQ from './pages/FAQ'
 import Media from './pages/Media'
 import Feedback from './pages/Feedback'
-import Login from './pages/officer_login'
+
+// Admin Components
+import AdminLayout from './layouts/AdminLayout'
+import PrivateRoute from './components/PrivateRoute'
+import DashboardHome from './pages/admin/DashboardHome'
+import ManageStories from './pages/admin/ManageStories'
+import ManageFAQs from './pages/admin/ManageFAQs'
+import ManageGallery from './pages/admin/ManageGallery'
 
 const RootLayout = () => {
   return (
@@ -55,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path: "officer-login",
-        element: <Login />,
+        element: <OfficerLogin />,
       },
       {
         path: "success-stories",
@@ -72,6 +79,22 @@ const router = createBrowserRouter([
       {
         path: "feedback",
         element: <Feedback />,
+      },
+      // Admin Routes
+      {
+        path: "admin",
+        element: <PrivateRoute />,
+        children: [
+          {
+            element: <AdminLayout />,
+            children: [
+              { index: true, element: <DashboardHome /> },
+              { path: "stories", element: <ManageStories /> },
+              { path: "faqs", element: <ManageFAQs /> },
+              { path: "gallery", element: <ManageGallery /> }
+            ]
+          }
+        ]
       },
       {
         path: "*",
