@@ -1,0 +1,20 @@
+
+/* Global reset */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* App layout for footer positioning */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  /* Remove any default margins/padding that might interfere */
+  margin: 0;
+  padding: 0;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import "../styles/LoginForm.css";
+import RequiredLabel from "../components/RequiredLabel";
 
 function LoginForm() {
     const { t } = useTranslation();
@@ -44,7 +45,7 @@ function LoginForm() {
             <form className="login-form" onSubmit={handleSubmit}>
 
                 <div className="form-group">
-                    <label htmlFor="mobileNo">{t('loginForm.mobileNo')}</label>
+                    <RequiredLabel>Mobile No</RequiredLabel>
                     <input
                         type="text"
                         id="mobileNo"
@@ -56,7 +57,7 @@ function LoginForm() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="dateOfBirth">{t('loginForm.dob')}</label>
+                    <RequiredLabel>Date of Birth</RequiredLabel>
                     <input
                         type="date"
                         id="dateOfBirth"
@@ -67,7 +68,7 @@ function LoginForm() {
                 </div>
 
                 <div className="form-group captcha-group">
-                    <label htmlFor="captchaInput">{t('loginForm.captcha')}</label>
+                    <RequiredLabel>Captcha</RequiredLabel>
 
                     <div className="captcha-display-area">
                         <span className="captcha-image">{captcha}</span>

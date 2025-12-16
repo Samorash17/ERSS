@@ -6,7 +6,7 @@
   margin: 0 auto;
   gap: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 75vh; /* Fit in viewport minus header */
+  height: 80vh; /* Fit in viewport minus header */
   min-height: 500px; /* Prevent it from getting too squashed */
   box-sizing: border-box;
   overflow: hidden; /* Prevent scrolling */

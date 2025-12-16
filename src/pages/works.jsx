@@ -15,25 +15,27 @@ const Works = () => {
             {t('works.description')}
           </p>
 
-          <div className="steps-list">
-            <div className="step">
-              <span className="step-number">1.</span>
-              <div className="step-content">
-                <strong><Trans i18nKey="works.steps.reception.title" /> :</strong> {t('works.steps.reception.desc')}
+          <div className="steps-works-list">
+            <div className="steps-works">
+              <span className="steps-works-number">1.</span>
+              <div className="steps-works-content">
+                <strong>Call Reception :</strong> The operators receives your call and assesses the emergency.
               </div>
             </div>
 
-            <div className="step">
-              <span className="step-number">2.</span>
-              <div className="step-content">
-                <strong><Trans i18nKey="works.steps.location.title" />:</strong> {t('works.steps.location.desc')}
+            <div className="steps-works">
+              <span className="steps-works-number">2.</span>
+              <div className="steps-works-content">
+                <strong>Location Detection:</strong> Your GPS data is shared with the operator to determine 
+                your location.
               </div>
             </div>
 
-            <div className="step">
-              <span className="step-number">3.</span>
-              <div className="step-content">
-                <strong><Trans i18nKey="works.steps.dispatch.title" />:</strong> {t('works.steps.dispatch.desc')}
+            <div className="steps-works">
+              <span className="steps-works-number">3.</span>
+              <div className="steps-works-content">
+                <strong>Dispatch Assistance:</strong> The appropriate emergency team( police, fire, 
+                ambulance) is dispatched to your location.
               </div>
             </div>
           </div>

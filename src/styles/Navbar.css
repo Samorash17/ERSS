@@ -44,6 +44,12 @@ body {
   cursor: pointer;
 }
 
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .download-btn {
   background-color: #d9534f; /* Reddish color */
   color: white;
@@ -170,6 +176,11 @@ body {
     text-align: center;
     padding: 10px;
   }
+  
+  .top-bar-right {
+    flex-direction: column;
+    gap: 10px;
+  }
 
   .branding-section {
     display: none;
@@ -225,5 +236,113 @@ body {
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     padding: 15px;
+  }
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-container:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  min-width: 250px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown-container:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: none;
+  text-shadow: none;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #0056b3;
+}
+
+.dropdown-item.highlighted {
+  background-color: #333;
+  color: white;
+}
+
+.dropdown-item.highlighted:hover {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* Mobile dropdown adjustments */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-left: 20px;
+  }
+  
+  .dropdown-container:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-item {
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+  }
+  
+  .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .dropdown-item.highlighted {
+    background-color: rgba(0, 0, 0, 0.3);
   }
 }
