@@ -1,39 +1,68 @@
-import '../styles/works.css';
+import "../styles/works.css"
+import callOperatorImage from "../assets/emergency-call-operator-receiving-phone-call.jpg"
+import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
+import emergencyVehiclesImage from "../assets/emergency-vehicles-police-ambulance-fire-dispatch.jpg"
 
 const Works = () => {
   return (
     <div className="works-container">
+      <div className="works-background-orbs">
+        <div className="works-orb works-orb-1"></div>
+        <div className="works-orb works-orb-2"></div>
+        <div className="works-orb works-orb-3"></div>
+      </div>
+
       <div className="works-content">
         {/* Left Section - How it Works */}
         <div className="how-it-works-section">
-          <h1 className="main-title">HOW DIAL 112 WORKS IN TELANGANA</h1>
-          
+          <h1 className="main-title">
+            <span className="title-highlight">HOW DIAL 112</span>
+            <br />
+            WORKS IN TELANGANA
+          </h1>
+
           <p className="description">
-            When you dial 112, your call is automatically routed to the nearest emergency 
-            response centre. Here's how the system works
+            When you dial <span className="emergency-number-inline">112</span>, your call is automatically routed to the
+            nearest emergency response centre. Here's how the system works:
           </p>
 
           <div className="steps-works-list">
-            <div className="steps-works">
-              <span className="steps-works-number">1.</span>
-              <div className="steps-works-content">
-                <strong>Call Reception :</strong> The operators receives your call and assesses the emergency.
+            <div className="steps-works" data-step="1">
+              <div className="step-image-container">
+                <img src={callOperatorImage} alt="Call Reception" className="step-image" />
+                <div className="step-number-badge">01</div>
+              </div>
+              <div className="step-text-content">
+                <h3 className="step-title">Call Reception</h3>
+                <p className="steps-works-content">
+                  The operator receives your call and quickly assesses the nature of the emergency situation.
+                </p>
               </div>
             </div>
 
-            <div className="steps-works">
-              <span className="steps-works-number">2.</span>
-              <div className="steps-works-content">
-                <strong>Location Detection:</strong> Your GPS data is shared with the operator to determine 
-                your location.
+            <div className="steps-works" data-step="2">
+              <div className="step-image-container">
+                <img src={gpsLocationImage} alt="Location Detection" className="step-image" />
+                <div className="step-number-badge">02</div>
+              </div>
+              <div className="step-text-content">
+                <h3 className="step-title">Location Detection</h3>
+                <p className="steps-works-content">
+                  Your GPS data is instantly shared with the operator to accurately determine your location.
+                </p>
               </div>
             </div>
 
-            <div className="steps-works">
-              <span className="steps-works-number">3.</span>
-              <div className="steps-works-content">
-                <strong>Dispatch Assistance:</strong> The appropriate emergency team( police, fire, 
-                ambulance) is dispatched to your location.
+            <div className="steps-works" data-step="3">
+              <div className="step-image-container">
+                <img src={emergencyVehiclesImage} alt="Dispatch Assistance" className="step-image" />
+                <div className="step-number-badge">03</div>
+              </div>
+              <div className="step-text-content">
+                <h3 className="step-title">Dispatch Assistance</h3>
+                <p className="steps-works-content">
+                  The appropriate emergency team (police, fire, ambulance) is rapidly dispatched to your location.
+                </p>
               </div>
             </div>
           </div>
@@ -42,36 +71,57 @@ const Works = () => {
         {/* Right Section - Video and Notices */}
         <div className="video-section">
           <div className="video-header">
-            <h2>HOW IT WORKS</h2>
+            <h2>WATCH HOW IT WORKS</h2>
+            <div className="video-header-line"></div>
           </div>
 
           <div className="video-container">
             <iframe
               width="100%"
-              height="300"
+              height="100%"
               src="https://www.youtube.com/embed/zCZfvffsTTE"
               title="How it Works - Emergency Response System"
-              frameBorder="0"
+              style={{ border: 0 }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
           </div>
 
           <div className="request-help-section">
-            <div className="request-help-icon">⚠️</div>
-            <span className="request-help-text">Request Help</span>
+            <div className="request-help-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <span className="request-help-text">Request Emergency Help</span>
           </div>
 
           <div className="emergency-notice">
-            <div className="notice-icon">⚠️</div>
+            <div className="notice-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2L2 19H22L12 2Z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path d="M12 9V13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="12" cy="17" r="1" fill="currentColor" />
+              </svg>
+            </div>
             <div className="notice-content">
-              <strong>Emergency Notice:</strong> This is an emergency facility. Use this service responsibly and only in genuine cases.
+              <strong>Emergency Notice:</strong> This is a critical emergency facility. Please use this service
+              responsibly and only for genuine emergency cases.
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Works;
+export default Works
