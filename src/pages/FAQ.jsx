@@ -1,93 +1,59 @@
-// src/FAQ.jsx
+import React, { useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
+import "../styles/FAQ.css";
 
-import React, { useState } from "react";
-import { useTranslation } from 'react-i18next';
+const FAQ = () => {
+    const [activeIndex, setActiveIndex] = useState(null);
+    const { t } = useTranslation();
 
+    const faqData = t('faq.questions', { returnObjects: true });
 
-// ------------------ FAQ ITEM UI ------------------
-const FAQItem = ({ question, answer, defaultOpen }) => {
-    const [isOpen, setIsOpen] = useState(defaultOpen);
+    const toggleAccordion = (index) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
 
     return (
-        <div
-            className="faq-item"
-            style={{
-                borderBottom: "1px solid #eee",
-                padding: "10px 0",
-                cursor: "pointer",
-                textAlign: "left"
-            }}
-        >
-            <div
-                onClick={() => setIsOpen(!isOpen)}
-                className="faq-question"
-                style={{
-                    fontWeight: "600",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center"
-                }}
-            >
-                {question}
-                <span style={{ marginLeft: "10px" }}>{isOpen ? "▲" : "▼"}</span>
+        <div className="faq-container">
+            <div className="faq-header">
+                <h1>{t('faq.title')}</h1>
+                <div className="faq-header-line"></div>
+            </div>
+            
+            <div className="faq-list">
+                {faqData.map((item, index) => (
+                    <div 
+                        className={`faq-item ${activeIndex === index ? 'active' : ''}`} 
+                        key={index}
+                    >
+                        <button 
+                            className="faq-question" 
+                            onClick={() => toggleAccordion(index)}
+                            aria-expanded={activeIndex === index}
+                        >
+                            <span className="question-text">{item.question}</span>
+                            <span className="faq-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div 
+                            className="faq-answer" 
+                            style={{ maxHeight: activeIndex === index ? '500px' : '0' }}
+                        >
+                            <div className="answer-content">
+                                <Trans i18nKey={`faq.questions.${index}.answer`} defaults={item.answer} components={{ p: <p />, ul: <ul />, li: <li />, strong: <strong /> }} />
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
 
-            {isOpen && (
-                <div
-                    className="faq-answer"
-                    style={{
-                        marginTop: "8px",
-                        fontSize: "15px",
-                        lineHeight: "1.6",
-                        textAlign: "left"
-                    }}
-                    dangerouslySetInnerHTML={{ __html: answer }}
-                ></div>
-            )}
+            <div className="faq-footer">
+                <p>{t('faq.footerText')} <a href="/contact">{t('faq.contactLink')}</a></p>
+            </div>
         </div>
     );
 };
 
-
-// ------------------ MAIN PAGE ------------------
-const FAQ = () => {
-    const { t } = useTranslation();
-    const faqData = t('faq.items', { returnObjects: true });
-
-    return (
-        <>
-            <h1
-                style={{
-                    textAlign: "left",
-                    padding: "20px",
-                    fontSize: "28px",
-                    fontWeight: "bold"
-                }}
-            >
-                {t('faq.title')}
-            </h1>
-
-            <div
-                className="faq-list-wrapper"
-                style={{
-                    maxWidth: "900px",
-                    margin: "0 auto",
-                    padding: "20px",
-                    textAlign: "left"
-                }}
-            >
-                {Array.isArray(faqData) && faqData.map((item, index) => (
-                    <FAQItem
-                        key={item.id || index}
-                        question={item.question}
-                        answer={item.answer}
-                        defaultOpen={index === 0} // Open first item by default
-                    />
-                ))}
-            </div>
-        </>
-    );
-};
-
 export default FAQ;
-

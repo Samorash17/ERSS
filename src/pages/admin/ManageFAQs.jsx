@@ -4,7 +4,9 @@ import initialFaqs from '../../data/faqs.json';
 const ManageFAQs = () => {
   const [faqs, setFaqs] = useState([]);
   const [isAdding, setIsAdding] = useState(false);
-  const [newFaq, setNewFaq] = useState({
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentId, setCurrentId] = useState(null);
+  const [faqForm, setFaqForm] = useState({
     question: '',
     answer: ''
   });
@@ -27,38 +29,66 @@ const ManageFAQs = () => {
     }
   };
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const faq = {
-      id: Date.now(),
-      ...newFaq
-    };
-    const updated = [...faqs, faq];
-    setFaqs(updated);
-    localStorage.setItem('erss_faqs', JSON.stringify(updated));
+  const startEdit = (faq) => {
+    setIsEditing(true);
+    setIsAdding(true);
+    setCurrentId(faq.id);
+    setFaqForm({
+      question: faq.question,
+      answer: faq.answer
+    });
+  };
+
+  const handleCancel = () => {
     setIsAdding(false);
-    setNewFaq({ question: '', answer: '' });
+    setIsEditing(false);
+    setCurrentId(null);
+    setFaqForm({ question: '', answer: '' });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (isEditing) {
+      const updatedFaqs = faqs.map(f => 
+        f.id === currentId ? { ...f, ...faqForm } : f
+      );
+      setFaqs(updatedFaqs);
+      localStorage.setItem('erss_faqs', JSON.stringify(updatedFaqs));
+    } else {
+      const faq = {
+        id: Date.now(),
+        ...faqForm
+      };
+      const updatedFaqs = [...faqs, faq];
+      setFaqs(updatedFaqs);
+      localStorage.setItem('erss_faqs', JSON.stringify(updatedFaqs));
+    }
+    
+    handleCancel();
   };
 
   return (
     <div>
       <div className="dashboard-header">
         <h1>Manage FAQs</h1>
-        <button className="btn-add" onClick={() => setIsAdding(!isAdding)}>
-          {isAdding ? 'Cancel' : 'Add New FAQ'}
-        </button>
+        {!isAdding && (
+          <button className="btn-add" onClick={() => setIsAdding(true)}>
+            Add New FAQ
+          </button>
+        )}
       </div>
 
       {isAdding && (
         <div className="form-card">
-          <h3>Add New FAQ</h3>
-          <form onSubmit={handleAdd}>
+          <h3>{isEditing ? 'Edit FAQ' : 'Add New FAQ'}</h3>
+          <form onSubmit={handleSubmit}>
             <div className="form-row">
               <label>Question</label>
               <input 
                 type="text" 
-                value={newFaq.question} 
-                onChange={e => setNewFaq({...newFaq, question: e.target.value})}
+                value={faqForm.question} 
+                onChange={e => setFaqForm({...faqForm, question: e.target.value})}
                 required 
               />
             </div>
@@ -66,13 +96,14 @@ const ManageFAQs = () => {
               <label>Answer (HTML allowed)</label>
               <textarea 
                 rows="4" 
-                value={newFaq.answer} 
-                onChange={e => setNewFaq({...newFaq, answer: e.target.value})}
+                value={faqForm.answer} 
+                onChange={e => setFaqForm({...faqForm, answer: e.target.value})}
                 required 
               />
             </div>
             <div className="btn-group">
-              <button type="submit" className="btn-add">Save FAQ</button>
+              <button type="button" className="btn-cancel" onClick={handleCancel}>Cancel</button>
+              <button type="submit" className="btn-add">{isEditing ? 'Update FAQ' : 'Save FAQ'}</button>
             </div>
           </form>
         </div>
@@ -94,6 +125,7 @@ const ManageFAQs = () => {
               <td>{faq.question}</td>
               <td dangerouslySetInnerHTML={{ __html: faq.answer.substring(0, 50) + '...' }}></td>
               <td>
+                <button className="action-btn btn-edit" onClick={() => startEdit(faq)}>Edit</button>
                 <button className="action-btn btn-delete" onClick={() => handleDelete(faq.id)}>Delete</button>
               </td>
             </tr>

@@ -4,7 +4,9 @@ import initialGallery from '../../data/gallery.json';
 const ManageGallery = () => {
   const [images, setImages] = useState([]);
   const [isAdding, setIsAdding] = useState(false);
-  const [newImage, setNewImage] = useState({
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentId, setCurrentId] = useState(null);
+  const [galleryForm, setGalleryForm] = useState({
     title: '',
     imageUrl: '',
     date: new Date().toISOString().split('T')[0]
@@ -28,43 +30,72 @@ const ManageGallery = () => {
     }
   };
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const image = {
-      id: Date.now(),
-      ...newImage
-    };
-    const updated = [image, ...images];
-    setImages(updated);
-    localStorage.setItem('erss_gallery', JSON.stringify(updated));
+  const startEdit = (img) => {
+    setIsEditing(true);
+    setIsAdding(true);
+    setCurrentId(img.id);
+    setGalleryForm({
+      title: img.title,
+      imageUrl: img.imageUrl,
+      date: img.date
+    });
+  };
+
+  const handleCancel = () => {
     setIsAdding(false);
-    setNewImage({ title: '', imageUrl: '', date: new Date().toISOString().split('T')[0] });
+    setIsEditing(false);
+    setCurrentId(null);
+    setGalleryForm({ title: '', imageUrl: '', date: new Date().toISOString().split('T')[0] });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (isEditing) {
+      const updatedImages = images.map(img => 
+        img.id === currentId ? { ...img, ...galleryForm } : img
+      );
+      setImages(updatedImages);
+      localStorage.setItem('erss_gallery', JSON.stringify(updatedImages));
+    } else {
+      const image = {
+        id: Date.now(),
+        ...galleryForm
+      };
+      const updatedImages = [image, ...images];
+      setImages(updatedImages);
+      localStorage.setItem('erss_gallery', JSON.stringify(updatedImages));
+    }
+
+    handleCancel();
   };
 
   return (
     <div>
       <div className="dashboard-header">
         <h1>Manage Media Gallery</h1>
-        <button className="btn-add" onClick={() => setIsAdding(!isAdding)}>
-          {isAdding ? 'Cancel' : 'Add New Image'}
-        </button>
+        {!isAdding && (
+          <button className="btn-add" onClick={() => setIsAdding(true)}>
+            Add New Image
+          </button>
+        )}
       </div>
 
       {isAdding && (
         <div className="form-card">
-          <h3>Add New Image</h3>
+          <h3>{isEditing ? 'Edit Image' : 'Add New Image'}</h3>
           <div className="form-row">
             <p style={{ fontSize: '0.9em', color: '#7f8c8d' }}>
               Note: Since this is a prototype without a backend server, please provide a public URL for the image.
             </p>
           </div>
-          <form onSubmit={handleAdd}>
+          <form onSubmit={handleSubmit}>
             <div className="form-row">
               <label>Title</label>
               <input 
                 type="text" 
-                value={newImage.title} 
-                onChange={e => setNewImage({...newImage, title: e.target.value})}
+                value={galleryForm.title} 
+                onChange={e => setGalleryForm({...galleryForm, title: e.target.value})}
                 required 
               />
             </div>
@@ -72,8 +103,8 @@ const ManageGallery = () => {
               <label>Image URL</label>
               <input 
                 type="url" 
-                value={newImage.imageUrl} 
-                onChange={e => setNewImage({...newImage, imageUrl: e.target.value})}
+                value={galleryForm.imageUrl} 
+                onChange={e => setGalleryForm({...galleryForm, imageUrl: e.target.value})}
                 placeholder="https://example.com/image.jpg"
                 required 
               />
@@ -82,13 +113,14 @@ const ManageGallery = () => {
               <label>Date</label>
               <input 
                 type="date" 
-                value={newImage.date} 
-                onChange={e => setNewImage({...newImage, date: e.target.value})}
+                value={galleryForm.date} 
+                onChange={e => setGalleryForm({...galleryForm, date: e.target.value})}
                 required 
               />
             </div>
             <div className="btn-group">
-              <button type="submit" className="btn-add">Add Image</button>
+              <button type="button" className="btn-cancel" onClick={handleCancel}>Cancel</button>
+              <button type="submit" className="btn-add">{isEditing ? 'Update Image' : 'Add Image'}</button>
             </div>
           </form>
         </div>
@@ -103,7 +135,10 @@ const ManageGallery = () => {
             <div style={{ padding: '10px' }}>
               <h4 style={{ margin: '0 0 5px 0' }}>{img.title}</h4>
               <p style={{ margin: '0 0 10px 0', fontSize: '0.8em', color: '#7f8c8d' }}>{img.date}</p>
-              <button className="action-btn btn-delete" style={{ width: '100%' }} onClick={() => handleDelete(img.id)}>Delete</button>
+              <div style={{ display: 'flex', gap: '5px' }}>
+                <button className="action-btn btn-edit" style={{ flex: 1 }} onClick={() => startEdit(img)}>Edit</button>
+                <button className="action-btn btn-delete" style={{ flex: 1 }} onClick={() => handleDelete(img.id)}>Delete</button>
+              </div>
             </div>
           </div>
         ))}

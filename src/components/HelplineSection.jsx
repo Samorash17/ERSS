@@ -76,18 +76,14 @@ const HelplineSection = () => {
         <motion.div className="banner-glow"></motion.div>
         <motion.h4 className="helpline-banner-subtitle" variants={scaleIn}>
           <span className="pulse-dot"></span>
-          24/7 HELPLINE SUPPORT
+          {t('helpline.bannerSubtitle')}
           <span className="pulse-dot"></span>
         </motion.h4>
         <motion.h2 className="helpline-banner-title" variants={fadeUp}>
-          Welcome to
-          <br />
-          <span className="banner-title-highlight">Telangana Emergency Response Support System</span>
-          <br />
-          <span className="dial-number">Dial - 112</span>
+          <Trans i18nKey="helpline.bannerTitle" />
         </motion.h2>
         <motion.p className="helpline-banner-text" variants={fadeUp}>
-          Telangana-Helpline, empowers the caller to get prompt response from the Police response team.
+          {t('helpline.bannerText')}
         </motion.p>
       </motion.div>
 
@@ -123,23 +119,19 @@ const HelplineSection = () => {
           <motion.div className="text-card" variants={scaleIn}>
             <motion.h3 className="helpline-heading" variants={fadeUp}>
               <span className="heading-line"></span>
-              HELPLINE 112
+              {t('helpline.heading')}
               <span className="heading-line"></span>
             </motion.h3>
             <motion.h4 className="helpline-subheading" variants={fadeUp}>
-              Call us for any emergency support response immediately
+              {t('helpline.subheading')}
             </motion.h4>
 
             <motion.p className="helpline-paragraph" variants={fadeUp}>
-              Dial 112 is a nationwide emergency helpline implemented by Government of India designed to provide swift
-              and efficient responses during emergencies. In Telangana this services is available 24*7 ensuring that
-              citizens can easily connect with emergency services like police, fire, and medical assistance all through
-              a single number <strong className="number-highlight">112</strong>.
+              <Trans i18nKey="helpline.paragraph1" components={{ strong: <strong /> }} />
             </motion.p>
 
             <motion.p className="helpline-paragraph" variants={fadeUp}>
-              The Telangana Government in collaboration with various services, aims to offer timely help in critical
-              situations, reducing responses times, saving lives and improving the overall safety of its citizen.
+              {t('helpline.paragraph2')}
             </motion.p>
           </motion.div>
         </motion.div>

@@ -67,6 +67,7 @@ const Hero = () => {
   }
 
   const [buildingImage, setBuildingImage] = useState(getBuildingImage())
+  const { t } = useTranslation();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -111,21 +112,17 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <span className="subtitle-text">TELANGANA 112</span>
+              <span className="subtitle-text">{t('hero.subtitle')}</span>
               <span className="subtitle-line"></span>
             </motion.h3>
 
             <motion.h1 className="hero-title" variants={fadeUp}>
-              EMERGENCY RESPONSE SUPPORT SYSTEM
-              <br />
-              <span className="title-highlight">TELANGANA POLICE</span>
-              <br />
-              <span className="title-welcome">WELCOMES YOU</span>
+              <Trans i18nKey="hero.title" />
             </motion.h1>
 
             <motion.h2 className="hero-section-title" variants={scaleIn}>
               <span className="section-title-decorator">━━</span>
-              OUR LEADERSHIP
+              {t('hero.leadership')}
               <span className="section-title-decorator">━━</span>
             </motion.h2>
           </motion.div>
@@ -134,13 +131,13 @@ const Hero = () => {
             {[
               {
                 img: cmImage,
-                name: "A. REVANTH REDDY",
-                title: "HON'BLE CHIEF MINISTER,<br />TELANGANA",
+                name: t('hero.cmName'),
+                title: t('hero.cmTitle'),
               },
               {
                 img: dgpImage,
-                name: "B. SHIVADER REDDY",
-                title: "DIRECTOR GENERAL OF POLICE,<br />TELANGANA",
+                name: t('hero.dgpName'),
+                title: t('hero.dgpTitle'),
               },
             ].map((leader, index) => (
               <motion.div

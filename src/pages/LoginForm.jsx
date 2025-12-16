@@ -1,112 +1,75 @@
 import React, { useState } from "react";
 import { useTranslation } from 'react-i18next';
-import "../styles/LoginForm.css";
+import "../styles/LoginForm.css"
 import RequiredLabel from "../components/RequiredLabel";
 
-function LoginForm() {
-    const { t } = useTranslation();
-    const [mobileNo, setMobileNo] = useState("");
-    const [dateOfBirth, setDateOfBirth] = useState("");
-    const [captchaInput, setCaptchaInput] = useState("");
-    const [rememberMe, setRememberMe] = useState(false);
-    const [captcha, setCaptcha] = useState(generateCaptcha());
+export default function LoginForm() {
+  const [mobileNumber, setMobileNumber] = useState("")
+  const [otpSent, setOtpSent] = useState(false)
+  const { t } = useTranslation();
 
-    // Generate random captcha
-    function generateCaptcha() {
-        const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-        let text = "";
-        for (let i = 0; i < 5; i++) {
-            text += chars[Math.floor(Math.random() * chars.length)];
-        }
-        return text;
+  const handleSendOTP = (e) => {
+    e.preventDefault()
+    if (mobileNumber.length === 10) {
+      setOtpSent(true)
+      alert(t('login.otpSentAlert'))
+    } else {
+      alert(t('login.invalidMobileAlert'))
     }
+  }
 
-    const refreshCaptcha = () => setCaptcha(generateCaptcha());
+  return (
+    <div className="login-container">
+      {/* Background Orbs */}
+      <div className="login-orb login-orb-1"></div>
+      <div className="login-orb login-orb-2"></div>
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+      <div className="login-card">
+        <h2 className="login-title">{t('login.title')}</h2>
+        
+        <form className="login-form">
+          <div className="form-group">
+            <RequiredLabel>{t('login.mobileLabel')}</RequiredLabel>
+            <div className="input-wrapper">
+              <span className="input-icon">📱</span>
+              <input
+                type="tel"
+                className="form-input"
+                placeholder={t('login.mobilePlaceholder')}
+                value={mobileNumber}
+                onChange={(e) => setMobileNumber(e.target.value)}
+                maxLength="10"
+              />
+            </div>
+          </div>
 
-        if (captchaInput.toLowerCase() !== captcha.toLowerCase()) {
-            alert(t('loginForm.alerts.invalidCaptcha'));
-            return;
-        }
+          {otpSent && (
+            <div className="form-group fade-in">
+              <RequiredLabel>{t('login.otpLabel')}</RequiredLabel>
+              <div className="input-wrapper">
+                <span className="input-icon">🔒</span>
+                <input 
+                  type="text" 
+                  className="form-input" 
+                  placeholder={t('login.otpPlaceholder')} 
+                  maxLength="6" 
+                />
+              </div>
+            </div>
+          )}
 
-        alert(t('loginForm.alerts.success'));
-
-        setMobileNo("");
-        setDateOfBirth("");
-        setCaptchaInput("");
-        setRememberMe(false);
-        refreshCaptcha();
-    };
-
-    return (
-        <div className="login-container">
-            <form className="login-form" onSubmit={handleSubmit}>
-
-                <div className="form-group">
-                    <RequiredLabel>Mobile No</RequiredLabel>
-                    <input
-                        type="text"
-                        id="mobileNo"
-                        value={mobileNo}
-                        placeholder={t('loginForm.mobileNo')}
-                        onChange={(e) => setMobileNo(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <RequiredLabel>Date of Birth</RequiredLabel>
-                    <input
-                        type="date"
-                        id="dateOfBirth"
-                        value={dateOfBirth}
-                        onChange={(e) => setDateOfBirth(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group captcha-group">
-                    <RequiredLabel>Captcha</RequiredLabel>
-
-                    <div className="captcha-display-area">
-                        <span className="captcha-image">{captcha}</span>
-                        <button
-                            type="button"
-                            className="refresh-btn"
-                            onClick={refreshCaptcha}
-                        >
-                            ↻
-                        </button>
-                    </div>
-
-                    <input
-                        type="text"
-                        id="captchaInput"
-                        placeholder={t('loginForm.captchaPlaceholder')}
-                        value={captchaInput}
-                        onChange={(e) => setCaptchaInput(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="remember-me-group">
-                    <input
-                        type="checkbox"
-                        id="rememberMe"
-                        checked={rememberMe}
-                        onChange={(e) => setRememberMe(e.target.checked)}
-                    />
-                    <label htmlFor="rememberMe">{t('loginForm.rememberMe')}</label>
-                </div>
-
-                <button type="submit" className="login-btn">
-                    {t('loginForm.login')}
-                </button>
-            </form>
-        </div>
-    );
+          <button 
+            className="login-btn" 
+            onClick={handleSendOTP}
+          >
+            {otpSent ? t('login.loginBtn') : t('login.sendOtpBtn')}
+          </button>
+          
+          <div className="login-footer">
+            <p>{t('login.registerPrompt')} <a href="#" className="register-link">{t('login.registerLink')}</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
 }
-
-export default LoginForm;

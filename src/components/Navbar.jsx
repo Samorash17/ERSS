@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import LanguageSelector from './LanguageSelector';
 import '../styles/Navbar.css';
 import AccessibilityControls from './AccessibilityControls';
 import govLogo from '../assets/logo-nav-1.jpg';
@@ -11,6 +10,7 @@ import policeLogo from '../assets/logo-nav-3.jpg';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +30,10 @@ const Navbar = () => {
       <div className="top-bar">
         <div className="contact-info">
           <span className="contact-icon">📧</span>
-          <span>helpline@telangana.gov.in</span>
+          <span>{t('navbar.contactEmail')}</span>
           <span className="divider">|</span>
           <span className="contact-icon">📱</span>
-          <span>+91 8712674000</span>
+          <span>{t('navbar.contactPhone')}</span>
         </div>
         <div className="social-icons">
           <a href="#" className="icon facebook" aria-label="Facebook">
@@ -56,7 +56,7 @@ const Navbar = () => {
           <AccessibilityControls />
           <div className="app-download">
             <button className="download-btn">
-              <span className="android-icon">📱</span> Download 112 App
+              <span className="android-icon">📱</span> {t('navbar.downloadApp')}
             </button>
           </div>
         </div>
@@ -65,22 +65,22 @@ const Navbar = () => {
       {/* Middle Branding Section */}
       <div className={`branding-section ${isMenuOpen ? "open" : ""}`}>
         <div className="brand-left">
-          <img src={govLogo} alt="Government of Telangana" className="logo" />
+          <img src={govLogo} alt={t('navbar.govTitle')} className="logo" />
           <div className="brand-text-wrapper">
-            <h1 className="brand-text">GOVERNMENT OF TELANGANA</h1>
-            <div className="brand-subtitle">Official Portal</div>
+            <h1 className="brand-text">{t('navbar.govTitle')}</h1>
+            <div className="brand-subtitle">{t('navbar.govSubtitle')}</div>
           </div>
         </div>
 
         <div className="brand-center">
-          <img src={erssLogo} alt="ERSS Dial 112" className="center-logo" />
+          <img src={erssLogo} alt={t('navbar.erssTitle')} className="center-logo" />
           <div className="emergency-pulse"></div>
         </div>
 
         <div className="brand-right">
           <div className="brand-text-wrapper">
-            <h2 className="brand-text">EMERGENCY RESPONSE SUPPORT SYSTEM</h2>
-            <div className="brand-subtitle">24/7 Emergency Services</div>
+            <h2 className="brand-text">{t('navbar.erssTitle')}</h2>
+            <div className="brand-subtitle">{t('navbar.erssSubtitle')}</div>
           </div>
           <img src={policeLogo} alt="Telangana Police" className="logo" />
         </div>
@@ -100,7 +100,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              HOME
+              {t('navbar.links.home')}
             </NavLink>
           </li>
           <li>
@@ -109,7 +109,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              KEY FEATURES
+              {t('navbar.links.features')}
             </NavLink>
           </li>
           <li>
@@ -118,7 +118,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              HOW IT WORKS
+              {t('navbar.links.howItWorks')}
             </NavLink>
           </li>
           <li>
@@ -127,7 +127,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              REQUEST HELP
+              {t('navbar.links.requestHelp')}
             </NavLink>
           </li>
           <li>
@@ -136,7 +136,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              CITIZEN LOGIN
+              {t('navbar.links.citizenLogin')}
             </NavLink>
           </li>
           <li>
@@ -145,33 +145,33 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              OFFICER LOGIN
+              {t('navbar.links.officerLogin')}
             </NavLink>
           </li>
           <li className="dropdown-container">
             <span className="nav-link dropdown-trigger">
-              MEDIA GALLERY
+              {t('navbar.links.mediaGallery')}
               <span className="dropdown-arrow">▼</span>
             </span>
             <div className="dropdown-menu">
               <NavLink to="/awards" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                Awards and Recognition
+                {t('navbar.links.awards')}
               </NavLink>
 
               <NavLink to="/image-gallery" className="dropdown-item highlighted" onClick={() => setIsMenuOpen(false)}>
-                Image Gallery
+                {t('navbar.links.imageGallery')}
               </NavLink>
               <NavLink to="/video-gallery" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                Video Gallery
+                 {t('navbar.links.videoGallery')}
               </NavLink>
               <NavLink to="/press-release" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                Press Release
+                {t('navbar.links.pressRelease')}
               </NavLink>
               <NavLink to="/articles" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                Articles
+                {t('navbar.links.articles')}
               </NavLink>
               <NavLink to="/112-news" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                112 News
+                {t('navbar.links.news')}
               </NavLink>
 
             </div>
@@ -182,7 +182,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              SUCCESS STORIES
+              {t('navbar.links.successStories')}
             </NavLink>
           </li>
           <li>
@@ -191,7 +191,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              FAQs
+              {t('navbar.links.faqs')}
             </NavLink>
           </li>
           <li>
@@ -200,7 +200,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               onClick={() => setIsMenuOpen(false)}
             >
-              FEEDBACK
+              {t('navbar.links.feedback')}
             </NavLink>
           </li>
         </ul>

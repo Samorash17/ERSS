@@ -124,6 +124,11 @@
   color: white;
 }
 
+.btn-edit {
+  background-color: #3498db;
+  color: white;
+}
+
 .form-card {
   background: white;
   padding: 20px;
@@ -165,3 +170,42 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.btn-cancel:hover {
+  background-color: #7f8c8d;
+}
+
+/* Dashboard Home Cards */
+.dashboard-card {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dashboard-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.dashboard-card p {
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.dashboard-card .card-link {
+  display: inline-block;
+  font-weight: bold;
+  margin-top: auto;
+}
+

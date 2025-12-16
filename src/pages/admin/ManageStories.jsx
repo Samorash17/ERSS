@@ -4,7 +4,9 @@ import initialStories from '../../data/stories.json';
 const ManageStories = () => {
   const [stories, setStories] = useState([]);
   const [isAdding, setIsAdding] = useState(false);
-  const [newStory, setNewStory] = useState({
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentId, setCurrentId] = useState(null);
+  const [storyForm, setStoryForm] = useState({
     district: '',
     date: '',
     time: '',
@@ -29,38 +31,70 @@ const ManageStories = () => {
     }
   };
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const story = {
-      id: `TG99-${Math.floor(Math.random() * 10000)}`,
-      ...newStory
-    };
-    const updated = [story, ...stories];
-    setStories(updated);
-    localStorage.setItem('erss_stories', JSON.stringify(updated));
+  const startEdit = (story) => {
+    setIsEditing(true);
+    setIsAdding(true); // Open the form
+    setCurrentId(story.id);
+    setStoryForm({
+      district: story.district,
+      date: story.date,
+      time: story.time,
+      text: story.text
+    });
+  };
+
+  const handleCancel = () => {
     setIsAdding(false);
-    setNewStory({ district: '', date: '', time: '', text: '' });
+    setIsEditing(false);
+    setCurrentId(null);
+    setStoryForm({ district: '', date: '', time: '', text: '' });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (isEditing) {
+      // Update existing
+      const updatedStories = stories.map(s => 
+        s.id === currentId ? { ...s, ...storyForm } : s
+      );
+      setStories(updatedStories);
+      localStorage.setItem('erss_stories', JSON.stringify(updatedStories));
+    } else {
+      // Add new
+      const story = {
+        id: `TG99-${Math.floor(Math.random() * 10000)}`,
+        ...storyForm
+      };
+      const updatedStories = [story, ...stories];
+      setStories(updatedStories);
+      localStorage.setItem('erss_stories', JSON.stringify(updatedStories));
+    }
+
+    handleCancel();
   };
 
   return (
     <div>
       <div className="dashboard-header">
         <h1>Manage Success Stories</h1>
-        <button className="btn-add" onClick={() => setIsAdding(!isAdding)}>
-          {isAdding ? 'Cancel' : 'Add New Story'}
-        </button>
+        {!isAdding && (
+          <button className="btn-add" onClick={() => setIsAdding(true)}>
+            Add New Story
+          </button>
+        )}
       </div>
 
       {isAdding && (
         <div className="form-card">
-          <h3>Add New Story</h3>
-          <form onSubmit={handleAdd}>
+          <h3>{isEditing ? 'Edit Story' : 'Add New Story'}</h3>
+          <form onSubmit={handleSubmit}>
             <div className="form-row">
               <label>District</label>
               <input 
                 type="text" 
-                value={newStory.district} 
-                onChange={e => setNewStory({...newStory, district: e.target.value})}
+                value={storyForm.district} 
+                onChange={e => setStoryForm({...storyForm, district: e.target.value})}
                 required 
               />
             </div>
@@ -69,8 +103,8 @@ const ManageStories = () => {
                 <label>Date</label>
                 <input 
                   type="date" 
-                  value={newStory.date} 
-                  onChange={e => setNewStory({...newStory, date: e.target.value})}
+                  value={storyForm.date} 
+                  onChange={e => setStoryForm({...storyForm, date: e.target.value})}
                   required 
                 />
               </div>
@@ -78,8 +112,8 @@ const ManageStories = () => {
                 <label>Time</label>
                 <input 
                   type="time" 
-                  value={newStory.time} 
-                  onChange={e => setNewStory({...newStory, time: e.target.value})}
+                  value={storyForm.time} 
+                  onChange={e => setStoryForm({...storyForm, time: e.target.value})}
                   required 
                 />
               </div>
@@ -88,13 +122,14 @@ const ManageStories = () => {
               <label>Story Text</label>
               <textarea 
                 rows="4" 
-                value={newStory.text} 
-                onChange={e => setNewStory({...newStory, text: e.target.value})}
+                value={storyForm.text} 
+                onChange={e => setStoryForm({...storyForm, text: e.target.value})}
                 required 
               />
             </div>
             <div className="btn-group">
-              <button type="submit" className="btn-add">Save Story</button>
+              <button type="button" className="btn-cancel" onClick={handleCancel}>Cancel</button>
+              <button type="submit" className="btn-add">{isEditing ? 'Update Story' : 'Save Story'}</button>
             </div>
           </form>
         </div>
@@ -118,6 +153,7 @@ const ManageStories = () => {
               <td>{story.date}</td>
               <td>{story.text.substring(0, 50)}...</td>
               <td>
+                <button className="action-btn btn-edit" onClick={() => startEdit(story)}>Edit</button>
                 <button className="action-btn btn-delete" onClick={() => handleDelete(story.id)}>Delete</button>
               </td>
             </tr>
