@@ -1,48 +1,38 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import "../styles/Features.css";
 
 function Features() {
+  const { t } = useTranslation();
+
   return (
     <div className="features-wrapper">
-      <h1 className="features-heading">Key Features of Dial 112 in Telangana</h1>
+      <h1 className="features-heading">{t('features.heading')}</h1>
 
       <div className="features-list">
         <div className="feature-item">
-          <h3>One Number for All Emergencies</h3>
-          <p>
-            Whether it's a medical emergency, fire, law enforcement, or a road 
-            accident, you can dial 112 to reach the relevant emergency services instantly.
-          </p>
+          <h3>{t('features.items.oneNumber.title')}</h3>
+          <p>{t('features.items.oneNumber.desc')}</p>
         </div>
 
         <div className="feature-item">
-          <h3>Quick Response</h3>
-          <p>
-            The system quickly connects callers to the appropriate response 
-            teams, reducing delays in crucial situations.
-          </p>
+          <h3>{t('features.items.quickResponse.title')}</h3>
+          <p>{t('features.items.quickResponse.desc')}</p>
         </div>
 
         <div className="feature-item">
-          <h3>Geolocation Technology</h3>
-          <p>
-            Uses GPS and mapping technology to pinpoint your location 
-            accurately for faster assistance.
-          </p>
+          <h3>{t('features.items.geolocation.title')}</h3>
+          <p>{t('features.items.geolocation.desc')}</p>
         </div>
 
         <div className="feature-item">
-          <h3>24/7 Availability</h3>
-          <p>
-            Help is available at all times — day or night — with dedicated teams on standby.
-          </p>
+          <h3>{t('features.items.availability.title')}</h3>
+          <p>{t('features.items.availability.desc')}</p>
         </div>
 
         <div className="feature-item">
-          <h3>Multi-Language Support</h3>
-          <p>
-            Available in multiple languages to ensure accessibility for all citizens of Telangana.
-          </p>
+          <h3>{t('features.items.multiLanguage.title')}</h3>
+          <p>{t('features.items.multiLanguage.desc')}</p>
         </div>
       </div>
     </div>

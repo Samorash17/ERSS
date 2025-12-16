@@ -63,16 +63,16 @@ const Navbar = () => {
           <span className="hamburger-line"></span>
         </button>
         <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
-          <li><NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>HOME</NavLink></li>
-          <li><NavLink to="/features" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>KEY FEATURES</NavLink></li>
-          <li><NavLink to="/how-it-works" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>HOW IT WORKS</NavLink></li>
-          <li><NavLink to="/request-help" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>REQUEST HELP</NavLink></li>
-          <li><NavLink to="/citizen-login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>CITIZEN LOGIN</NavLink></li>
-          <li><NavLink to="/officer-login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>OFFICER LOGIN</NavLink></li>
-          <li><NavLink to="/media" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>MEDIA GALLERY</NavLink></li>
-          <li><NavLink to="/success-stories" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>SUCCESS STORIES</NavLink></li>
-          <li><NavLink to="/faqs" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>FAQs</NavLink></li>
-          <li><NavLink to="/feedback" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>FEEDBACK</NavLink></li>
+          <li><NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.home')}</NavLink></li>
+          <li><NavLink to="/features" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.features')}</NavLink></li>
+          <li><NavLink to="/how-it-works" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.howItWorks')}</NavLink></li>
+          <li><NavLink to="/request-help" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.requestHelp')}</NavLink></li>
+          <li><NavLink to="/citizen-login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.citizenLogin')}</NavLink></li>
+          <li><NavLink to="/officer-login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.officerLogin')}</NavLink></li>
+          <li><NavLink to="/media" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.media')}</NavLink></li>
+          <li><NavLink to="/success-stories" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.stories')}</NavLink></li>
+          <li><NavLink to="/faqs" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.faqs')}</NavLink></li>
+          <li><NavLink to="/feedback" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setIsMenuOpen(false)}>{t('navbar.links.feedback')}</NavLink></li>
         </ul>
       </nav>
     </header>
