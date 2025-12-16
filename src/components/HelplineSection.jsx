@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import { motion, useInView } from "framer-motion"
 import '../styles/HelplineSection.css';
 import agentImage from '../assets/helpline-homepage.png';
@@ -54,6 +55,8 @@ const slideInRight = {
 const HelplineSection = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+
+  const { t } = useTranslation();
 
   return (
     <section className="helpline-container" ref={ref}>

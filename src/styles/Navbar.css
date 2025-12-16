@@ -176,6 +176,12 @@ body {
   }
 }
 
+.app-download {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* Branding Section Styles */
 .branding-section {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import "../styles/LoginForm.css";
 import RequiredLabel from "../components/RequiredLabel";
 
 function LoginForm() {
+    const { t } = useTranslation();
     const [mobileNo, setMobileNo] = useState("");
     const [dateOfBirth, setDateOfBirth] = useState("");
     const [captchaInput, setCaptchaInput] = useState("");
@@ -25,11 +27,11 @@ function LoginForm() {
         event.preventDefault();
 
         if (captchaInput.toLowerCase() !== captcha.toLowerCase()) {
-            alert("Error: Invalid CAPTCHA!");
+            alert(t('loginForm.alerts.invalidCaptcha'));
             return;
         }
 
-        alert("Login Successful! (Simulated)");
+        alert(t('loginForm.alerts.success'));
 
         setMobileNo("");
         setDateOfBirth("");
@@ -48,7 +50,7 @@ function LoginForm() {
                         type="text"
                         id="mobileNo"
                         value={mobileNo}
-                        placeholder="Mobile No"
+                        placeholder={t('loginForm.mobileNo')}
                         onChange={(e) => setMobileNo(e.target.value)}
                         required
                     />
@@ -82,7 +84,7 @@ function LoginForm() {
                     <input
                         type="text"
                         id="captchaInput"
-                        placeholder="Enter captcha here"
+                        placeholder={t('loginForm.captchaPlaceholder')}
                         value={captchaInput}
                         onChange={(e) => setCaptchaInput(e.target.value)}
                         required
@@ -96,11 +98,11 @@ function LoginForm() {
                         checked={rememberMe}
                         onChange={(e) => setRememberMe(e.target.checked)}
                     />
-                    <label htmlFor="rememberMe">Remember me</label>
+                    <label htmlFor="rememberMe">{t('loginForm.rememberMe')}</label>
                 </div>
 
                 <button type="submit" className="login-btn">
-                    Login
+                    {t('loginForm.login')}
                 </button>
             </form>
         </div>

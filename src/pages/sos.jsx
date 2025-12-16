@@ -1,9 +1,11 @@
 import { useState, useCallback } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { useTranslation } from 'react-i18next';
 import RequiredLabel from '../components/RequiredLabel';  // <-- imported component
 import '../styles/sos.css';
 
 const SOS = () => {
+  const { t } = useTranslation();
   // Form state
   const [formData, setFormData] = useState({
     name: '',
@@ -73,12 +75,12 @@ const SOS = () => {
     e.preventDefault();
 
     if (!formData.name || !formData.mobile || !formData.eventType) {
-      alert('Please fill all mandatory fields');
+      alert(t('sos.alerts.fillMandatory'));
       return;
     }
 
     console.log('Form submitted:', formData);
-    alert('Emergency request submitted successfully!');
+    alert(t('sos.alerts.success'));
     handleClear();
   };
 
@@ -101,14 +103,22 @@ const SOS = () => {
     setLocationInput('');
   };
 
+  const districts = [
+    "Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagitial", "Jangaon", "Jayashankar Bhupalapally",
+    "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Kumuram Bheem Asifabad", "Mahabubabad",
+    "Mahabubnagar", "Mancherial", "Medak", "Medchal–Malkajgiri", "Mulugu", "Nagarkurnool", "Nalgonda",
+    "Narayanpet", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Ranga Reddy", "Sangareddy",
+    "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal Rural", "Yadadri Bhuvanagiri"
+  ];
+
   return (
     <div className="sos-container">
       <div className="emergency-banner">
         <span className="warning-icon">⚠️</span>
-        THIS IS AN EMERGENCY FACILITY. USERS ARE ADVISED TO USE THIS SERVICE CAREFULLY.
+        {t('sos.banner')}
       </div>
 
-      <h1 className="page-title">Request Help</h1>
+      <h1 className="page-title">{t('sos.title')}</h1>
 
       <form onSubmit={handleSubmit} className="sos-form">
         <div className="form-sections">
@@ -117,55 +127,55 @@ const SOS = () => {
           <div className="form-section">
             <div className="section-header">
               <span className="section-icon">👤</span>
-              <h2>Personal Info</h2>
+              <h2>{t('sos.sections.personal')}</h2>
               <span className="step-badge">1</span>
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Name</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.name')}</RequiredLabel>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Name"
+                placeholder={t('sos.fields.name')}
                 required
               />
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Mobile No</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.mobile')}</RequiredLabel>
               <input
                 type="tel"
                 name="mobile"
                 value={formData.mobile}
                 onChange={handleInputChange}
-                placeholder="Mobile No"
+                placeholder={t('sos.fields.mobile')}
                 pattern="[0-9]{10}"
                 required
               />
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Event Type</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.eventType')}</RequiredLabel>
               <select
                 name="eventType"
                 value={formData.eventType}
                 onChange={handleInputChange}
                 required
               >
-                <option value="">-- Select --</option>
-                <option value="Medical Emergency">Medical Emergency</option>
-                <option value="Fire">Fire</option>
-                <option value="Accident">Accident</option>
-                <option value="Crime">Crime</option>
-                <option value="Natural Disaster">Natural Disaster</option>
-                <option value="Other">Other</option>
+                <option value="">{t('sos.options.select')}</option>
+                <option value="Medical Emergency">{t('sos.options.medical')}</option>
+                <option value="Fire">{t('sos.options.fire')}</option>
+                <option value="Accident">{t('sos.options.accident')}</option>
+                <option value="Crime">{t('sos.options.crime')}</option>
+                <option value="Natural Disaster">{t('sos.options.naturalDisaster')}</option>
+                <option value="Other">{t('sos.options.other')}</option>
               </select>
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Gender</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.gender')}</RequiredLabel>
               <div className="radio-group">
                 <label className="radio-label">
                   <input
@@ -175,7 +185,7 @@ const SOS = () => {
                     checked={formData.gender === 'Male'}
                     onChange={handleInputChange}
                   />
-                  Male
+                  {t('sos.options.male')}
                 </label>
                 <label className="radio-label">
                   <input
@@ -185,7 +195,7 @@ const SOS = () => {
                     checked={formData.gender === 'Female'}
                     onChange={handleInputChange}
                   />
-                  Female
+                  {t('sos.options.female')}
                 </label>
                 <label className="radio-label">
                   <input
@@ -195,30 +205,30 @@ const SOS = () => {
                     checked={formData.gender === 'Transgender'}
                     onChange={handleInputChange}
                   />
-                  Transgender
+                  {t('sos.options.transgender')}
                 </label>
               </div>
             </div>
 
             <div className="form-group">
-              <label>Additional Info :</label>
+              <label>{t('sos.fields.additionalInfo')} :</label>
               <textarea
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
-                placeholder="Additional Information"
+                placeholder={t('sos.fields.additionalInfo')}
                 rows="4"
               />
             </div>
 
-            <p className="mandatory-note">* fields are mandatory</p>
+            <p className="mandatory-note">{t('sos.notes.mandatory')}</p>
           </div>
 
           {/* SECTION 2: MAP */}
           <div className="form-section">
             <div className="section-header">
               <span className="section-icon">📍</span>
-              <h2>Location Map</h2>
+              <h2>{t('sos.sections.map')}</h2>
               <span className="step-badge">2</span>
             </div>
 
@@ -227,12 +237,13 @@ const SOS = () => {
                 type="text"
                 value={locationInput}
                 onChange={(e) => setLocationInput(e.target.value)}
-                placeholder="Type your location here"
+                placeholder={t('sos.fields.locationInput')}
                 className="location-input"
               />
             </div>
 
             <div className="map-container">
+              <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}>
               <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}>
                 <GoogleMap
                   mapContainerStyle={mapContainerStyle}
@@ -247,21 +258,22 @@ const SOS = () => {
                   />
                 </GoogleMap>
               </LoadScript>
+              </LoadScript>
             </div>
 
-            <p className="map-note">NB: Drag the marker to redefine the position</p>
+            <p className="map-note">{t('sos.notes.mapDrag')}</p>
           </div>
 
           {/* SECTION 3: LOCATION INFO */}
           <div className="form-section">
             <div className="section-header">
               <span className="section-icon">📋</span>
-              <h2>Location Info</h2>
+              <h2>{t('sos.sections.location')}</h2>
               <span className="step-badge">3</span>
             </div>
 
             <div className="form-group">
-              <RequiredLabel>State</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.state')}</RequiredLabel>
               <input
                 type="text"
                 name="state"
@@ -272,98 +284,69 @@ const SOS = () => {
             </div>
 
             <div className="form-group">
-              <RequiredLabel>District</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.district')}</RequiredLabel>
               <select
                 name="district"
                 value={formData.district}
                 onChange={handleInputChange}
                 required
               >
-                <option value="">-- Select --</option>
-                <option value="Adilabad">Adilabad</option>
-                <option value="Bhadradri Kothagudem">Bhadradri Kothagudem</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Jagitial">Jagitial</option>
-                <option value="Jangaon">Jangaon</option>
-                <option value="Jayashankar Bhupalapally">Jayashankar Bhupalapally</option>
-                <option value="Jogulamba Gadwal">Jogulamba Gadwal</option>
-                <option value="Kamareddy">Kamareddy</option>
-                <option value="Karimnagar">Karimnagar</option>
-                <option value="Khammam">Khammam</option>
-                <option value="Kumuram Bheem Asifabad">Kumuram Bheem Asifabad</option>
-                <option value="Mahabubabad">Mahabubabad</option>
-                <option value="Mahabubnagar">Mahabubnagar</option>
-                <option value="Mancherial">Mancherial</option>
-                <option value="Medak">Medak</option>
-                <option value="Medchal–Malkajgiri">Medchal–Malkajgiri</option>
-                <option value="Mulugu">Mulugu</option>
-                <option value="Nagarkurnool">Nagarkurnool</option>
-                <option value="Nalgonda">Nalgonda</option>
-                <option value="Narayanpet">Narayanpet</option>
-                <option value="Nirmal">Nirmal</option>
-                <option value="Nizamabad">Nizamabad</option>
-                <option value="Peddapalli">Peddapalli</option>
-                <option value="Rajanna Sircilla">Rajanna Sircilla</option>
-                <option value="Ranga Reddy">Ranga Reddy</option>
-                <option value="Sangareddy">Sangareddy</option>
-                <option value="Siddipet">Siddipet</option>
-                <option value="Suryapet">Suryapet</option>
-                <option value="Vikarabad">Vikarabad</option>
-                <option value="Wanaparthy">Wanaparthy</option>
-                <option value="Warangal Rural">Warangal Rural</option>
-                <option value="Yadadri Bhuvanagiri">Yadadri Bhuvanagiri</option>
+                <option value="">{t('sos.options.select')}</option>
+                {districts.map(district => (
+                     <option key={district} value={district}>{district}</option>
+                ))}
               </select>
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Place</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.place')}</RequiredLabel>
               <input
                 type="text"
                 name="place"
                 value={formData.place}
                 onChange={handleInputChange}
-                placeholder="Place"
+                placeholder={t('sos.fields.place')}
                 required
               />
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Address</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.address')}</RequiredLabel>
               <textarea
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
-                placeholder="Address"
+                placeholder={t('sos.fields.address')}
                 rows="4"
                 required
               />
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Latitude</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.latitude')}</RequiredLabel>
               <input
                 type="text"
                 name="latitude"
                 value={formData.latitude}
                 onChange={handleInputChange}
-                placeholder="Latitude"
+                placeholder={t('sos.fields.latitude')}
                 readOnly
               />
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Longitude</RequiredLabel>
+              <RequiredLabel>{t('sos.fields.longitude')}</RequiredLabel>
               <input
                 type="text"
                 name="longitude"
                 value={formData.longitude}
                 onChange={handleInputChange}
-                placeholder="Longitude"
+                placeholder={t('sos.fields.longitude')}
                 readOnly
               />
             </div>
 
-            <p className="mandatory-note">* fields are mandatory</p>
+            <p className="mandatory-note">{t('sos.notes.mandatory')}</p>
           </div>
         </div>
 
@@ -379,7 +362,7 @@ const SOS = () => {
             name="captcha"
             value={formData.captcha}
             onChange={handleInputChange}
-            placeholder="Enter captcha here"
+            placeholder={t('sos.fields.captchaPlaceholder')}
             className="captcha-input"
           />
         </div>
@@ -387,10 +370,10 @@ const SOS = () => {
         {/* BUTTONS */}
         <div className="form-actions">
           <button type="button" onClick={handleClear} className="btn-clear">
-            Clear
+            {t('sos.buttons.clear')}
           </button>
           <button type="submit" className="btn-submit">
-            Request Help
+            {t('sos.buttons.submit')}
           </button>
         </div>
       </form>

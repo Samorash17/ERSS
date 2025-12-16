@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import '../styles/Feedback.css';
 
+import { useTranslation } from 'react-i18next';
+
 const Feedback = () => {
+    const { t } = useTranslation();
     const [currentStep, setCurrentStep] = useState(1);
     const [formData, setFormData] = useState({
         // Personal Details

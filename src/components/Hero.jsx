@@ -1,3 +1,5 @@
+import React from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import '../styles/Hero.css';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';

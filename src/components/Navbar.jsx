@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
 import '../styles/Navbar.css';
 import AccessibilityControls from './AccessibilityControls';
 import govLogo from '../assets/logo-nav-1.jpg';

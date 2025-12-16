@@ -4,6 +4,8 @@ import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
 import emergencyVehiclesImage from "../assets/emergency-vehicles-police-ambulance-fire-dispatch.jpg"
 
 const Works = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="works-container">
       <div className="works-background-orbs">

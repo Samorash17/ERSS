@@ -7,6 +7,8 @@ import availability from "../assets/24-by-7.jpg"
 import multiService from "../assets/multi-service.jpg"
 
 function Features() {
+  const { t } = useTranslation();
+
   return (
     <div className="features-section">
       {/* Background animated orbs */}
