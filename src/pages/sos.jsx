@@ -252,7 +252,7 @@ const SOS = () => {
             <p className="map-note">NB: Drag the marker to redefine the position</p>
           </div>
 
-          {/* SECTION 3: LOCATION INFO */}
+          {/*SECTION 3: LOCATION INFO*/}
           <div className="form-section">
             <div className="section-header">
               <span className="section-icon">📋</span>
