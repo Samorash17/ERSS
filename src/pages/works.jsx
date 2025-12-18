@@ -16,9 +16,9 @@ const Works = () => {
         {/* Left Section - How it Works */}
         <div className="how-it-works-section">
           <h1 className="main-title">
-            <span className="title-highlight">HOW DIAL 112</span>
+            <span className="title-highlight-works">HOW DIAL 112</span>
             <br />
-            WORKS IN TELANGANA
+            <span className="title-highlight-works">WORKS IN TELANGANA</span>
           </h1>
 
           <p className="description">

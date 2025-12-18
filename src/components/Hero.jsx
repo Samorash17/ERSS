@@ -2,9 +2,8 @@ import '../styles/Hero.css';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-import mapImage from '../assets/pic-hero-1.png';
-import policeLogo from '../assets/pic-hero-2.jpg';
-import cmImage from '../assets/pic-hero-3_mod.png';
+
+import cmImage from '../assets/CM-card.png';
 import dgpImage from '../assets/pic-hero-4_mod.png';
 import buildingImageDay from '../assets/tsiccc_building_day.png';
 import buildingImageNight from '../assets/tsiccc_building_night.png';
@@ -34,17 +33,7 @@ const scaleIn = {
   },
 }
 
-const slideInLeft = {
-  hidden: { opacity: 0, x: -100 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-}
+
 
 const slideInRight = {
   hidden: { opacity: 0, x: 100 },
@@ -85,42 +74,24 @@ const Hero = () => {
       <div className="hero-content-wrapper">
         {/* LEFT SIDE */}
         <motion.div className="hero-left" initial="hidden" animate="visible" transition={{ staggerChildren: 0.2 }}>
-          <motion.div className="hero-top-logos" variants={slideInLeft}>
+          {/* <motion.div className="hero-top-logos" variants={slideInLeft}>
             <motion.div
               className="hero-logo-wrapper"
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <img src={mapImage || "/placeholder.svg"} alt="Telangana Map" className="hero-map" />
+              <img src={cmImage || "/placeholder.svg"} alt="Telangana Map" className="hero-map" />
             </motion.div>
             <motion.div
               className="hero-logo-wrapper"
               whileHover={{ scale: 1.1, rotate: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <img src={policeLogo || "/placeholder.svg"} alt="Telangana Police Logo" className="hero-police-logo" />
+              <img src={dgpImage || "/placeholder.svg"} alt="Telangana Police Logo" className="hero-police-logo" />
             </motion.div>
-          </motion.div>
+          </motion.div> */}
 
           <motion.div className="hero-text-content" variants={fadeUp}>
-            <motion.h3
-              className="hero-subtitle"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            >
-              <span className="subtitle-text">TELANGANA 112</span>
-              <span className="subtitle-line"></span>
-            </motion.h3>
-
-            <motion.h1 className="hero-title" variants={fadeUp}>
-              EMERGENCY RESPONSE SUPPORT SYSTEM
-              <br />
-              <span className="title-highlight">TELANGANA POLICE</span>
-              <br />
-              <span className="title-welcome">WELCOMES YOU</span>
-            </motion.h1>
-
             <motion.h2 className="hero-section-title" variants={scaleIn}>
               <span className="section-title-decorator">━━</span>
               OUR LEADERSHIP
@@ -137,8 +108,8 @@ const Hero = () => {
               },
               {
                 img: dgpImage,
-                name: "B. SHIVADER REDDY",
-                title: "DIRECTOR GENERAL OF POLICE,<br />TELANGANA",
+                name: "B. SHIVADHAR REDDY",
+                title: "DGP,<br />TELANGANA",
               },
             ].map((leader, index) => (
               <motion.div
@@ -165,6 +136,27 @@ const Hero = () => {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+
+          <motion.div className="hero-additional-content" variants={fadeUp}>
+            <motion.h3
+              className="hero-subtitle"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <span className="subtitle-text">TELANGANA 112</span>
+              <span className="subtitle-line"></span>
+            </motion.h3>
+            
+            <motion.h1 className="hero-title" variants={fadeUp}>
+             
+               <span className="title-erss">EMERGENCY RESPONSE SUPPORT SYSTEM</span>
+              <br />
+              <span className="title-highlight">TELANGANA POLICE</span>
+              <br />
+              <span className="title-welcome">WELCOMES YOU</span>
+            </motion.h1>
           </motion.div>
         </motion.div>
 
