@@ -1,36 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
+import api from '../utils/api';
 import "../styles/SuccessStories.css"
 import storyimg from '../assets/Success.png';
 
-const stories = [
-  {
-    id: "TG99-0599",
-    district: "Hyderabad",
-    date: "28/09/2025",
-    time: "14:16 hrs",
-    text: "A call was received informing that one boy theft a mobile phone from a patient at NIMS BanjaraHills. ERV 0599 was dispatched immediately. ERV reached on the spot within 03 minutes and caught the boy nearby medical turn.",
-    image: storyimg,
-  },
-  {
-    id: "TG99-0418",
-    district: "Warangal",
-    date: "02/08/2025",
-    time: "15:18 hrs",
-    text: "A call was received informing that a person had been assaulted by individuals and Rs. 12000 was snatched. ERV 0418 reached on spot within 01 minute and apprehended three boys.",
-    image: storyimg,
-  },
-  {
-    id: "TG99-0600",
-    district: "Nirmal",
-    date: "10/07/2025",
-    time: "11:11 hrs",
-    text: "Some persons in a black Scorpio snatched a woman's phone and fled. ERV 0600 reached within 03 minutes and caught the suspects.",
-    image: storyimg,
-  },
-]
-
 export default function SuccessStories() {
   const [expandedStories, setExpandedStories] = useState({});
+  const [stories, setStories] = useState([]);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    const fetchStories = async () => {
+        try {
+            const data = await api.get('/public/stories');
+            setStories(data);
+        } catch (error) {
+            console.error('Failed to fetch stories', error);
+        }
+    };
+    fetchStories();
+  }, []);
 
   const toggleExpanded = (index) => {
     setExpandedStories(prev => ({
@@ -53,10 +42,9 @@ export default function SuccessStories() {
 
       <div className="success-content-wrapper">
         <div className="success-header">
-          <h1 className="success-page-title">Inspirational Success Stories</h1>
+          <h1 className="success-page-title">{t('successStories.title')}</h1>
           <p className="success-subtitle">
-            Witness the swift and effective response of our Emergency Response Vehicles across Telangana, bringing
-            safety and justice to our communities through rapid action and dedication.
+            {t('successStories.subtitle', 'Witness the swift and effective response of our Emergency Response Vehicles across Telangana, bringing safety and justice to our communities through rapid action and dedication.')}
           </p>
         </div>
 
@@ -66,17 +54,17 @@ export default function SuccessStories() {
             const shouldTruncate = story.text.length > 150;
             
             return (
-            <div key={index} className="story-card" style={{ animationDelay: `${index * 0.15}s` }}>
+            <div key={story._id || index} className="story-card" style={{ animationDelay: `${index * 0.15}s` }}>
               <div className="story-card-inner">
                 <div className="story-image-wrapper">
                   <img
-                    src={story.image || "/placeholder.svg"}
+                    src={storyimg} 
                     alt={`${story.district} Success Story`}
                     className="story-img"
                   />
                   <div className="story-badge">
                     <span className="badge-icon">⚡</span>
-                    <span className="badge-text">Rapid Response</span>
+                    <span className="badge-text">{t('successStories.rapidResponse', 'Rapid Response')}</span>
                   </div>
                 </div>
 
@@ -117,14 +105,14 @@ export default function SuccessStories() {
                       <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
                         <path d="M8 0a4 4 0 100 8 4 4 0 000-8zm0 10c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z" />
                       </svg>
-                      Posted by: <span>tg_user</span>
+                      {t('successStories.postedBy', 'Posted by')}: <span>{story.postedBy || 'tg_user'}</span>
                     </p>
                     {shouldTruncate && (
                       <button 
                         className="more-btn" 
                         onClick={() => toggleExpanded(index)}
                       >
-                        {isExpanded ? 'Read Less' : 'Read More'}
+                        {isExpanded ? t('successStories.readLess', 'Read Less') : t('successStories.readMore', 'Read More')}
                         <svg 
                           width="16" 
                           height="16" 

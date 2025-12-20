@@ -1,9 +1,12 @@
+import { useTranslation, Trans } from 'react-i18next';
 import "../styles/works.css"
 import callOperatorImage from "../assets/emergency-call-operator-receiving-phone-call.jpg"
 import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
 import emergencyVehiclesImage from "../assets/emergency-vehicles-police-ambulance-fire-dispatch.jpg"
 
 const Works = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="works-container">
       <div className="works-background-orbs">
@@ -16,14 +19,11 @@ const Works = () => {
         {/* Left Section - How it Works */}
         <div className="how-it-works-section">
           <h1 className="main-title">
-            <span className="title-highlight-works">HOW DIAL 112</span>
-            <br />
-            <span className="title-highlight-works">WORKS IN TELANGANA</span>
+            <Trans i18nKey="works.title" />
           </h1>
 
           <p className="description">
-            When you dial <span className="emergency-number-inline">112</span>, your call is automatically routed to the
-            nearest emergency response centre. Here's how the system works:
+            <Trans i18nKey="works.description" components={{ span: <span className="emergency-number-inline" /> }} />
           </p>
 
           <div className="steps-works-list">
@@ -33,9 +33,9 @@ const Works = () => {
                 <div className="step-number-badge">01</div>
               </div>
               <div className="step-text-content">
-                <h3 className="step-title">Call Reception</h3>
+                <h3 className="step-title">{t('works.steps.reception.title')}</h3>
                 <p className="steps-works-content">
-                  The operator receives your call and quickly assesses the nature of the emergency situation.
+                  {t('works.steps.reception.desc')}
                 </p>
               </div>
             </div>
@@ -46,9 +46,9 @@ const Works = () => {
                 <div className="step-number-badge">02</div>
               </div>
               <div className="step-text-content">
-                <h3 className="step-title">Location Detection</h3>
+                <h3 className="step-title">{t('works.steps.location.title')}</h3>
                 <p className="steps-works-content">
-                  Your GPS data is instantly shared with the operator to accurately determine your location.
+                 {t('works.steps.location.desc')}
                 </p>
               </div>
             </div>
@@ -59,9 +59,9 @@ const Works = () => {
                 <div className="step-number-badge">03</div>
               </div>
               <div className="step-text-content">
-                <h3 className="step-title">Dispatch Assistance</h3>
+                <h3 className="step-title">{t('works.steps.dispatch.title')}</h3>
                 <p className="steps-works-content">
-                  The appropriate emergency team (police, fire, ambulance) is rapidly dispatched to your location.
+                  {t('works.steps.dispatch.desc')}
                 </p>
               </div>
             </div>
@@ -71,7 +71,7 @@ const Works = () => {
         {/* Right Section - Video and Notices */}
         <div className="video-section">
           <div className="video-header">
-            <h2>WATCH HOW IT WORKS</h2>
+            <h2>{t('works.videoHeader')}</h2>
             <div className="video-header-line"></div>
           </div>
 
@@ -96,7 +96,7 @@ const Works = () => {
                 />
               </svg>
             </div>
-            <span className="request-help-text">Request Emergency Help</span>
+            <span className="request-help-text">{t('works.requestHelp')}</span>
           </div>
 
           <div className="emergency-notice">
@@ -114,8 +114,7 @@ const Works = () => {
               </svg>
             </div>
             <div className="notice-content">
-              <strong>Emergency Notice:</strong> This is a critical emergency facility. Please use this service
-              responsibly and only for genuine emergency cases.
+              <strong>{t('works.notice.label')}:</strong> {t('works.notice.text')}
             </div>
           </div>
         </div>

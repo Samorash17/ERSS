@@ -1,0 +1,263 @@
+{
+    "navbar": {
+        "contactEmail": "helpline@telangana.gov.in",
+        "contactPhone": "+91 8712674000",
+        "downloadApp": "Download 112 App",
+        "govTitle": "GOVERNMENT OF TELANGANA",
+        "govSubtitle": "Official Portal",
+        "erssTitle": "EMERGENCY RESPONSE SUPPORT SYSTEM",
+        "erssSubtitle": "24/7 Emergency Services",
+        "links": {
+            "home": "HOME",
+            "features": "KEY FEATURES",
+            "howItWorks": "HOW IT WORKS",
+            "requestHelp": "REQUEST HELP",
+            "citizenLogin": "CITIZEN LOGIN",
+            "officerLogin": "OFFICER LOGIN",
+            "mediaGallery": "MEDIA GALLERY",
+            "awards": "Awards and Recognition",
+            "imageGallery": "Image Gallery",
+            "videoGallery": "Video Gallery",
+            "pressRelease": "Press Release",
+            "articles": "Articles",
+            "news": "112 News",
+            "successStories": "SUCCESS STORIES",
+            "faqs": "FAQs",
+            "feedback": "FEEDBACK"
+        }
+    },
+    "hero": {
+        "subtitle": "TELANGANA 112",
+        "title": "EMERGENCY RESPONSE SUPPORT SYSTEM<br />TELANGANA POLICE<br />WELCOMES YOU",
+        "leadership": "OUR LEADERSHIP",
+        "cmName": "A. REVANTH REDDY",
+        "cmTitle": "HON'BLE CHIEF MINISTER,<br />TELANGANA",
+        "dgpName": "B. SHIVADER REDDY",
+        "dgpTitle": "DIRECTOR GENERAL OF POLICE,<br />TELANGANA"
+    },
+    "helpline": {
+        "bannerSubtitle": "24/7 HELPLINE SUPPORT",
+        "bannerTitle": "Welcome to<br />Telangana Emergency Response Support System<br />Dial - 112",
+        "bannerText": "Telangana-Helpline, empowers the caller to get prompt response from the Police response team.",
+        "heading": "HELPLINE 112",
+        "subheading": "Call us for any emergency support response immediately",
+        "paragraph1": "Dial 112 is a nationwide emergency helpline implemented by Government of India designed to provide swift and efficient responses during emergencies. In Telangana this services is available 24*7 ensuring that citizens can easily connect with emergency services like police, fire, and medical assistance all through a single number <strong>112</strong>.",
+        "paragraph2": "The Telangana Government in collaboration with various services, aims to offer timely help in critical situations, reducing responses times, saving lives and improving the overall safety of its citizen."
+    },
+    "notFound": {
+        "title": "404 - Page Not Found",
+        "message": "The page you are looking for does not exist.",
+        "homeLink": "Go Back to Home"
+    },
+    "feedback": {
+        "title": "We Value Your Feedback",
+        "subtitle": "Help us improve our emergency services by sharing your experience.",
+        "step1": {
+            "title": "Personal Information",
+            "nameLabel": "Name",
+            "namePlaceholder": "Enter your full name",
+            "mobileLabel": "Mobile Number",
+            "mobilePlaceholder": "Enter your mobile number",
+            "emailLabel": "Email (Optional)",
+            "emailPlaceholder": "Enter your email"
+        },
+        "step2": {
+            "title": "Rate Our Service",
+            "ratingLabel": "How would you rate your experience with Dial 112?",
+            "categoryLabel": "Category",
+            "selectCategory": "Select a category",
+            "policeIntervention": "Police Intervention",
+            "ambulanceService": "Ambulance Service",
+            "appExperience": "App Experience",
+            "other": "Other"
+        },
+        "step3": {
+            "title": "Your Message",
+            "messageLabel": "Message / Suggestion",
+            "messagePlaceholder": "Write your feedback here..."
+        },
+        "nextBtn": "Next",
+        "backBtn": "Back",
+        "submitBtn": "Submit Feedback",
+        "submitSuccess": "Thank you for your feedback! We appreciate your input."
+    },
+    "media": {
+        "title": "Media Gallery",
+        "comingSoon": "Coming Soon..."
+    },
+    "features": {
+        "heading": "Key Features of Dial 112 in Telangana",
+        "subtitle": "Advanced emergency response system powered by technology and dedicated teams",
+        "items": {
+            "oneNumber": {
+                "title": "One Number for All Emergencies",
+                "desc": "Whether it's a medical emergency, fire, law enforcement, or a road accident, you can dial 112 to reach the relevant emergency services instantly."
+            },
+            "quickResponse": {
+                "title": "Quick Response",
+                "desc": "The system quickly connects callers to the appropriate response teams, reducing delays in crucial situations."
+            },
+            "geolocation": {
+                "title": "Geolocation Technology",
+                "desc": "Uses GPS and mapping technology to pinpoint your location accurately for faster assistance."
+            },
+            "availability": {
+                "title": "24/7 Availability",
+                "desc": "Help is available at all times — day or night — with dedicated teams on standby."
+            },
+            "multiLanguage": {
+                "title": "Multi-Language Support",
+                "desc": "Available in multiple languages to ensure accessibility for all citizens of Telangana."
+            }
+        }
+    },
+    "works": {
+        "title": "HOW DIAL 112 WORKS IN TELANGANA",
+        "description": "When you dial <span className=\"emergency-number-inline\">112</span>, your call is automatically routed to the nearest emergency response centre. Here's how the system works:",
+        "steps": {
+            "reception": {
+                "title": "Call Reception",
+                "desc": "The operator receives your call and quickly assesses the nature of the emergency situation."
+            },
+            "location": {
+                "title": "Location Detection",
+                "desc": "Your GPS data is instantly shared with the operator to accurately determine your location."
+            },
+            "dispatch": {
+                "title": "Dispatch Assistance",
+                "desc": "The appropriate emergency team (police, fire, ambulance) is rapidly dispatched to your location."
+            }
+        },
+        "videoHeader": "WATCH HOW IT WORKS",
+        "requestHelp": "Request Emergency Help",
+        "notice": {
+            "label": "Emergency Notice",
+            "text": "This is a critical emergency facility. Please use this service responsibly and only for genuine emergency cases."
+        }
+    },
+    "successStories": {
+        "title": "Inspirational Success Stories",
+        "subtitle": "Witness the swift and effective response of our Emergency Response Vehicles across Telangana, bringing safety and justice to our communities through rapid action and dedication.",
+        "readMore": "Read More",
+        "readLess": "Read Less",
+        "rapidResponse": "Rapid Response",
+        "postedBy": "Posted by",
+        "stories": [
+            {
+                "id": "TG99-0599",
+                "district": "Hyderabad",
+                "date": "28/09/2025",
+                "time": "14:16 hrs",
+                "text": "A call was received informing that one boy theft a mobile phone from a patient at NIMS BanjaraHills. ERV 0599 was dispatched immediately. ERV reached on the spot within 03 minutes and caught the boy nearby medical turn."
+            },
+            {
+                "id": "TG99-0418",
+                "district": "Warangal",
+                "date": "02/08/2025",
+                "time": "15:18 hrs",
+                "text": "A call was received informing that a person had been assaulted by individuals and Rs. 12000 was snatched. ERV 0418 reached on spot within 01 minute and apprehended three boys."
+            },
+            {
+                "id": "TG99-0600",
+                "district": "Nirmal",
+                "date": "10/07/2025",
+                "time": "11:11 hrs",
+                "text": "Some persons in a black Scorpio snatched a woman's phone and fled. ERV 0600 reached within 03 minutes and caught the suspects."
+            }
+        ]
+    },
+    "login": {
+        "title": "Citizen Login",
+        "mobileLabel": "Mobile Number",
+        "mobilePlaceholder": "Enter 10-digit mobile number",
+        "otpLabel": "Enter OTP",
+        "otpPlaceholder": "Enter 6-digit OTP",
+        "loginBtn": "Login Securely",
+        "sendOtpBtn": "Send OTP",
+        "registerPrompt": "New user?",
+        "registerLink": "Register here",
+        "otpSentAlert": "OTP sent successfully to your mobile number!",
+        "invalidMobileAlert": "Please enter a valid 10-digit mobile number."
+    },
+    "sos": {
+        "title": "Emergency Assistance Request",
+        "subtitle": "Please fill out the form below to request immediate assistance. Our team is ready to help 24/7.",
+        "personalInfo": {
+            "title": "Personal Information",
+            "name": "Full Name",
+            "namePlaceholder": "Enter your full name",
+            "mobile": "Mobile Number",
+            "mobilePlaceholder": "Enter your mobile number",
+            "email": "Email Address (Optional)",
+            "emailPlaceholder": "Enter your email address"
+        },
+        "emergencyDetails": {
+            "title": "Emergency Details",
+            "nature": "Nature of Emergency",
+            "selectNature": "Select Emergency Type",
+            "medical": "Medical Emergency",
+            "fire": "Fire Accident",
+            "police": "Police Assistance",
+            "accident": "Road Accident",
+            "womenSafety": "Women Safety",
+            "other": "Other",
+            "description": "Description",
+            "descriptionPlaceholder": "Briefly describe the emergency situation...",
+            "severity": "Severity Level",
+            "critical": "Critical",
+            "moderate": "Moderate",
+            "low": "Low"
+        },
+        "locationDetails": {
+            "title": "Location Details",
+            "note": "Note",
+            "instruction": "Tap on the map to pinpoint your exact location for faster response.",
+            "address": "Current Address / Landmark",
+            "addressPlaceholder": "E.g., Near Main Bus Stop, MG Road",
+            "district": "District",
+            "districtPlaceholder": "Enter District",
+            "pincode": "Pincode",
+            "pincodePlaceholder": "Enter Pincode"
+        },
+        "submitBtn": "Submit Request"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "contactLink": "Contact Support",
+        "footerText": "Still have questions?",
+        "questions": [
+            {
+                "question": "What is ERSS (Dial 112)?",
+                "answer": "Emergency Response Support System (ERSS) is a pan-India single number (112) based emergency response system for citizens in emergencies. Each State/UT is required to designate a dedicated Emergency Response Centres (ERC) to handle emergency requests. ERSS connects citizens to the appropriate emergency services like Police, Fire, Health, and other disaster management services."
+            },
+            {
+                "question": "When should I call 112?",
+                "answer": "You should call 112 in any emergency situation where immediate assistance is required from Police, Fire, or Ambulance services. Examples include: <br/><ul><li>Medical emergencies</li><li>Fire outbreaks</li><li>Crimes in progress</li><li>Road accidents</li><li>Women safety issues</li><li>Natural disasters</li></ul>"
+            },
+            {
+                "question": "Is 112 available 24/7?",
+                "answer": "Yes, the 112 service is available 24 hours a day, 7 days a week, and 365 days a year."
+            },
+            {
+                "question": "Can I call 112 from a mobile phone without a SIM card?",
+                "answer": "Yes, in most cases, you can dial 112 from a mobile phone even without a SIM card or if the keypad is locked, provided there is network coverage from any service provider."
+            },
+            {
+                "question": "What information should I provide when I call 112?",
+                "answer": "When you call 112, try to stay calm and provide the following information clearly:<br/><ul><li><strong>Your location:</strong> Give the exact address or landmarks.</li><li><strong>Nature of emergency:</strong> Explain what has happened.</li><li><strong>Details:</strong> Provide details about the number of people involved, injuries, etc.</li><li><strong>Your contact number:</strong> So that the emergency team can call you back if needed.</li></ul>"
+            },
+            {
+                "question": "Is there an app for 112?",
+                "answer": "Yes, the '112 India' mobile app is available for both Android and iOS devices. It provides a panic button and allows you to send your location and details to the ERC instantly."
+            },
+            {
+                "question": "What happens if I call 112 by mistake?",
+                "answer": "If you call 112 by mistake, please do not hang up immediately. Stay on the line and tell the operator that everything is fine. Otherwise, the operator may assume there is an emergency and dispatch help."
+            },
+            {
+                "question": "Does 112 replace other emergency numbers like 100, 101, and 108?",
+                "answer": "112 is designed to be a consolidated single number. However, the existing emergency numbers (100 for Police, 101 for Fire, 108 for Ambulance) continue to be in operation and are integrated into the 112 system."
+            }
+        ]
+    }
+}

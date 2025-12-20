@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import '../styles/Feedback.css';
 
+import { useTranslation } from 'react-i18next';
+
 const Feedback = () => {
+    const { t } = useTranslation();
     const [currentStep, setCurrentStep] = useState(1);
     const [formData, setFormData] = useState({
         // Personal Details
@@ -95,7 +98,7 @@ const Feedback = () => {
                 {currentStep === 1 && (
                     <div className="form-step">
                         <div className="form-group">
-                            <label>Name<span className="required">*</span>:</label>
+                            <label>{t('feedback.personalDetails.nameLabel')}<span className="required">*</span>:</label>
                             <input
                                 type="text"
                                 name="name"
@@ -106,7 +109,7 @@ const Feedback = () => {
                         </div>
 
                         <div className="form-group">
-                            <label>Age<span className="required">*</span>:</label>
+                            <label>{t('feedback.personalDetails.ageLabel')}<span className="required">*</span>:</label>
                             <input
                                 type="number"
                                 name="age"
@@ -117,7 +120,7 @@ const Feedback = () => {
                         </div>
 
                         <div className="form-group">
-                            <label>Gender<span className="required">*</span>:</label>
+                            <label>{t('feedback.personalDetails.genderLabel')}<span className="required">*</span>:</label>
                             <div className="radio-group">
                                 <label className="radio-label">
                                     <input
@@ -127,7 +130,7 @@ const Feedback = () => {
                                         checked={formData.gender === 'Male'}
                                         onChange={handleInputChange}
                                     />
-                                    Male
+                                    {t('feedback.personalDetails.genderMale')}
                                 </label>
                                 <label className="radio-label">
                                     <input
@@ -137,7 +140,7 @@ const Feedback = () => {
                                         checked={formData.gender === 'Female'}
                                         onChange={handleInputChange}
                                     />
-                                    Female
+                                    {t('feedback.personalDetails.genderFemale')}
                                 </label>
                                 <label className="radio-label">
                                     <input
@@ -147,27 +150,27 @@ const Feedback = () => {
                                         checked={formData.gender === 'Transgender'}
                                         onChange={handleInputChange}
                                     />
-                                    Transgender
+                                    {t('feedback.personalDetails.genderTransgender')}
                                 </label>
                             </div>
                         </div>
 
                         <div className="form-group">
-                            <label>Type of User<span className="required">*</span>:</label>
+                            <label>{t('feedback.personalDetails.userTypeLabel')}<span className="required">*</span>:</label>
                             <select
                                 name="typeOfUser"
                                 value={formData.typeOfUser}
                                 onChange={handleInputChange}
                             >
-                                <option value="Self">Self</option>
-                                <option value="Family Member">Family Member</option>
-                                <option value="Friend">Friend</option>
-                                <option value="Other">Other</option>
+                                <option value="Self">{t('feedback.personalDetails.userTypeSelf')}</option>
+                                <option value="Family Member">{t('feedback.personalDetails.userTypeFamily')}</option>
+                                <option value="Friend">{t('feedback.personalDetails.userTypeFriend')}</option>
+                                <option value="Other">{t('feedback.personalDetails.userTypeOther')}</option>
                             </select>
                         </div>
 
                         <div className="form-group">
-                            <label>Address<span className="required">*</span>:</label>
+                            <label>{t('feedback.personalDetails.addressLabel')}<span className="required">*</span>:</label>
                             <textarea
                                 name="address"
                                 value={formData.address}
@@ -178,7 +181,7 @@ const Feedback = () => {
                         </div>
 
                         <div className="form-group">
-                            <label>City/Town<span className="required">*</span>:</label>
+                            <label>{t('feedback.personalDetails.cityTownLabel')}<span className="required">*</span>:</label>
                             <input
                                 type="text"
                                 name="cityTown"
@@ -189,7 +192,7 @@ const Feedback = () => {
                         </div>
 
                         <div className="form-group">
-                            <label>Profession:</label>
+                            <label>{t('feedback.personalDetails.professionLabel')}:</label>
                             <input
                                 type="text"
                                 name="profession"

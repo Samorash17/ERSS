@@ -48,7 +48,7 @@ body,
 }
 
 /* Labels */
-label {
+.login-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
@@ -62,8 +62,8 @@ label::after {
 } */
 
 /* Input fields */
-input[type="text"],
-input[type="date"] {
+.login-form input[type="text"],
+.login-form input[type="date"] {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -72,7 +72,7 @@ input[type="date"] {
 }
 
 /* CAPTCHA input */
-input[placeholder="Enter captcha here"] {
+.login-form input[placeholder="Enter captcha here"] {
     background-color: #e6ffe6;
     border: 1px solid #90ee90;
 }
@@ -148,12 +148,12 @@ input[placeholder="Enter captcha here"] {
         background: #1f1f1f;
     }
 
-    label {
+    .login-form label {
         color: #f2f2f2;
     }
 
-    input[type="text"],
-    input[type="password"] {
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
         background: #2a2a2a;
         border: 1px solid #555;
         color: #fff;

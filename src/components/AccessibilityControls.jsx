@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/AccessibilityControls.css';
 
 const AccessibilityControls = () => {
+  const { i18n } = useTranslation();
   const [fontSize, setFontSize] = useState('medium');
-  const [language, setLanguage] = useState('English');
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
 
   const languages = [
@@ -11,6 +12,9 @@ const AccessibilityControls = () => {
     { code: 'hi', name: 'Hindi', nativeName: 'हिंदी' },
     { code: 'te', name: 'Telugu', nativeName: 'తెలుగు' }
   ];
+
+  // Sync state with current i18n language
+  const currentLang = languages.find(l => l.code === i18n.resolvedLanguage) || languages[0];
 
   // Apply font size to document root
   useEffect(() => {
@@ -41,10 +45,8 @@ const AccessibilityControls = () => {
   };
 
   const handleLanguageChange = (lang) => {
-    setLanguage(lang.name);
+    i18n.changeLanguage(lang.code);
     setShowLanguageDropdown(false);
-    // Here you would typically implement actual language switching logic
-    console.log(`Language changed to: ${lang.name} (${lang.code})`);
   };
 
   return (
@@ -82,7 +84,7 @@ const AccessibilityControls = () => {
           className="language-btn"
           onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
         >
-          Language ▼
+          {currentLang.name} ▼
         </button>
         
         {showLanguageDropdown && (
@@ -90,7 +92,7 @@ const AccessibilityControls = () => {
             {languages.map((lang) => (
               <button
                 key={lang.code}
-                className={`language-option ${language === lang.name ? 'active' : ''}`}
+                className={`language-option ${i18n.resolvedLanguage === lang.code ? 'active' : ''}`}
                 onClick={() => handleLanguageChange(lang)}
               >
                 <span className="lang-english">{lang.name}</span>
