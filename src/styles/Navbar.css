@@ -18,6 +18,7 @@
     transform: translateY(-100%);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -51,6 +52,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -167,10 +169,12 @@ body {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -239,10 +243,12 @@ body {
 }
 
 @keyframes emergencyGlow {
+
   0%,
   100% {
     filter: drop-shadow(0 0 30px rgba(239, 68, 68, 0.6));
   }
+
   50% {
     filter: drop-shadow(0 0 50px rgba(239, 68, 68, 0.9));
   }
@@ -266,6 +272,7 @@ body {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(1.8);
     opacity: 0;
@@ -320,10 +327,12 @@ body {
 }
 
 @keyframes shimmer {
+
   0%,
   100% {
     opacity: 0.3;
   }
+
   50% {
     opacity: 1;
   }
@@ -361,11 +370,11 @@ body {
   background: linear-gradient(90deg, #38bdf8 0%, #60a5fa 100%);
   transform: translateX(-50%);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 10px rgba(118, 207, 245, 0.258);
 }
 
 .nav-link:hover {
-  color: #38bdf8;
+  color: #97d9f5;
   background: rgba(56, 189, 248, 0.1);
   text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
 }

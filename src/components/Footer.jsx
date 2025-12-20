@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import '../styles/Footer.css';
+import '../styles/copyright.css';
+import '../styles/terms.css';
+import '../styles/privacy.css';
 
 
 const Footer = () => {
@@ -107,12 +110,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/terms">
+              <Link to="/Terms-and-Conditions">
                 <span className="link-icon">→</span>Terms & Condition
               </Link>
             </li>
             <li>
-              <Link to="/privacy">
+              <Link to="/privacy-policy">
                 <span className="link-icon">→</span>Privacy Policy
               </Link>
             </li>
@@ -170,9 +173,12 @@ const Footer = () => {
       {/* Copyright Section */}
       <div className="footer-bottom">
         <div className="copyright">
-          Copyright © 2025 <span className="highlight">Telangana Police</span> All rights reserved
+          <Link to="/Copyright" className="highlight">
+            Copyright
+          </Link> © 2025 <span className="highlight">Telangana Police</span> All rights reserved
         </div>
       </div>
+
     </footer>
   )
 }

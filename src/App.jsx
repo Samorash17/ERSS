@@ -13,6 +13,9 @@ import FAQ from './pages/FAQ'
 import Media from './pages/Media'
 import Feedback from './pages/Feedback'
 import Login from './pages/officer_login'
+import Copyright from './pages/Copyright'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 
 const RootLayout = () => {
   return (
@@ -75,7 +78,20 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+      {
+        path: "Terms-and-Conditions",
+        element: <Terms />
+      },
+      {
+        path: "Privacy-Policy",
+        element: <Privacy />
+      },
+      {
+        path: "Copyright",
+        element: <Copyright />
       }
+
     ],
   },
 ]);
