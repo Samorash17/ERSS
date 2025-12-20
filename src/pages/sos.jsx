@@ -1,224 +1,251 @@
-import { useState, useCallback } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import RequiredLabel from '../components/RequiredLabel';  // <-- imported component
-import '../styles/sos.css';
+import { useState, useCallback } from "react"
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
+import "../styles/sos.css"
 
 const SOS = () => {
   // Form state
   const [formData, setFormData] = useState({
-    name: '',
-    mobile: '',
-    eventType: '',
-    additionalInfo: '',
-    gender: '',
-    state: 'Telangana',
-    district: '',
-    place: '',
-    address: '',
-    latitude: '',
-    longitude: '',
-    captcha: ''
-  });
+    name: "",
+    mobile: "",
+    eventType: "",
+    additionalInfo: "",
+    gender: "",
+    state: "Telangana",
+    district: "",
+    place: "",
+    address: "",
+    latitude: "",
+    longitude: "",
+    captcha: "",
+  })
 
   // Map state
   const [markerPosition, setMarkerPosition] = useState({
     lat: 17.4065,
-    lng: 78.4772
-  });
+    lng: 78.4772,
+  })
 
-  const [locationInput, setLocationInput] = useState('');
+  const [locationInput, setLocationInput] = useState("")
+  const [captchaText, setCaptchaText] = useState("gfy5yi")
 
   const mapContainerStyle = {
-    width: '100%',
-    height: '300px'
-  };
+    width: "100%",
+    height: "300px",
+  }
+
+  // Generate random captcha
+  const generateCaptcha = () => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let result = ""
+    for (let i = 0; i < 6; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length))
+    }
+    setCaptchaText(result)
+  }
 
   // Handle input change
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
+    const { name, value } = e.target
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }));
-  };
+      [name]: value,
+    }))
+  }
 
   // Map click
   const onMapClick = useCallback((e) => {
-    const lat = e.latLng.lat();
-    const lng = e.latLng.lng();
-    
-    setMarkerPosition({ lat, lng });
-    setFormData(prev => ({
+    const lat = e.latLng.lat()
+    const lng = e.latLng.lng()
+
+    setMarkerPosition({ lat, lng })
+    setFormData((prev) => ({
       ...prev,
       latitude: lat.toFixed(6),
-      longitude: lng.toFixed(6)
-    }));
-  }, []);
+      longitude: lng.toFixed(6),
+    }))
+  }, [])
 
   // Marker drag
   const onMarkerDragEnd = useCallback((e) => {
-    const lat = e.latLng.lat();
-    const lng = e.latLng.lng();
+    const lat = e.latLng.lat()
+    const lng = e.latLng.lng()
 
-    setMarkerPosition({ lat, lng });
-    setFormData(prev => ({
+    setMarkerPosition({ lat, lng })
+    setFormData((prev) => ({
       ...prev,
       latitude: lat.toFixed(6),
-      longitude: lng.toFixed(6)
-    }));
-  }, []);
+      longitude: lng.toFixed(6),
+    }))
+  }, [])
 
   // Submit
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!formData.name || !formData.mobile || !formData.eventType) {
-      alert('Please fill all mandatory fields');
-      return;
+      alert("Please fill all mandatory fields")
+      return
     }
 
-    console.log('Form submitted:', formData);
-    alert('Emergency request submitted successfully!');
-    handleClear();
-  };
+    if (formData.captcha !== captchaText) {
+      alert("Invalid captcha. Please try again.")
+      generateCaptcha()
+      setFormData((prev) => ({ ...prev, captcha: "" }))
+      return
+    }
+
+    console.log("Form submitted:", formData)
+    alert("Emergency request submitted successfully!")
+    handleClear()
+  }
 
   // Clear
   const handleClear = () => {
     setFormData({
-      name: '',
-      mobile: '',
-      eventType: '',
-      additionalInfo: '',
-      gender: '',
-      state: '',
-      district: '',
-      place: '',
-      address: '',
-      latitude: '',
-      longitude: '',
-      captcha: ''
-    });
-    setLocationInput('');
-  };
+      name: "",
+      mobile: "",
+      eventType: "",
+      additionalInfo: "",
+      gender: "",
+      state: "Telangana",
+      district: "",
+      place: "",
+      address: "",
+      latitude: "",
+      longitude: "",
+      captcha: "",
+    })
+    setLocationInput("")
+    generateCaptcha()
+  }
 
   return (
     <div className="sos-container">
+      {/* Animated floating orbs background */}
+      <div className="floating-orb orb-1"></div>
+      <div className="floating-orb orb-2"></div>
+      <div className="floating-orb orb-3"></div>
+
       <div className="emergency-banner">
         <span className="warning-icon">⚠️</span>
-        THIS IS AN EMERGENCY FACILITY. USERS ARE ADVISED TO USE THIS SERVICE CAREFULLY.
+        <span>THIS IS AN EMERGENCY FACILITY. USERS ARE ADVISED TO USE THIS SERVICE CAREFULLY.</span>
       </div>
 
-      <h1 className="page-title">Request Help</h1>
+      <h1 className="page-title">
+        <span className="title-gradient">Request Emergency Help</span>
+      </h1>
 
       <form onSubmit={handleSubmit} className="sos-form">
         <div className="form-sections">
-
           {/* SECTION 1: PERSONAL INFO */}
           <div className="form-section">
             <div className="section-header">
               <span className="section-icon">👤</span>
-              <h2>Personal Info</h2>
+              <h2>Personal Information</h2>
               <span className="step-badge">1</span>
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Name</RequiredLabel>
+              <label>
+                Name <span className="required-star">*</span>
+              </label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Name"
+                placeholder="Enter your full name"
                 required
               />
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Mobile No</RequiredLabel>
+              <label>
+                Mobile No <span className="required-star">*</span>
+              </label>
               <input
                 type="tel"
                 name="mobile"
                 value={formData.mobile}
                 onChange={handleInputChange}
-                placeholder="Mobile No"
+                placeholder="Enter 10 digit mobile number"
                 pattern="[0-9]{10}"
                 required
               />
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Event Type</RequiredLabel>
-              <select
-                name="eventType"
-                value={formData.eventType}
-                onChange={handleInputChange}
-                required
-              >
-                <option value="">-- Select --</option>
-                <option value="Medical Emergency">Medical Emergency</option>
-                <option value="Fire">Fire</option>
-                <option value="Accident">Accident</option>
-                <option value="Crime">Crime</option>
-                <option value="Natural Disaster">Natural Disaster</option>
-                <option value="Other">Other</option>
+              <label>
+                Event Type <span className="required-star">*</span>
+              </label>
+              <select name="eventType" value={formData.eventType} onChange={handleInputChange} required>
+                <option value="">-- Select Emergency Type --</option>
+                <option value="Medical Emergency">🏥 Medical Emergency</option>
+                <option value="Fire">🔥 Fire</option>
+                <option value="Accident">🚗 Accident</option>
+                <option value="Crime">🚨 Crime</option>
+                <option value="Natural Disaster">🌪️ Natural Disaster</option>
+                <option value="Other">📋 Other</option>
               </select>
             </div>
 
-            <div className="form-group">
-              <RequiredLabel>Gender</RequiredLabel>
+            <div className="form-group gender-group">
+              <label>
+                Gender <span className="required-star">*</span>
+              </label>
               <div className="radio-group">
                 <label className="radio-label">
                   <input
                     type="radio"
                     name="gender"
                     value="Male"
-                    checked={formData.gender === 'Male'}
+                    checked={formData.gender === "Male"}
                     onChange={handleInputChange}
                   />
-                  Male
+                  <span>Male</span>
                 </label>
                 <label className="radio-label">
                   <input
                     type="radio"
                     name="gender"
                     value="Female"
-                    checked={formData.gender === 'Female'}
+                    checked={formData.gender === "Female"}
                     onChange={handleInputChange}
                   />
-                  Female
+                  <span>Female</span>
                 </label>
                 <label className="radio-label">
                   <input
                     type="radio"
                     name="gender"
                     value="Transgender"
-                    checked={formData.gender === 'Transgender'}
+                    checked={formData.gender === "Transgender"}
                     onChange={handleInputChange}
                   />
-                  Transgender
+                  <span>Transgender</span>
                 </label>
               </div>
             </div>
 
-            <div className="form-group">
-              <label>Additional Info :</label>
+            <div className="form-group textarea-group">
+              <label>Additional Info</label>
               <textarea
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
-                placeholder="Additional Information"
+                placeholder="Provide any additional details about the emergency"
                 rows="4"
               />
             </div>
 
-            <p className="mandatory-note">* fields are mandatory</p>
+            <p className="mandatory-note">* Fields are mandatory</p>
           </div>
 
           {/* SECTION 2: MAP */}
           <div className="form-section">
             <div className="section-header">
               <span className="section-icon">📍</span>
-              <h2>Location Map</h2>
+              <h2>Emergency Location</h2>
               <span className="step-badge">2</span>
             </div>
 
@@ -227,59 +254,61 @@ const SOS = () => {
                 type="text"
                 value={locationInput}
                 onChange={(e) => setLocationInput(e.target.value)}
-                placeholder="Type your location here"
+                placeholder="🔍 Search your location here..."
                 className="location-input"
               />
             </div>
 
             <div className="map-container">
               <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}>
-                <GoogleMap
-                  mapContainerStyle={mapContainerStyle}
-                  center={markerPosition}
-                  zoom={13}
-                  onClick={onMapClick}
-                >
-                  <Marker
-                    position={markerPosition}
-                    draggable={true}
-                    onDragEnd={onMarkerDragEnd}
-                  />
+                <GoogleMap mapContainerStyle={mapContainerStyle} center={markerPosition} zoom={13} onClick={onMapClick}>
+                  <Marker position={markerPosition} draggable={true} onDragEnd={onMarkerDragEnd} />
                 </GoogleMap>
               </LoadScript>
             </div>
 
-            <p className="map-note">NB: Drag the marker to redefine the position</p>
+            <p className="map-note">💡 Drag the marker to adjust your exact location</p>
+
+            <div className="coordinates-display">
+              <div className="coordinate-item">
+                <span className="coord-label">Latitude:</span>
+                <span className="coord-value">{formData.latitude || "---"}</span>
+              </div>
+              <div className="coordinate-item">
+                <span className="coord-label">Longitude:</span>
+                <span className="coord-value">{formData.longitude || "---"}</span>
+              </div>
+            </div>
           </div>
 
           {/* SECTION 3: LOCATION INFO */}
           <div className="form-section">
             <div className="section-header">
               <span className="section-icon">📋</span>
-              <h2>Location Info</h2>
+              <h2>Address Details</h2>
               <span className="step-badge">3</span>
             </div>
 
             <div className="form-group">
-              <RequiredLabel>State</RequiredLabel>
+              <label>
+                State <span className="required-star">*</span>
+              </label>
               <input
                 type="text"
                 name="state"
                 value={formData.state}
                 onChange={handleInputChange}
+                placeholder="State"
                 required
               />
             </div>
 
             <div className="form-group">
-              <RequiredLabel>District</RequiredLabel>
-              <select
-                name="district"
-                value={formData.district}
-                onChange={handleInputChange}
-                required
-              >
-                <option value="">-- Select --</option>
+              <label>
+                District <span className="required-star">*</span>
+              </label>
+              <select name="district" value={formData.district} onChange={handleInputChange} required>
+                <option value="">-- Select District --</option>
                 <option value="Adilabad">Adilabad</option>
                 <option value="Bhadradri Kothagudem">Bhadradri Kothagudem</option>
                 <option value="Hyderabad">Hyderabad</option>
@@ -316,62 +345,44 @@ const SOS = () => {
             </div>
 
             <div className="form-group">
-              <RequiredLabel>Place</RequiredLabel>
+              <label>
+                Place <span className="required-star">*</span>
+              </label>
               <input
                 type="text"
                 name="place"
                 value={formData.place}
                 onChange={handleInputChange}
-                placeholder="Place"
+                placeholder="Enter area/locality name"
                 required
               />
             </div>
 
-            <div className="form-group">
-              <RequiredLabel>Address</RequiredLabel>
+            <div className="form-group textarea-group">
+              <label>
+                Address <span className="required-star">*</span>
+              </label>
               <textarea
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
-                placeholder="Address"
+                placeholder="Enter complete address with landmarks"
                 rows="4"
                 required
               />
             </div>
 
-            <div className="form-group">
-              <RequiredLabel>Latitude</RequiredLabel>
-              <input
-                type="text"
-                name="latitude"
-                value={formData.latitude}
-                onChange={handleInputChange}
-                placeholder="Latitude"
-                readOnly
-              />
-            </div>
-
-            <div className="form-group">
-              <RequiredLabel>Longitude</RequiredLabel>
-              <input
-                type="text"
-                name="longitude"
-                value={formData.longitude}
-                onChange={handleInputChange}
-                placeholder="Longitude"
-                readOnly
-              />
-            </div>
-
-            <p className="mandatory-note">* fields are mandatory</p>
+            <p className="mandatory-note">* Fields are mandatory</p>
           </div>
         </div>
 
         {/* CAPTCHA */}
         <div className="captcha-section">
           <div className="captcha-display">
-            <span className="captcha-text">gfy5yi</span>
-            <button type="button" className="captcha-refresh">🔄</button>
+            <span className="captcha-text">{captchaText}</span>
+            <button type="button" className="captcha-refresh" onClick={generateCaptcha} aria-label="Refresh captcha">
+              🔄
+            </button>
           </div>
 
           <input
@@ -379,23 +390,24 @@ const SOS = () => {
             name="captcha"
             value={formData.captcha}
             onChange={handleInputChange}
-            placeholder="Enter captcha here"
+            placeholder="Enter the characters shown above"
             className="captcha-input"
+            required
           />
         </div>
 
         {/* BUTTONS */}
         <div className="form-actions">
           <button type="button" onClick={handleClear} className="btn-clear">
-            Clear
+            <span>Clear Form</span>
           </button>
           <button type="submit" className="btn-submit">
-            Request Help
+            <span>🚨 Request Emergency Help</span>
           </button>
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SOS;
+export default SOS

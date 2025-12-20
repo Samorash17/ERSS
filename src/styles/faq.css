@@ -148,16 +148,16 @@
 }
 
 .question-text {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
-  color: #e2e8f0;
+  color: #e6a7a7;
   flex: 1;
   padding-right: 20px;
   transition: color 0.3s ease;
 }
 
 .faq-item:hover .question-text {
-  color: #fff;
+  color: #ffa9a9;
 }
 
 .faq-arrow {
@@ -198,9 +198,9 @@
 /* FAQ Answer */
 .faq-answer {
   padding: 0 24px 24px 24px;
-  font-size: 15px;
+  font-size: 19px;
   line-height: 1.8;
-  color: #cbd5e1;
+  color: #ffffff;
   animation: fadeIn 0.5s ease-out;
 }
 

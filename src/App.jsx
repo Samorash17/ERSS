@@ -2,6 +2,7 @@ import './App.css'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/home'
 import NotFound from './pages/NotFound'
 import SOS from './pages/sos'
@@ -11,12 +12,12 @@ import LoginForm from './pages/LoginForm'
 import SuccessStories from './pages/SuccessStories'
 import FAQ from './pages/FAQ'
 import Media from './pages/Media'
-import Feedback from './pages/Feedback'
 import Login from './pages/officer_login'
 
 const RootLayout = () => {
   return (
     <div className="app-layout">
+      <ScrollToTop />
       <Navbar />
       <main className="main-content">
         <Outlet />
@@ -68,10 +69,10 @@ const router = createBrowserRouter([
         path: "media",
         element: <Media />,
       },
-      {
-        path: "feedback",
-        element: <Feedback />,
-      },
+      // {
+      //   path: "feedback",
+      //   element: <Feedback />,
+      // },
       {
         path: "*",
         element: <NotFound />,

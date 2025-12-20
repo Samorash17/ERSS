@@ -1,13 +1,22 @@
 import '../styles/Hero.css';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import MarqueeBanner from './MarqueeBanner';
 
-
-import cmImage from '../assets/CM-card.png';
-import dgpImage from '../assets/pic-hero-4_mod.png';
-import buildingImageDay from '../assets/tsiccc_building_day.png';
+import cmImage from '../assets/CM.png';
+import dgpImage from '../assets/dgp.jpg';
+import buildingImageDay from '../assets/tsiccc_building_day1.jpg';
 import buildingImageNight from '../assets/tsiccc_building_night.png';
 import risingLogo from '../assets/pic-hero-rising.jpg';
+import dial112Logo from '../assets/logo-dial-112.jpg';
+
+// Service logo imports
+import policeIcon from '../assets/Police.webp';
+import ambulanceIcon from '../assets/Ambulance.jpg';
+import fireIcon from '../assets/Fire.png';
+import disasterIcon from '../assets/Disaster-Response.jpg';
+import womenSafetyIcon from '../assets/Women-Safety.jpg';
+import childProtectionIcon from '../assets/Child-Protection.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -32,8 +41,6 @@ const scaleIn = {
     },
   },
 }
-
-
 
 const slideInRight = {
   hidden: { opacity: 0, x: 100 },
@@ -63,135 +70,212 @@ const Hero = () => {
     return () => clearInterval(interval)
   }, [])
 
+  const serviceLogos = [
+    { 
+      name: "Police", 
+      icon: policeIcon,
+      alt: "Police Emergency Service"
+    },
+    { 
+      name: "Ambulance", 
+      icon: ambulanceIcon,
+      alt: "Medical Emergency Service"
+    },
+    { 
+      name: "Fire Service", 
+      icon: fireIcon,
+      alt: "Fire Emergency Service"
+    },
+    { 
+      name: "Disaster Response", 
+      icon: disasterIcon,
+      alt: "Disaster Management Service"
+    },
+    { 
+      name: "Women Safety", 
+      icon: womenSafetyIcon,
+      alt: "Women Safety Service"
+    },
+    { 
+      name: "Child Protection", 
+      icon: childProtectionIcon,
+      alt: "Child Protection Service"
+    },
+  ]
+
   return (
-    <section className="hero-container">
+    <>
+      <MarqueeBanner />
+      <section className="hero-container">
       <div className="hero-background">
         <div className="hero-gradient-orb hero-gradient-orb-1"></div>
         <div className="hero-gradient-orb hero-gradient-orb-2"></div>
         <div className="hero-grid-pattern"></div>
       </div>
 
-      <div className="hero-content-wrapper">
-        {/* LEFT SIDE */}
-        <motion.div className="hero-left" initial="hidden" animate="visible" transition={{ staggerChildren: 0.2 }}>
-          {/* <motion.div className="hero-top-logos" variants={slideInLeft}>
-            <motion.div
-              className="hero-logo-wrapper"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <img src={cmImage || "/placeholder.svg"} alt="Telangana Map" className="hero-map" />
-            </motion.div>
-            <motion.div
-              className="hero-logo-wrapper"
-              whileHover={{ scale: 1.1, rotate: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <img src={dgpImage || "/placeholder.svg"} alt="Telangana Police Logo" className="hero-police-logo" />
-            </motion.div>
-          </motion.div> */}
-
-          <motion.div className="hero-text-content" variants={fadeUp}>
-            <motion.h2 className="hero-section-title" variants={scaleIn}>
-              <span className="section-title-decorator">━━</span>
-              OUR LEADERSHIP
-              <span className="section-title-decorator">━━</span>
-            </motion.h2>
+      {/* LEFT SIDE */}
+      <motion.div className="hero-left" initial="hidden" animate="visible" transition={{ staggerChildren: 0.2 }}>
+        <motion.h3
+            className="hero-subtitle"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <span className="subtitle-line"></span>
+            <span className="subtitle-text">TELANGANA 112</span>
+            <span className="subtitle-line"></span>
+          </motion.h3>
+        {/* Dial 112 Logo at top */}
+        <motion.div className="hero-dial-logo-section" variants={scaleIn}>
+          <motion.div
+            className="hero-dial-logo-wrapper"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <img
+              src={dial112Logo}
+              alt="Emergency Response Support System - Dial 112"
+              className="hero-dial-logo"
+            />
           </motion.div>
-
-          <motion.div className="hero-leadership" variants={fadeUp}>
-            {[
-              {
-                img: cmImage,
-                name: "A. REVANTH REDDY",
-                title: "HON'BLE CHIEF MINISTER,<br />TELANGANA",
-              },
-              {
-                img: dgpImage,
-                name: "B. SHIVADHAR REDDY",
-                title: "DGP,<br />TELANGANA",
-              },
-            ].map((leader, index) => (
+        </motion.div>
+              <motion.h1 className="hero-title" variants={fadeUp}>
+            <span className="title-erss">EMERGENCY RESPONSE SUPPORT SYSTEM</span>
+            <br />
+            </motion.h1>
+        <motion.div className="hero-services-section" variants={fadeUp}>
+          <motion.div className="hero-services-grid">
+            {serviceLogos.map((service, index) => (
               <motion.div
-                className="leader-profile"
                 key={index}
+                className="service-logo-item"
                 variants={scaleIn}
+                custom={index}
                 whileHover={{
-                  y: -10,
+                  scale: 1.1,
+                  rotate: 5,
                   transition: { type: "spring", stiffness: 300 },
                 }}
               >
-                <div className="leader-card">
-                  <div className="leader-img-wrapper">
-                    <motion.img
-                      src={leader.img}
-                      alt={leader.name}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    <div className="leader-img-border"></div>
-                  </div>
-                  <h4 className="leader-name">{leader.name}</h4>
-                  <p className="leader-title" dangerouslySetInnerHTML={{ __html: leader.title }} />
+                <div className="service-icon-wrapper">
+                  <img
+                    src={service.icon}
+                    alt={service.alt}
+                    className="service-icon"
+                  />
                 </div>
+                <p className="service-name">{service.name}</p>
               </motion.div>
             ))}
           </motion.div>
-
-          <motion.div className="hero-additional-content" variants={fadeUp}>
-            <motion.h3
-              className="hero-subtitle"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            >
-              <span className="subtitle-text">TELANGANA 112</span>
-              <span className="subtitle-line"></span>
-            </motion.h3>
-            
-            <motion.h1 className="hero-title" variants={fadeUp}>
-             
-               <span className="title-erss">EMERGENCY RESPONSE SUPPORT SYSTEM</span>
-              <br />
-              <span className="title-highlight">TELANGANA POLICE</span>
-              <br />
-              <span className="title-welcome">WELCOMES YOU</span>
-            </motion.h1>
-          </motion.div>
         </motion.div>
 
-        <motion.div className="hero-right" variants={slideInRight} initial="hidden" animate="visible">
-          <div className="hero-image-container">
-            <motion.div className="hero-image-frame" whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }}>
-              <motion.img
-                key={buildingImage}
-                src={buildingImage}
-                alt="Command Control Centre"
-                className="hero-main-image"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-              />
+        {/* Leadership Section below logo */}
+        <motion.div className="hero-leadership-section" variants={fadeUp}>
+          <motion.h2 className="hero-section-title" variants={scaleIn}>
+            <span className="section-title-decorator">━━</span>
+            OUR LEADERSHIP
+            <span className="section-title-decorator">━━</span>
+          </motion.h2>
 
-              <div className="image-corner image-corner-tl"></div>
-              <div className="image-corner image-corner-tr"></div>
-              <div className="image-corner image-corner-bl"></div>
-              <div className="image-corner image-corner-br"></div>
+          <motion.div className="hero-leadership" variants={fadeUp}>
+            {/* Chief Minister Container */}
+            <motion.div
+              className="leader-profile"
+              variants={scaleIn}
+              whileHover={{
+                y: -10,
+                transition: { type: "spring", stiffness: 300 },
+              }}
+            >
+              <div className="leader-card">
+                <div className="leader-img-wrapper">
+                  <motion.img
+                    src={cmImage}
+                    alt="A. REVANTH REDDY"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <div className="leader-img-border"></div>
+                </div>
+                <h4 className="leader-name">A. REVANTH REDDY</h4>
+                <p className="leader-title" dangerouslySetInnerHTML={{ __html: "HON'BLE CHIEF MINISTER,<br />TELANGANA" }} />
+              </div>
             </motion.div>
 
-            <motion.img
-              src={risingLogo}
-              alt="Telangana Rising 2047"
-              className="hero-overlay-logo"
-              initial={{ opacity: 0, y: -20, rotate: -10 }}
-              animate={{ opacity: 1, y: 0, rotate: 0 }}
-              transition={{ delay: 1, duration: 0.8, type: "spring" }}
-              whileHover={{ scale: 1.1, rotate: 5 }}
-            />
-          </div>
+            {/* Director General of Police Container */}
+            <motion.div
+              className="leader-profile"
+              variants={scaleIn}
+              whileHover={{
+                y: -10,
+                transition: { type: "spring", stiffness: 300 },
+              }}
+            >
+              <div className="leader-card">
+                <div className="leader-img-wrapper-dgp">
+                  <motion.img
+                    src={dgpImage}
+                    alt="B. SHIVADHAR REDDY"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <div className="leader-img-border"></div>
+                </div>
+                <h4 className="leader-name">B. SHIVADHAR REDDY</h4>
+                <p className="leader-title" dangerouslySetInnerHTML={{ __html: "DIRECTOR GENERAL OF POLICE,<br />TELANGANA" }} />
+              </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
+
+      {/* RIGHT SIDE */}
+      <motion.div className="hero-right" variants={slideInRight} initial="hidden" animate="visible">
+        {/* Building Image at top */}
+        <div className="hero-image-container">
+          <motion.div className="hero-image-frame" whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }}>
+            <motion.img
+              key={buildingImage}
+              src={buildingImage}
+              alt="Command Control Centre"
+              className="hero-main-image"
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            />
+
+            <div className="image-corner image-corner-tl"></div>
+            <div className="image-corner image-corner-tr"></div>
+            <div className="image-corner image-corner-bl"></div>
+            <div className="image-corner image-corner-br"></div>
+          </motion.div>
+
+          <motion.img
+            src={risingLogo}
+            alt="Telangana Rising 2047"
+            className="hero-overlay-logo"
+            initial={{ opacity: 0, y: -20, rotate: -10 }}
+            animate={{ opacity: 1, y: 0, rotate: 0 }}
+            transition={{ delay: 1, duration: 0.8, type: "spring" }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+          />
+        </div>
+
+        {/* ERSS Welcome Text below image */}
+        <motion.div className="hero-text-content" variants={fadeUp}>
+         
+
+          <motion.h1 className="hero-title" variants={fadeUp}>
+
+            <span className="title-highlight">TELANGANA POLICE</span>
+            <br />
+            <span className="title-welcome">WELCOMES YOU</span>
+          </motion.h1>
+        </motion.div>
+      </motion.div>
     </section>
+    </>
   )
 }
 

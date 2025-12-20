@@ -6,7 +6,7 @@
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 10px;
 }
 
 /* Added animated floating orbs for visual consistency */
@@ -214,6 +214,7 @@
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(251, 191, 36, 0.3);
 }
 
 .social-icon::before {
@@ -221,12 +222,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  padding: 2px;
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.5), rgba(59, 130, 246, 0.5));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -235,46 +231,30 @@
   opacity: 1;
 }
 
-.facebook-icon::after {
-  content: "f";
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  color: #1877f2;
+.social-icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  /* filter: brightness(0) invert(1);
+  transition: filter 0.3s ease; */
 }
 
-.twitter-icon::after {
-  content: "𝕏";
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  color: #1da1f2;
-}
-
-.instagram-icon::after {
-  content: "◉";
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.youtube-icon::after {
-  content: "▶";
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  color: #ff0000;
+.social-links a:hover .social-icon-img {
+  filter: brightness(1) invert(0);
 }
 
 .email-icon::after {
   content: "✉";
   font-family: Arial, sans-serif;
   color: #fbbf24;
+  font-size: 18px;
 }
 
 .social-links a:hover .social-icon {
   transform: scale(1.1) rotate(5deg);
   box-shadow: 0 8px 24px rgba(251, 191, 36, 0.3);
+  border-color: #fbbf24;
+  background: rgba(251, 191, 36, 0.2);
 }
 
 /* Enhanced pageview counter with glassmorphism and animation */

@@ -5,20 +5,12 @@
   background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
   padding: 40px 60px;
   width: 100%;
+  margin: 0 auto;
   gap: 60px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 90vh;
   box-sizing: border-box;
   overflow: hidden;
-}
-
-/* Inner content wrapper to maintain max-width */
-.hero-content-wrapper {
-  display: flex;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  gap: 60px;
 }
 
 /* Animated background elements */
@@ -81,17 +73,18 @@
   }
 }
 
-/* Left Column */
+/* Updated left column layout for logo and leadership */
 .hero-left {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: space-between;
-  padding: 0px 20px 10px 10px;
+  justify-content: flex-start;
+  padding: 2px;
   z-index: 1;
   position: relative;
+  gap: 5vh;
 }
 
 /* Enhanced logo section with glassmorphism */
@@ -126,18 +119,69 @@
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
+/* New Dial 112 logo section styling */
+.hero-dial-logo-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* margin-bottom: 20px; */
+}
+
+.hero-dial-logo-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border: 3px solid rgb(149, 71, 71);
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 12px 48px rgba(255, 0, 0, 0.3), 0 0 60px rgba(255, 0, 0, 0.2);
+  transition: all 0.4s ease;
+  animation: pulseGlow 3s in-out infinite;
+}
+
+.hero-dial-logo-wrapper:hover {
+  box-shadow: 0 16px 64px rgba(255, 215, 0, 0.5), 0 0 80px rgba(255, 215, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+.hero-dial-logo {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 12px 48px rgba(255, 215, 0, 0.3), 0 0 60px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 16px 64px rgba(255, 215, 0, 0.5), 0 0 100px rgba(255, 215, 0, 0.4);
+  }
+}
+
 /* Enhanced text styling with gradients */
 .hero-text-content {
-  margin: 20px 0;
+  margin: 0;
   width: 100%;
+  text-align:center;
+  padding: 20px 40px 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .hero-subtitle {
   color: #ffd700;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  padding-top: 0;
+  margin-top: 0;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,48 +192,49 @@
 .subtitle-text {
   position: relative;
   padding: 0 20px;
+  white-space: nowrap;
 }
 
 .subtitle-line {
   flex: 1;
   height: 2px;
   background: linear-gradient(90deg, transparent, #ffd700, transparent);
-  margin-left: 20px;
+  min-width: 150px;
 }
 
 .hero-title {
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   line-height: 1.4;
-  margin: 30px 0;
+  margin: 20px 0 0;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
 }
 
-.title-erss {
-  background: linear-gradient(135deg, #fefeff 0%, #f04141 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-size: 2.2rem;
-  display: inline-block;
-  animation: glow 2s ease-in-out infinite;
-}
-
 .title-highlight {
-  background: linear-gradient(135deg, #b0f3fa 0%, #dcb9ff 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-size: 2.2rem;
+  font-size: 2rem;
   display: inline-block;
   animation: glow 2s ease-in-out infinite;
 }
 
 .title-welcome {
   color: #ffd700;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+}
+
+.title-erss {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.6rem;
+  display: inline-block;
+  animation: glow 2s ease-in-out infinite;
 }
 
 @keyframes glow {
@@ -204,10 +249,10 @@
 
 .hero-section-title {
   color: #ff6b6b;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
   text-transform: uppercase;
-  margin: 0px 0 0px;
+  margin: 0 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -221,13 +266,21 @@
   font-size: 0.8rem;
 }
 
+/* Leadership section container */
+.hero-leadership-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 /* Enhanced leadership cards with glassmorphism and 3D effects */
 .hero-leadership {
   display: flex;
   justify-content: space-around;
   gap: 30px;
   width: 100%;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 .leader-profile {
@@ -287,7 +340,31 @@
   align-items: center;
   justify-content: center;
 }
+.leader-img-wrapper-dgp {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.leader-img-wrapper-dgp img {
+  width: 200px;
+  height: 200px;
+  object-fit:fill;
+  object-position: 0px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  transition: transform 0.3s ease;
+  display: block;
+}
 .leader-img-wrapper img {
   width: calc(100% - 3px);
   height: calc(100% - 3px);
@@ -337,17 +414,13 @@
   line-height: 1.4;
 }
 
-/* Additional content section below leadership */
-.hero-additional-content {
-  margin-top: 30px;
-  width: 100%;
-}
-
-/* Enhanced right side with 3D frame effect */
+/* Updated right column for building image and text */
 .hero-right {
   flex: 1.2;
   position: relative;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
   z-index: 1;
 }
 
@@ -355,23 +428,21 @@
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 809px;
-  margin: 0 auto;
-  aspect-ratio: 709/450;
+  flex-shrink: 0;
 }
 
 .hero-image-frame {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 60vh;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
   transition: all 0.4s ease;
-  aspect-ratio: 709/450;
 }
 
 .hero-image-frame:hover {
+
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
@@ -379,7 +450,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
 }
 
 /* Added decorative corner accents */
@@ -445,34 +515,39 @@
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
 }
 
-/* Enhanced responsive design */
+/* Enhanced responsive design for new layout */
 @media (max-width: 900px) {
   .hero-container {
+    flex-direction: column;
     padding: 30px;
+    gap: 40px;
     min-height: auto;
+    border-radius: 16px;
   }
 
-  .hero-content-wrapper {
-    flex-direction: column;
-    gap: 40px;
+  .hero-dial-logo {
+    width: 220px;
+    height: 220px;
   }
 
   .hero-right {
-    min-height: 350px;
+    min-height: auto;
   }
 
-  .hero-image-container {
-    width: 95%;
-    max-width: 500px;
-    aspect-ratio: 709/450;
+  .hero-image-frame {
+    height: 300px;
   }
 
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .title-erss {
+    font-size: 1.3rem;
   }
 
   .title-highlight {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .hero-leadership {
@@ -486,32 +561,30 @@
     padding: 20px;
   }
 
-  .hero-content-wrapper {
-    gap: 30px;
+  .hero-dial-logo {
+    width: 180px;
+    height: 180px;
   }
 
-  .hero-image-container {
-    width: 90%;
-    max-width: 400px;
-    aspect-ratio: 709/450;
-  }
-
-  .hero-top-logos {
-    gap: 20px;
-  }
-
-  .hero-map,
-  .hero-police-logo {
-    height: 100px;
+  .hero-image-frame {
+    height: 250px;
   }
 
   .hero-title {
+    font-size: 1.1rem;
+  }
+
+  .title-erss {
+    font-size: 1rem;
+  }
+
+  .title-highlight {
     font-size: 1.2rem;
   }
 
-  /* .title-highlight {
-    font-size: 1.4rem;
-  } */
+  .title-welcome {
+    font-size: 1.1rem;
+  }
 
   .leader-card {
     padding: 20px 15px;
@@ -521,4 +594,65 @@
     width: 100px;
     height: 100px;
   }
+}
+.hero-services-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.hero-services-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 650px;
+}
+
+.service-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.service-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.service-icon-wrapper:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 6px 24px rgba(255, 215, 0, 0.3);
+}
+
+.service-icon {
+  width: calc(103% - 0px);
+  height: calc(103% - 0px);
+  object-fit:cover;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.service-name {
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  max-width: 80px;
 }

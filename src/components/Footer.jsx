@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import '../styles/Footer.css';
+import instagramIcon from '../assets/instagram-icon.png'
+import facebookIcon from '../assets/facebook-icon.png'
+import youtubeIcon from '../assets/youtube-icon.png'
+import xIcon from '../assets/x-icon.png'
+import gmailIcon from '../assets/gmail-icon.png'
 
 
 const Footer = () => {
@@ -44,8 +49,8 @@ const Footer = () => {
                 <span className="link-icon">→</span>Request Help
               </Link>
             </li>
-            <li>
-              <Link to="/citizen-login">
+            {/* <li>
+              {/* <Link to="/citizen-login">
                 <span className="link-icon">→</span>Citizen Signup
               </Link>
             </li>
@@ -53,19 +58,19 @@ const Footer = () => {
               <Link to="/citizen-login">
                 <span className="link-icon">→</span>Citizen Signin
               </Link>
-            </li>
-            <li>
+            </li> */} 
+            {/* <li>
               <Link to="/complaint-status">
                 <span className="link-icon">→</span>Complaint Status
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/officer-login">
                 <span className="link-icon">→</span>Officer Login
               </Link>
             </li>
-            <li>
-              <Link to="/download-app">
+            {/* <li> */}
+              {/* <Link to="/download-app">
                 <span className="link-icon">→</span>Download 112 India App
               </Link>
             </li>
@@ -73,7 +78,7 @@ const Footer = () => {
               <Link to="/feedback">
                 <span className="link-icon">→</span>Mobile App Feedback
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -125,38 +130,40 @@ const Footer = () => {
           <ul className="footer-links social-links">
             <li>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <span className="social-icon facebook-icon"></span>
+                <span className="social-icon">
+                  <img src={facebookIcon} alt="Facebook" className="social-icon-img" />
+                </span>
                 <span>Facebook</span>
               </a>
             </li>
             <li>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <span className="social-icon twitter-icon"></span>
+              <a href="https://x.com/112Telangana" target="_blank" rel="noopener noreferrer">
+                <span className="social-icon">
+                  <img src={xIcon} alt="X (Twitter)" className="social-icon-img" />
+                </span>
                 <span>Twitter</span>
               </a>
             </li>
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                <span className="social-icon instagram-icon"></span>
+              <a href="https://www.instagram.com/112telangana?igsh=MTNnOWxheGp0Z3IwMA==" target="_blank" rel="noopener noreferrer">
+                <span className="social-icon">
+                  <img src={instagramIcon} alt="Instagram" className="social-icon-img" />
+                </span>
                 <span>Instagram</span>
               </a>
             </li>
             <li>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                <span className="social-icon youtube-icon"></span>
+              <a href="https://www.youtube.com/@112-Telangana" target="_blank" rel="noopener noreferrer">
+                <span className="social-icon">
+                  <img src={youtubeIcon} alt="YouTube" className="social-icon-img" />
+                </span>
                 <span>Youtube</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:ts112@gov.in">
-                <span className="social-icon email-icon"></span>
-                <span>ts112@gov.in</span>
               </a>
             </li>
           </ul>
         </div>
 
-        {/* Total Pageviews Section */}
+        {/* Total Pageviews Section
         <div className="footer-section pageviews-section" data-aos="fade-up" data-aos-delay="400">
           <h3 className="footer-title">Total Pageviews</h3>
           <div className="pageview-counter">
@@ -164,7 +171,7 @@ const Footer = () => {
             <span className="pageview-number">{pageviews.toLocaleString()}</span>
             <span className="pageview-label">Visitors</span>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Copyright Section */}
