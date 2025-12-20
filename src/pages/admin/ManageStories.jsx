@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import initialStories from '../../data/stories.json';
+import api from '../../utils/api';
 
 const ManageStories = () => {
   const [stories, setStories] = useState([]);
@@ -13,28 +13,35 @@ const ManageStories = () => {
     text: ''
   });
 
-  useEffect(() => {
-    const stored = localStorage.getItem('erss_stories');
-    if (stored) {
-      setStories(JSON.parse(stored));
-    } else {
-      setStories(initialStories);
-      localStorage.setItem('erss_stories', JSON.stringify(initialStories));
+  const fetchStories = async () => {
+    try {
+      const data = await api.get('/public/stories');
+      setStories(data);
+    } catch (error) {
+      console.error('Failed to fetch stories', error);
     }
+  };
+
+  useEffect(() => {
+    fetchStories();
   }, []);
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this story?')) {
-      const updated = stories.filter(s => s.id !== id);
-      setStories(updated);
-      localStorage.setItem('erss_stories', JSON.stringify(updated));
+      try {
+        await api.delete(`/admin/stories/${id}`);
+        fetchStories();
+      } catch (error) {
+        console.error('Failed to delete story', error);
+        alert('Failed to delete story');
+      }
     }
   };
 
   const startEdit = (story) => {
     setIsEditing(true);
-    setIsAdding(true); // Open the form
-    setCurrentId(story.id);
+    setIsAdding(true);
+    setCurrentId(story._id);
     setStoryForm({
       district: story.district,
       date: story.date,
@@ -50,28 +57,20 @@ const ManageStories = () => {
     setStoryForm({ district: '', date: '', time: '', text: '' });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (isEditing) {
-      // Update existing
-      const updatedStories = stories.map(s => 
-        s.id === currentId ? { ...s, ...storyForm } : s
-      );
-      setStories(updatedStories);
-      localStorage.setItem('erss_stories', JSON.stringify(updatedStories));
-    } else {
-      // Add new
-      const story = {
-        id: `TG99-${Math.floor(Math.random() * 10000)}`,
-        ...storyForm
-      };
-      const updatedStories = [story, ...stories];
-      setStories(updatedStories);
-      localStorage.setItem('erss_stories', JSON.stringify(updatedStories));
+    try {
+      if (isEditing) {
+        await api.put(`/admin/stories/${currentId}`, storyForm);
+      } else {
+        await api.post('/admin/stories', storyForm);
+      }
+      fetchStories();
+      handleCancel();
+    } catch (error) {
+      console.error('Failed to save story', error);
+      alert('Failed to save story');
     }
-
-    handleCancel();
   };
 
   return (
@@ -79,30 +78,32 @@ const ManageStories = () => {
       <div className="dashboard-header">
         <h1>Manage Success Stories</h1>
         {!isAdding && (
-          <button className="btn-add" onClick={() => setIsAdding(true)}>
+          <button className="admin-btn btn-add" onClick={() => setIsAdding(true)}>
             Add New Story
           </button>
         )}
       </div>
 
       {isAdding && (
-        <div className="form-card">
+        <div className="admin-form-container">
           <h3>{isEditing ? 'Edit Story' : 'Add New Story'}</h3>
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <label>District</label>
               <input 
                 type="text" 
+                className="admin-input"
                 value={storyForm.district} 
                 onChange={e => setStoryForm({...storyForm, district: e.target.value})}
                 required 
               />
             </div>
-            <div className="form-row" style={{ display: 'flex', gap: '10px' }}>
+            <div className="form-row" style={{ display: 'flex', gap: '20px' }}>
               <div style={{ flex: 1 }}>
                 <label>Date</label>
                 <input 
                   type="date" 
+                  className="admin-input"
                   value={storyForm.date} 
                   onChange={e => setStoryForm({...storyForm, date: e.target.value})}
                   required 
@@ -112,6 +113,7 @@ const ManageStories = () => {
                 <label>Time</label>
                 <input 
                   type="time" 
+                  className="admin-input"
                   value={storyForm.time} 
                   onChange={e => setStoryForm({...storyForm, time: e.target.value})}
                   required 
@@ -122,14 +124,15 @@ const ManageStories = () => {
               <label>Story Text</label>
               <textarea 
                 rows="4" 
+                className="admin-textarea"
                 value={storyForm.text} 
                 onChange={e => setStoryForm({...storyForm, text: e.target.value})}
                 required 
               />
             </div>
             <div className="btn-group">
-              <button type="button" className="btn-cancel" onClick={handleCancel}>Cancel</button>
-              <button type="submit" className="btn-add">{isEditing ? 'Update Story' : 'Save Story'}</button>
+              <button type="button" className="admin-btn btn-cancel" onClick={handleCancel}>Cancel</button>
+              <button type="submit" className="admin-btn btn-submit">{isEditing ? 'Update Story' : 'Save Story'}</button>
             </div>
           </form>
         </div>
@@ -147,14 +150,14 @@ const ManageStories = () => {
         </thead>
         <tbody>
           {stories.map(story => (
-            <tr key={story.id}>
-              <td>{story.id}</td>
+            <tr key={story._id}>
+              <td>{story._id}</td>
               <td>{story.district}</td>
               <td>{story.date}</td>
               <td>{story.text.substring(0, 50)}...</td>
               <td>
                 <button className="action-btn btn-edit" onClick={() => startEdit(story)}>Edit</button>
-                <button className="action-btn btn-delete" onClick={() => handleDelete(story.id)}>Delete</button>
+                <button className="action-btn btn-delete" onClick={() => handleDelete(story._id)}>Delete</button>
               </td>
             </tr>
           ))}

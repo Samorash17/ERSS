@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
+import api from '../utils/api';
 import "../styles/SuccessStories.css"
 import storyimg from '../assets/Success.png';
 
 export default function SuccessStories() {
   const [expandedStories, setExpandedStories] = useState({});
+  const [stories, setStories] = useState([]);
   const { t } = useTranslation();
-  const stories = t('successStories.stories', { returnObjects: true });
+
+  useEffect(() => {
+    const fetchStories = async () => {
+        try {
+            const data = await api.get('/public/stories');
+            setStories(data);
+        } catch (error) {
+            console.error('Failed to fetch stories', error);
+        }
+    };
+    fetchStories();
+  }, []);
 
   const toggleExpanded = (index) => {
     setExpandedStories(prev => ({
@@ -41,7 +54,7 @@ export default function SuccessStories() {
             const shouldTruncate = story.text.length > 150;
             
             return (
-            <div key={index} className="story-card" style={{ animationDelay: `${index * 0.15}s` }}>
+            <div key={story._id || index} className="story-card" style={{ animationDelay: `${index * 0.15}s` }}>
               <div className="story-card-inner">
                 <div className="story-image-wrapper">
                   <img

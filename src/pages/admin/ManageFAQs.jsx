@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import initialFaqs from '../../data/faqs.json';
+import api from '../../utils/api';
 
 const ManageFAQs = () => {
   const [faqs, setFaqs] = useState([]);
@@ -11,28 +11,35 @@ const ManageFAQs = () => {
     answer: ''
   });
 
-  useEffect(() => {
-    const stored = localStorage.getItem('erss_faqs');
-    if (stored) {
-      setFaqs(JSON.parse(stored));
-    } else {
-      setFaqs(initialFaqs);
-      localStorage.setItem('erss_faqs', JSON.stringify(initialFaqs));
+  const fetchFaqs = async () => {
+    try {
+      const data = await api.get('/public/faqs');
+      setFaqs(data);
+    } catch (error) {
+      console.error('Failed to fetch FAQs', error);
     }
+  };
+
+  useEffect(() => {
+    fetchFaqs();
   }, []);
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this FAQ?')) {
-      const updated = faqs.filter(f => f.id !== id);
-      setFaqs(updated);
-      localStorage.setItem('erss_faqs', JSON.stringify(updated));
+      try {
+        await api.delete(`/admin/faqs/${id}`);
+        fetchFaqs();
+      } catch (error) {
+        console.error('Failed to delete FAQ', error);
+        alert('Failed to delete FAQ');
+      }
     }
   };
 
   const startEdit = (faq) => {
     setIsEditing(true);
     setIsAdding(true);
-    setCurrentId(faq.id);
+    setCurrentId(faq._id);
     setFaqForm({
       question: faq.question,
       answer: faq.answer
@@ -46,26 +53,20 @@ const ManageFAQs = () => {
     setFaqForm({ question: '', answer: '' });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (isEditing) {
-      const updatedFaqs = faqs.map(f => 
-        f.id === currentId ? { ...f, ...faqForm } : f
-      );
-      setFaqs(updatedFaqs);
-      localStorage.setItem('erss_faqs', JSON.stringify(updatedFaqs));
-    } else {
-      const faq = {
-        id: Date.now(),
-        ...faqForm
-      };
-      const updatedFaqs = [...faqs, faq];
-      setFaqs(updatedFaqs);
-      localStorage.setItem('erss_faqs', JSON.stringify(updatedFaqs));
+    try {
+      if (isEditing) {
+        await api.put(`/admin/faqs/${currentId}`, faqForm);
+      } else {
+        await api.post('/admin/faqs', faqForm);
+      }
+      fetchFaqs();
+      handleCancel();
+    } catch (error) {
+      console.error('Failed to save FAQ', error);
+      alert('Failed to save FAQ');
     }
-    
-    handleCancel();
   };
 
   return (
@@ -73,20 +74,21 @@ const ManageFAQs = () => {
       <div className="dashboard-header">
         <h1>Manage FAQs</h1>
         {!isAdding && (
-          <button className="btn-add" onClick={() => setIsAdding(true)}>
+          <button className="admin-btn btn-add" onClick={() => setIsAdding(true)}>
             Add New FAQ
           </button>
         )}
       </div>
 
       {isAdding && (
-        <div className="form-card">
+        <div className="admin-form-container">
           <h3>{isEditing ? 'Edit FAQ' : 'Add New FAQ'}</h3>
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <label>Question</label>
               <input 
                 type="text" 
+                className="admin-input"
                 value={faqForm.question} 
                 onChange={e => setFaqForm({...faqForm, question: e.target.value})}
                 required 
@@ -96,14 +98,15 @@ const ManageFAQs = () => {
               <label>Answer (HTML allowed)</label>
               <textarea 
                 rows="4" 
+                className="admin-textarea"
                 value={faqForm.answer} 
                 onChange={e => setFaqForm({...faqForm, answer: e.target.value})}
                 required 
               />
             </div>
             <div className="btn-group">
-              <button type="button" className="btn-cancel" onClick={handleCancel}>Cancel</button>
-              <button type="submit" className="btn-add">{isEditing ? 'Update FAQ' : 'Save FAQ'}</button>
+              <button type="button" className="admin-btn btn-cancel" onClick={handleCancel}>Cancel</button>
+              <button type="submit" className="admin-btn btn-submit">{isEditing ? 'Update FAQ' : 'Save FAQ'}</button>
             </div>
           </form>
         </div>
@@ -120,13 +123,13 @@ const ManageFAQs = () => {
         </thead>
         <tbody>
           {faqs.map(faq => (
-            <tr key={faq.id}>
-              <td>{faq.id}</td>
+            <tr key={faq._id}>
+              <td>{faq._id}</td>
               <td>{faq.question}</td>
               <td dangerouslySetInnerHTML={{ __html: faq.answer.substring(0, 50) + '...' }}></td>
               <td>
                 <button className="action-btn btn-edit" onClick={() => startEdit(faq)}>Edit</button>
-                <button className="action-btn btn-delete" onClick={() => handleDelete(faq.id)}>Delete</button>
+                <button className="action-btn btn-delete" onClick={() => handleDelete(faq._id)}>Delete</button>
               </td>
             </tr>
           ))}

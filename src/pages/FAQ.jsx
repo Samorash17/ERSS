@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import api from '../utils/api';
 import "../styles/FAQ.css";
 
 const FAQ = () => {
     const [activeIndex, setActiveIndex] = useState(null);
+    const [faqData, setFaqData] = useState([]);
     const { t } = useTranslation();
 
-    const faqData = t('faq.questions', { returnObjects: true });
+    useEffect(() => {
+        const fetchFaqs = async () => {
+            try {
+                const data = await api.get('/public/faqs');
+                setFaqData(data);
+            } catch (error) {
+                console.error('Failed to fetch FAQs', error);
+            }
+        };
+        fetchFaqs();
+    }, []);
 
     const toggleAccordion = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -23,7 +35,7 @@ const FAQ = () => {
                 {faqData.map((item, index) => (
                     <div 
                         className={`faq-item ${activeIndex === index ? 'active' : ''}`} 
-                        key={index}
+                        key={item._id || index}
                     >
                         <button 
                             className="faq-question" 
@@ -42,7 +54,7 @@ const FAQ = () => {
                             style={{ maxHeight: activeIndex === index ? '500px' : '0' }}
                         >
                             <div className="answer-content">
-                                <Trans i18nKey={`faq.questions.${index}.answer`} defaults={item.answer} components={{ p: <p />, ul: <ul />, li: <li />, strong: <strong /> }} />
+                                <div dangerouslySetInnerHTML={{ __html: item.answer }} />
                             </div>
                         </div>
                     </div>

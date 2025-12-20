@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import usersData from '../data/users.json';
+import api from '../utils/api';
 
 const AuthContext = createContext(null);
 
@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check local storage for existing session
+    // Check if user is logged in by checking localStorage (persisted user info)
     const storedUser = localStorage.getItem('erss_admin_user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -16,24 +16,23 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = (username, password) => {
-    // Simulate API call
-    const foundUser = usersData.find(
-      (u) => u.username === username && u.password === password
-    );
-
-    if (foundUser) {
-      // Remove password from state for security (even if it's mock data)
-      const { password, ...userWithoutPassword } = foundUser;
-      setUser(userWithoutPassword);
-      localStorage.setItem('erss_admin_user', JSON.stringify(userWithoutPassword));
+  const login = async (username, password) => {
+    try {
+      const data = await api.post('/auth/login', { username, password });
+      setUser(data);
+      localStorage.setItem('erss_admin_user', JSON.stringify(data));
       return { success: true };
-    } else {
-      return { success: false, message: 'Invalid credentials' };
+    } catch (error) {
+      return { success: false, message: error.message };
     }
   };
 
-  const logout = () => {
+  const logout = async () => {
+    try {
+      await api.post('/auth/logout', {});
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
     setUser(null);
     localStorage.removeItem('erss_admin_user');
   };
