@@ -582,7 +582,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%);
+    background: linear-gradient(135deg, #e4e7eb 0%, #d8e4f3 100%);
   }
 
   .nav-list.open {
@@ -593,7 +593,7 @@ body {
   .nav-link {
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 16px;
   }
 
