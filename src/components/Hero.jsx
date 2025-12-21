@@ -148,9 +148,9 @@ const Hero = () => {
                     />
                     <div className="leader-img-border"></div>
                   </div>
+                </div>
                   <h4 className="leader-name">{leader.name}</h4>
                   <p className="leader-title" dangerouslySetInnerHTML={{ __html: leader.title }} />
-                </div>
               </motion.div>
             ))}
           </motion.div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import api from '../utils/api';
 import "../styles/FAQ.css";
@@ -32,7 +32,7 @@ const FAQ = () => {
             </div>
             
             <div className="faq-list">
-                {faqData.map((item, index) => (
+                {faqs.map((item, index) => (
                     <div 
                         className={`faq-item ${activeIndex === index ? 'active' : ''}`} 
                         key={item._id || index}

@@ -241,10 +241,10 @@
 .leader-card {
   background: rgba(73, 249, 229, 0.244);
   backdrop-filter: blur(15px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  /* border: 2px solid rgba(255, 255, 255, 0.2); */
   border-radius: 24px;
-  padding: 30px 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 20px 20px;
+  box-shadow: 0 8px 32px rgba(66, 59, 59, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -279,7 +279,7 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 0;
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
@@ -323,7 +323,7 @@
 .leader-name {
   color: #ffffff;
   font-weight: 700;
-  margin: 10px 0;
+  margin: 20px 0 10px;
   font-size: 1rem;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   letter-spacing: 0.5px;
