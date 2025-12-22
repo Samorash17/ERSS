@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import api from '../utils/api';
-import "../styles/FAQ.css";
+import "../styles/faq.css";
 
 const FAQ = () => {
     const [activeIndex, setActiveIndex] = useState(null);
