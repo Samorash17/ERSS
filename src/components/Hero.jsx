@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import MarqueeBanner from './MarqueeBanner';
 
 import cmImage from '../assets/CM.png';
-import dgpImage from '../assets/dgp.jpg';
+import dgpImage from '../assets/DGP.jpg';
 import buildingImageDay from '../assets/tsiccc_building_day1.jpg';
 import buildingImageNight from '../assets/tsiccc_building_night.png';
 import risingLogo from '../assets/pic-hero-rising.jpg';
