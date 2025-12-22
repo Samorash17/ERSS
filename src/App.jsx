@@ -2,6 +2,7 @@ import './App.css'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/home'
 import NotFound from './pages/NotFound'
 import SOS from './pages/sos'
@@ -25,6 +26,7 @@ import ManageGallery from './pages/admin/ManageGallery'
 const RootLayout = () => {
   return (
     <div className="app-layout">
+      <ScrollToTop />
       <Navbar />
       <main className="main-content">
         <Outlet />

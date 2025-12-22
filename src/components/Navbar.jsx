@@ -3,9 +3,14 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../styles/Navbar.css';
 import AccessibilityControls from './AccessibilityControls';
-import govLogo from '../assets/logo-nav-1.jpg';
-import erssLogo from '../assets/logo-nav-2.png';
-import policeLogo from '../assets/logo-nav-3.jpg';
+import govLogo from '../assets/gov-logo.jpeg';
+import erssLogo from '../assets/logo-dial-112.jpg';
+import policeLogo from '../assets/tg-police-logo.jpg';
+import instagramIcon from '../assets/instagram-icon.png'
+import facebookIcon from '../assets/facebook-icon.png'
+import youtubeIcon from '../assets/youtube-icon.png'
+import xIcon from '../assets/x-icon.png'
+import gmailIcon from '../assets/gmail-icon.png'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -29,27 +34,21 @@ const Navbar = () => {
       {/* Top Bar */}
       <div className="top-bar">
         <div className="contact-info">
-          <span className="contact-icon">📧</span>
-          <span>{t('navbar.contactEmail')}</span>
-          <span className="divider">|</span>
-          <span className="contact-icon">📱</span>
-          <span>{t('navbar.contactPhone')}</span>
+          <img src={gmailIcon} alt="Gmail" className="contact-icon-img" />
+          <span>112telangana@gmail.com</span>
         </div>
         <div className="social-icons">
           <a href="#" className="icon facebook" aria-label="Facebook">
-            f
+            <img src={facebookIcon} alt="Facebook" className="social-icon-img" />
           </a>
-          <a href="#" className="icon twitter" aria-label="Twitter">
-            𝕏
+          <a href="https://x.com/112Telangana" className="icon twitter" aria-label="Twitter">
+            <img src={xIcon} alt="X (Twitter)" className="social-icon-img" />
           </a>
-          <a href="#" className="icon youtube" aria-label="YouTube">
-            ▶
+          <a href="https://www.youtube.com/@112-Telangana" className="icon youtube" aria-label="YouTube">
+            <img src={youtubeIcon} alt="YouTube" className="social-icon-img" />
           </a>
-          <a href="#" className="icon instagram" aria-label="Instagram">
-            📷
-          </a>
-          <a href="#" className="icon linkedin" aria-label="LinkedIn">
-            in
+          <a href="https://www.instagram.com/112telangana?igsh=MTNnOWxheGp0Z3IwMA==" className="icon instagram" aria-label="Instagram">
+            <img src={instagramIcon} alt="Instagram" className="social-icon-img" />
           </a>
         </div>
         <div className="top-bar-right">
@@ -130,7 +129,7 @@ const Navbar = () => {
               {t('navbar.links.requestHelp')}
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/citizen-login"
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
@@ -138,7 +137,7 @@ const Navbar = () => {
             >
               {t('navbar.links.citizenLogin')}
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to="/officer-login"
@@ -194,7 +193,7 @@ const Navbar = () => {
               {t('navbar.links.faqs')}
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/feedback"
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
@@ -202,7 +201,7 @@ const Navbar = () => {
             >
               {t('navbar.links.feedback')}
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>

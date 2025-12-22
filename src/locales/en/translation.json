@@ -28,12 +28,22 @@
     },
     "hero": {
         "subtitle": "TELANGANA 112",
-        "title": "EMERGENCY RESPONSE SUPPORT SYSTEM<br />TELANGANA POLICE<br />WELCOMES YOU",
+        "title": "EMERGENCY RESPONSE SUPPORT SYSTEM",
         "leadership": "OUR LEADERSHIP",
         "cmName": "A. REVANTH REDDY",
         "cmTitle": "HON'BLE CHIEF MINISTER,<br />TELANGANA",
-        "dgpName": "B. SHIVADER REDDY",
-        "dgpTitle": "DIRECTOR GENERAL OF POLICE,<br />TELANGANA"
+        "dgpName": "B. SHIVADHAR REDDY",
+        "dgpTitle": "DIRECTOR GENERAL OF POLICE,<br />TELANGANA",
+        "welcomeTitle": "TELANGANA POLICE",
+        "welcomeSubtitle": "WELCOMES YOU",
+        "services": {
+            "police": "Police",
+            "ambulance": "Ambulance",
+            "fire": "Fire Service",
+            "disaster": "Disaster Response",
+            "womenSafety": "Women Safety",
+            "childProtection": "Child Protection"
+        }
     },
     "helpline": {
         "bannerSubtitle": "24/7 HELPLINE SUPPORT",
@@ -259,5 +269,39 @@
                 "answer": "112 is designed to be a consolidated single number. However, the existing emergency numbers (100 for Police, 101 for Fire, 108 for Ambulance) continue to be in operation and are integrated into the 112 system."
             }
         ]
+    },
+    "marquee": {
+        "item1": "🚨 Emergency Helpline: Dial 112 for immediate assistance",
+        "item2": "⚡ 24/7 Emergency Response Services Available",
+        "item3": "🏥 Medical, Police, Fire & Disaster Response - All in One Call",
+        "item4": "📱 Download the Telangana 112 App for Quick Access",
+        "item5": "🎯 Your Safety is Our Priority - Stay Alert, Stay Safe",
+        "item6": "🚑 Fastest Response Time in Emergency Services"
+    },
+    "accessibility": {
+        "decreaseFont": "Decrease font size",
+        "normalFont": "Normal font size",
+        "increaseFont": "Increase font size"
+    },
+    "footer": {
+        "quickLinks": "Quick Links",
+        "resources": "Resources",
+        "contactUs": "Contact Us",
+        "followUs": "Follow Us",
+        "pageviews": "Total Pageviews",
+        "copyright": "Copyright © 2025 <span className=\"highlight\">Telangana Police</span> All rights reserved",
+        "links": {
+            "requestHelp": "Request Help",
+            "officerLogin": "Officer Login",
+            "faq": "FAQ",
+            "police": "Telangana Police",
+            "stories": "Success Stories",
+            "feedback": "Feedback",
+            "about": "About Us",
+            "contact": "Contact",
+            "terms": "Terms & Condition",
+            "privacy": "Privacy Policy"
+        },
+        "address": "Telangana State Police Integrated Command and Control Centre, Road No. 12, Banjara Hills, Hyderabad, Telangana 500034"
     }
 }
