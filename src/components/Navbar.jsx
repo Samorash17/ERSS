@@ -30,6 +30,7 @@ const Navbar = () => {
   }
 
   return (
+    <>
     <header className={`header-container ${isScrolled ? "scrolled" : ""}`}>
       {/* Top Bar */}
       <div className="top-bar">
@@ -84,6 +85,8 @@ const Navbar = () => {
           <img src={policeLogo} alt="Telangana Police" className="logo" />
         </div>
       </div>
+
+      </header>
 
       {/* Bottom Navigation Menu */}
       <nav className="main-nav">
@@ -204,7 +207,7 @@ const Navbar = () => {
           </li> */}
         </ul>
       </nav>
-    </header>
+    </>
   )
 }
 

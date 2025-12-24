@@ -32,7 +32,7 @@ const FAQ = () => {
             </div>
             
             <div className="faq-list">
-                {faqs.map((item, index) => (
+                {faqData.map((item, index) => (
                     <div 
                         className={`faq-item ${activeIndex === index ? 'active' : ''}`} 
                         key={item._id || index}
