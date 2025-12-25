@@ -101,7 +101,20 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+      {
+        path: "Terms-and-Conditions",
+        element: <Terms />
+      },
+      {
+        path: "Privacy-Policy",
+        element: <Privacy />
+      },
+      {
+        path: "Copyright",
+        element: <Copyright />
       }
+
     ],
   },
 ]);

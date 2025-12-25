@@ -7,6 +7,9 @@ import facebookIcon from '../assets/facebook-icon.png'
 import youtubeIcon from '../assets/youtube-icon.png'
 import xIcon from '../assets/x-icon.png'
 import gmailIcon from '../assets/gmail-icon.png'
+import '../styles/copyright.css';
+import '../styles/terms.css';
+import '../styles/privacy.css';
 
 
 const Footer = () => {
@@ -182,6 +185,7 @@ const Footer = () => {
           <Trans i18nKey="footer.copyright" components={{ span: <span className="highlight" /> }} />
         </div>
       </div>
+
     </footer>
   )
 }
