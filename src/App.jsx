@@ -22,6 +22,9 @@ import DashboardHome from './pages/admin/DashboardHome'
 import ManageStories from './pages/admin/ManageStories'
 import ManageFAQs from './pages/admin/ManageFAQs'
 import ManageGallery from './pages/admin/ManageGallery'
+import Terms from './pages/Terms'
+import Privacy from './pages/Privacy'
+import Copyright from './pages/Copyright'
 
 const RootLayout = () => {
   return (

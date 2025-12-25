@@ -117,12 +117,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/terms">
+              <Link to="/Terms-and-Conditions">
                 <span className="link-icon">→</span>{t('footer.links.terms')}
               </Link>
             </li>
             <li>
-              <Link to="/privacy">
+              <Link to="/Privacy-Policy">
                 <span className="link-icon">→</span>{t('footer.links.privacy')}
               </Link>
             </li>
