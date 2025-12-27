@@ -139,7 +139,7 @@
 }
 
 .hero-dial-logo-wrapper:hover {
-  box-shadow: 0 16px 64px rgba(255, 215, 0, 0.5), 0 0 80px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 16px 64px rgba(255, 0, 0, 0.3), 0 0 80px rgba(255, 0, 0, 0.2);
   transform: translateY(-5px);
 }
 
@@ -176,7 +176,7 @@
 
 .hero-subtitle {
   color: #ffd700;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   padding-top: 0;
   margin-top: 0;
   text-transform: uppercase;
@@ -197,9 +197,9 @@
 
 .subtitle-line {
   flex: 1;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(90deg, transparent, #ffd700, transparent);
-  min-width: 150px;
+  min-width: 100px;
 }
 
 .hero-title {
@@ -213,7 +213,8 @@
 }
 
 .title-highlight {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%); */
+  background: #ffd700;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -223,16 +224,37 @@
 }
 
 .title-welcome {
-  color: #ffd700;
+  color: #f7f6f4;
   font-size: 1.6rem;
 }
 
+.title-mission {
+  color: #ff6b6b;
+  font-size: 1.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 2px 10px rgba(255, 107, 107, 0.5);
+  letter-spacing: 2px;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.subtitle-mission {
+  color: #fbfbfb;
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
 .title-erss {
-  background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+  /* background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%); */
+  background-color: #ffd700;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   display: inline-block;
   animation: glow 2s ease-in-out infinite;
 }
@@ -332,7 +354,7 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 0;
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
@@ -385,17 +407,9 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
   z-index: -1;
-  animation: rotate 3s linear infinite;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
 
 .leader-name {
   color: #ffffff;
@@ -420,7 +434,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 140px;
+  gap: 45px;
   z-index: 1;
 }
 
@@ -434,7 +448,7 @@
 .hero-image-frame {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 80vh;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
@@ -511,7 +525,7 @@
 }
 
 .hero-overlay-logo:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
 }
 
@@ -542,13 +556,6 @@
     font-size: 1.4rem;
   }
 
-  .title-erss {
-    font-size: 1.3rem;
-  }
-
-  .title-highlight {
-    font-size: 1.5rem;
-  }
 
   .hero-leadership {
     flex-direction: column;
@@ -574,13 +581,6 @@
     font-size: 1.1rem;
   }
 
-  .title-erss {
-    font-size: 1rem;
-  }
-
-  .title-highlight {
-    font-size: 1.2rem;
-  }
 
   .title-welcome {
     font-size: 1.1rem;
@@ -637,13 +637,19 @@
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 215, 0, 0.6);
   box-shadow: 0 6px 24px rgba(255, 215, 0, 0.3);
+  transform: scale(1.1);
 }
 
 .service-icon {
   width: calc(103% - 0px);
   height: calc(103% - 0px);
-  object-fit:cover;
+  object-fit: cover;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.service-icon-wrapper:hover .service-icon {
+  transform: scale(1.05);
 }
 
 .service-name {

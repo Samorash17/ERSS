@@ -11,6 +11,7 @@ import facebookIcon from '../assets/facebook-icon.png'
 import youtubeIcon from '../assets/youtube-icon.png'
 import xIcon from '../assets/x-icon.png'
 import gmailIcon from '../assets/gmail-icon.png'
+import playStoreIcon from '../assets/playstore-icon.png'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -34,9 +35,8 @@ const Navbar = () => {
     <header className={`header-container ${isScrolled ? "scrolled" : ""}`}>
       {/* Top Bar */}
       <div className="top-bar">
-        <div className="contact-info">
-          <img src={gmailIcon} alt="Gmail" className="contact-icon-img" />
-          <span>112telangana@gmail.com</span>
+        <div className="contact-info-gmail">
+          <img src={gmailIcon} alt="Gmail" className="contact-icon-img-gmail" /><span>112telangana@gmail.com</span>
         </div>
         <div className="social-icons">
           <a href="#" className="icon facebook" aria-label="Facebook">
@@ -55,9 +55,15 @@ const Navbar = () => {
         <div className="top-bar-right">
           <AccessibilityControls />
           <div className="app-download">
-            <button className="download-btn">
-              <span className="android-icon">📱</span> {t('navbar.downloadApp')}
-            </button>
+            <a 
+              href="https://play.google.com/store/apps/details?id=in.cdac.ners.psa.mobile.android.national&pcampaignid=web_share" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="download-btn"
+            >
+              <img src={playStoreIcon} alt="Play Store" className="playstore-icon" />
+              {t('navbar.downloadApp')}
+            </a>
           </div>
         </div>
       </div>

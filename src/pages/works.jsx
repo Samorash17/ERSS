@@ -79,10 +79,10 @@ const Works = () => {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/zCZfvffsTTE"
+              src="https://www.youtube.com/embed/zCZfvffsTTE?rel=0&modestbranding=1"
               title="How it Works - Emergency Response System"
               style={{ border: 0 }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>

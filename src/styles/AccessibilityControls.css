@@ -3,8 +3,9 @@
   align-items: center;
   gap: 20px;
   padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(37, 52, 163, 0.1);
   border-radius: 4px;
+  z-index: 10;
 }
 
 /* Font Size Controls */
@@ -70,6 +71,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  z-index: 100;
 }
 
 .language-btn:hover {
@@ -101,6 +103,7 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   border-bottom: 1px solid #f0f0f0;
+  z-index: 10;
 }
 
 .language-option:last-child {
@@ -171,6 +174,7 @@
   .language-dropdown {
     min-width: 150px;
     right: -20px;
+    z-index: 10;
   }
   
   .language-option {

@@ -155,8 +155,7 @@ const Hero = () => {
                 variants={scaleIn}
                 custom={index}
                 whileHover={{
-                  scale: 1.1,
-                  rotate: 5,
+                  scale: 1.2,
                   transition: { type: "spring", stiffness: 300 },
                 }}
               >
@@ -176,9 +175,9 @@ const Hero = () => {
         {/* Leadership Section below logo */}
         <motion.div className="hero-leadership-section" variants={fadeUp}>
           <motion.h2 className="hero-section-title" variants={scaleIn}>
-            <span className="section-title-decorator">━━</span>
-            {t('hero.leadership')}
-            <span className="section-title-decorator">━━</span>
+            <span className="subtitle-line"></span>
+            <span className="subtitle-text">{t('hero.leadership')}</span>
+            <span className="subtitle-line"></span>
           </motion.h2>
 
           <motion.div className="hero-leadership" variants={fadeUp}>
@@ -276,7 +275,19 @@ const Hero = () => {
             <span className="title-welcome">{t('hero.welcomeSubtitle')}</span>
           </motion.h1>
         </motion.div>
+                <motion.div className="hero-text-content" variants={fadeUp}>
+         
+
+          <motion.h1 className="Mission-title" variants={fadeUp}>
+
+            <span className="title-mission">{t('hero.missionTitle')}</span>
+            <br />
+            <span className="subtitle-mission">{t('hero.missionSubtitle')}</span>
+          </motion.h1>
+        </motion.div>
+    
       </motion.div>
+      
     </section>
     </>
   )

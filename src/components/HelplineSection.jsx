@@ -103,7 +103,7 @@ const HelplineSection = () => {
             <div className="agent-glow"></div>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             className="icon-wrapper"
             initial={{ scale: 0, rotate: -180 }}
             animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
@@ -112,7 +112,7 @@ const HelplineSection = () => {
           >
             <img src={icon247 || "/placeholder.svg"} alt="24/7 Support" className="icon-247" />
             <div className="icon-glow-ring"></div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         <motion.div className="helpline-text-wrapper" variants={slideInRight}>

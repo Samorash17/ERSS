@@ -36,6 +36,8 @@
         "dgpTitle": "DIRECTOR GENERAL OF POLICE,<br />TELANGANA",
         "welcomeTitle": "TELANGANA POLICE",
         "welcomeSubtitle": "WELCOMES YOU",
+        "missionTitle": "MISSION & VISION",
+        "missionSubtitle": "This system is designed to provide prompt, integrated emergency public safety and security services across the state of Telangana, leveraging drones, artificial intelligence, and evidence-based systems to ensure rapid response anytime and anywhere.",
         "services": {
             "police": "Police",
             "ambulance": "Ambulance",
@@ -122,7 +124,7 @@
         }
     },
     "works": {
-        "title": "HOW DIAL 112 WORKS IN TELANGANA",
+        "title": "How Dial 112 Works in Telangana",
         "description": "When you dial <span className=\"emergency-number-inline\">112</span>, your call is automatically routed to the nearest emergency response centre. Here's how the system works:",
         "steps": {
             "reception": {
@@ -288,8 +290,14 @@
         "resources": "Resources",
         "contactUs": "Contact Us",
         "followUs": "Follow Us",
+        "location": "Location & Contact",
         "pageviews": "Total Pageviews",
         "copyright": "Copyright © 2025 <span className=\"highlight\">Telangana Police</span> All rights reserved",
+        "contact": {
+            "address": "Address",
+            "phone": "Phone",
+            "addressText": "Road No. 12, adj. Puri Jagannath Temple, Bhavani Nagar, Banjara Hills, Hyderabad, Telangana 500034"
+        },
         "links": {
             "requestHelp": "Request Help",
             "officerLogin": "Officer Login",
