@@ -25,7 +25,7 @@
     "gender": "Gender",
     "male": "Male",
     "female": "Female",
-    "transgender": "Transgender",
+    "transgender": "Others",
     "additionalInfo": "Additional Info",
     "mandatory": "* fields are mandatory",
     "locationMap": "Location Map",

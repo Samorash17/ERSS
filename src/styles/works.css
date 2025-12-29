@@ -437,6 +437,29 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .works-content {
+    gap: 35px;
+    padding: 0 30px;
+  }
+
+  .how-it-works-section {
+    padding: 50px 40px;
+  }
+
+  .main-title {
+    font-size: 38px;
+  }
+
+  .description {
+    font-size: 17px;
+  }
+
+  .video-section {
+    top: 80px;
+  }
+}
+
 @media (max-width: 1024px) {
   .works-content {
     grid-template-columns: 1fr;
@@ -446,6 +469,50 @@
   .video-section {
     position: relative;
     top: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .works-container {
+    padding: 70px 0;
+  }
+
+  .works-content {
+    padding: 0 25px;
+  }
+
+  .how-it-works-section {
+    padding: 45px 35px;
+    border-radius: 20px;
+  }
+
+  .main-title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .steps-works {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 28px;
+  }
+
+  .step-text-content {
+    width: 100%;
+  }
+
+  .video-header h2 {
+    font-size: 26px;
+  }
+
+  .request-help-text {
+    font-size: 17px;
   }
 }
 
@@ -489,9 +556,70 @@
   }
 }
 
+@media (max-width: 640px) {
+  .works-container {
+    padding: 50px 0;
+  }
+
+  .works-content {
+    padding: 0 18px;
+  }
+
+  .how-it-works-section {
+    padding: 35px 25px;
+  }
+
+  .main-title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .steps-works {
+    padding: 22px;
+  }
+
+  .step-image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .step-number-badge {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .step-title {
+    font-size: 20px;
+  }
+
+  .steps-works-content {
+    font-size: 15px;
+  }
+
+  .video-header h2 {
+    font-size: 22px;
+  }
+
+  .request-help-text {
+    font-size: 16px;
+  }
+
+  .notice-content {
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 480px) {
   .works-container {
     padding: 40px 0;
+  }
+
+  .works-content {
+    padding: 0 15px;
   }
 
   .how-it-works-section {
@@ -506,6 +634,21 @@
     font-size: 15px;
   }
 
+  .steps-works {
+    padding: 20px;
+  }
+
+  .step-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .step-number-badge {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
   .step-title {
     font-size: 18px;
   }
@@ -514,7 +657,90 @@
     font-size: 14px;
   }
 
+  .video-header h2 {
+    font-size: 20px;
+  }
+
   .request-help-text {
     font-size: 16px;
+  }
+
+  .emergency-notice {
+    padding: 16px;
+  }
+
+  .notice-content {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .works-container {
+    padding: 35px 0;
+  }
+
+  .works-content {
+    padding: 0 12px;
+  }
+
+  .how-it-works-section {
+    padding: 25px 16px;
+  }
+
+  .main-title {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .steps-works {
+    padding: 18px;
+    gap: 20px;
+  }
+
+  .step-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .step-number-badge {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .step-title {
+    font-size: 16px;
+  }
+
+  .steps-works-content {
+    font-size: 13px;
+  }
+
+  .video-header h2 {
+    font-size: 18px;
+  }
+
+  .video-header-line {
+    width: 60px;
+    height: 3px;
+  }
+
+  .request-help-section {
+    padding: 16px 24px;
+  }
+
+  .request-help-text {
+    font-size: 15px;
+  }
+
+  .emergency-notice {
+    padding: 14px;
+  }
+
+  .notice-content {
+    font-size: 11px;
   }
 }

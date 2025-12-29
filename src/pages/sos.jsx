@@ -1,8 +1,10 @@
 import { useState, useCallback } from "react"
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
+import { useTranslation } from 'react-i18next'
 import "../styles/sos.css"
 
 const SOS = () => {
+  const { t } = useTranslation();
   // Form state
   const [formData, setFormData] = useState({
     name: "",
@@ -83,19 +85,19 @@ const SOS = () => {
     e.preventDefault()
 
     if (!formData.name || !formData.mobile || !formData.eventType) {
-      alert("Please fill all mandatory fields")
+      alert(t('sos.validation.mandatoryFields'))
       return
     }
 
     if (formData.captcha !== captchaText) {
-      alert("Invalid captcha. Please try again.")
+      alert(t('sos.validation.invalidCaptcha'))
       generateCaptcha()
       setFormData((prev) => ({ ...prev, captcha: "" }))
       return
     }
 
     console.log("Form submitted:", formData)
-    alert("Emergency request submitted successfully!")
+    alert(t('sos.validation.successMessage'))
     handleClear()
   }
 
@@ -128,11 +130,11 @@ const SOS = () => {
 
       <div className="sos-emergency-banner">
         <span className="warning-icon">⚠️</span>
-        <span>THIS IS AN EMERGENCY FACILITY. USERS ARE ADVISED TO USE THIS SERVICE CAREFULLY.</span>
+        <span>{t('sos.warningBanner')}</span>
       </div>
 
       <h1 className="sos-page-title">
-        <span className="sos-title-gradient">Request Emergency Help</span>
+        <span className="sos-title-gradient">{t('sos.pageTitle')}</span>
       </h1>
 
       <form onSubmit={handleSubmit} className="sos-form">
@@ -141,34 +143,34 @@ const SOS = () => {
           <div className="sos-form-section">
             <div className="sos-section-header">
               <span className="sos-section-icon">👤</span>
-              <h2>Personal Information</h2>
+              <h2>{t('sos.personalInfo.title')}</h2>
               <span className="sos-step-badge">1</span>
             </div>
 
             <div className="sos-form-group">
               <label>
-                Name <span className="sos-required-star">*</span>
+                {t('sos.personalInfo.name')} <span className="sos-required-star">*</span>
               </label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Enter your full name"
+                placeholder={t('sos.personalInfo.namePlaceholder')}
                 required
               />
             </div>
               
             <div className="sos-form-group">
               <label>
-                Mobile No <span className="sos-required-star">*</span>
+                {t('sos.personalInfo.mobile')} <span className="sos-required-star">*</span>
               </label>
               <input
                 type="tel"
                 name="mobile"
                 value={formData.mobile}
                 onChange={handleInputChange}
-                placeholder="Enter 10 digit mobile number"
+                placeholder={t('sos.personalInfo.mobilePlaceholder')}
                 pattern="[0-9]{10}"
                 required
               />
@@ -179,19 +181,19 @@ const SOS = () => {
                 {/* Event Type <span className="sos-required-star">*</span> */}
               </label>
               <select name="eventType" value={formData.eventType} onChange={handleInputChange} required>
-                <option value="">-- Select Emergency Type --</option>
-                <option value="Medical Emergency">🏥 Medical Emergency</option>
-                <option value="Fire">🔥 Fire</option>
-                <option value="Accident">🚗 Accident</option>
-                <option value="Crime">🚨 Crime</option>
-                <option value="Natural Disaster">🌪️ Natural Disaster</option>
-                <option value="Other">📋 Other</option>
+                <option value="">{t('sos.emergencyDetails.selectEmergencyType')}</option>
+                <option value="Medical Emergency">🏥 {t('sos.emergencyDetails.medical')}</option>
+                <option value="Fire">🔥 {t('sos.emergencyDetails.fire')}</option>
+                <option value="Accident">🚗 {t('sos.emergencyDetails.accident')}</option>
+                <option value="Crime">🚨 {t('sos.emergencyDetails.crime')}</option>
+                <option value="Natural Disaster">🌪️ {t('sos.emergencyDetails.naturalDisaster')}</option>
+                <option value="Other">📋 {t('sos.emergencyDetails.other')}</option>
               </select>
             </div>
 
             <div className="sos-form-group sos-gender-group">
               <label>
-                Gender <span className="sos-required-star">*</span>
+                {t('sos.personalInfo.gender')} <span className="sos-required-star">*</span>
               </label>
               <div className="sos-radio-group">
                 <label className="sos-radio-label">
@@ -202,7 +204,7 @@ const SOS = () => {
                     checked={formData.gender === "Male"}
                     onChange={handleInputChange}
                   />
-                  <span>Male</span>
+                  <span>{t('sos.personalInfo.male')}</span>
                 </label>
                 <label className="sos-radio-label">
                   <input
@@ -212,7 +214,7 @@ const SOS = () => {
                     checked={formData.gender === "Female"}
                     onChange={handleInputChange}
                   />
-                  <span>Female</span>
+                  <span>{t('sos.personalInfo.female')}</span>
                 </label>
                 <label className="sos-radio-label">
                   <input
@@ -222,23 +224,23 @@ const SOS = () => {
                     checked={formData.gender === "Transgender"}
                     onChange={handleInputChange}
                   />
-                  <span>Transgender</span>
+                  <span>{t('sos.personalInfo.transgender')}</span>
                 </label>
               </div>
             </div>
 
             <div className="sos-form-group sos-textarea-group">
-              <label>Additional Info</label>
+              <label>{t('sos.personalInfo.additionalInfo')}</label>
               <textarea
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
-                placeholder="Provide any additional details about the emergency"
+                placeholder={t('sos.personalInfo.additionalInfoPlaceholder')}
                 rows="4"
               />
             </div>
 
-            <p className="sos-mandatory-note">* Fields are mandatory</p>
+            <p className="sos-mandatory-note">{t('sos.mandatoryNote')}</p>
           </div>
 
           {/* <div className="form-divider"></div> */}
@@ -247,7 +249,7 @@ const SOS = () => {
           <div className="sos-form-section">
             <div className="sos-section-header">
               <span className="sos-section-icon">📍</span>
-              <h2>Emergency Location</h2>
+              <h2>{t('sos.locationDetails.emergencyLocation')}</h2>
               <span className="sos-step-badge">2</span>
             </div>
 
@@ -256,7 +258,7 @@ const SOS = () => {
                 type="text"
                 value={locationInput}
                 onChange={(e) => setLocationInput(e.target.value)}
-                placeholder="🔍 Search your location here..."
+                placeholder={`🔍 ${t('sos.locationDetails.searchLocation')}`}
                 className="sos-location-input"
               />
             </div>
@@ -269,15 +271,15 @@ const SOS = () => {
               </LoadScript>
             </div>
 
-            <p className="sos-map-note">💡 Drag the marker to adjust your exact location</p>
+            <p className="sos-map-note">💡 {t('sos.locationDetails.mapNote')}</p>
 
             <div className="sos-coordinates-display">
               <div className="sos-coordinate-item">
-                <span className="sos-coord-label">Latitude:</span>
+                <span className="sos-coord-label">{t('sos.locationDetails.latitude')}:</span>
                 <span className="sos-coord-value">{formData.latitude || "---"}</span>
               </div>
               <div className="sos-coordinate-item">
-                <span className="sos-coord-label">Longitude:</span>
+                <span className="sos-coord-label">{t('sos.locationDetails.longitude')}:</span>
                 <span className="sos-coord-value">{formData.longitude || "---"}</span>
               </div>
             </div>
@@ -287,30 +289,30 @@ const SOS = () => {
           <div className="sos-form-section">
             <div className="sos-section-header">
               <span className="sos-section-icon">📋</span>
-              <h2>Address Details</h2>
+              <h2>{t('sos.locationDetails.addressDetails')}</h2>
               <span className="sos-step-badge">3</span>
             </div>
 
             <div className="sos-form-group">
               <label>
-                State <span className="sos-required-star">*</span>
+                {t('sos.locationDetails.state')} <span className="sos-required-star">*</span>
               </label>
               <input
                 type="text"
                 name="state"
                 value={formData.state}
                 onChange={handleInputChange}
-                placeholder="State"
+                placeholder={t('sos.locationDetails.state')}
                 required
               />
             </div>
 
             <div className="sos-form-group">
               <label>
-                District <span className="sos-required-star">*</span>
+                {t('sos.locationDetails.district')} <span className="sos-required-star">*</span>
               </label>
               <select name="district" value={formData.district} onChange={handleInputChange} required>
-                <option value="">-- Select District --</option>
+                <option value="">{t('sos.locationDetails.selectDistrict')}</option>
                 <option value="Adilabad">Adilabad</option>
                 <option value="Bhadradri Kothagudem">Bhadradri Kothagudem</option>
                 <option value="Hyderabad">Hyderabad</option>
@@ -348,33 +350,33 @@ const SOS = () => {
 
             <div className="sos-form-group">
               <label>
-                Place <span className="sos-required-star">*</span>
+                {t('sos.locationDetails.place')} <span className="sos-required-star">*</span>
               </label>
               <input
                 type="text"
                 name="place"
                 value={formData.place}
                 onChange={handleInputChange}
-                placeholder="Enter area/locality name"
+                placeholder={t('sos.locationDetails.placePlaceholder')}
                 required
               />
             </div>
 
             <div className="sos-form-group sos-textarea-group">
               <label>
-                Address <span className="sos-required-star">*</span>
+                {t('sos.locationDetails.fullAddress')} <span className="sos-required-star">*</span>
               </label>
               <textarea
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
-                placeholder="Enter complete address with landmarks"
+                placeholder={t('sos.locationDetails.fullAddressPlaceholder')}
                 rows="4"
                 required
               />
             </div>
 
-            <p className="sos-mandatory-note">* Fields are mandatory</p>
+            <p className="sos-mandatory-note">{t('sos.mandatoryNote')}</p>
           </div>
         </div>
 
@@ -382,7 +384,7 @@ const SOS = () => {
         <div className="sos-captcha-section">
           <div className="sos-captcha-display">
             <span className="sos-captcha-text">{captchaText}</span>
-            <button type="button" className="sos-captcha-refresh" onClick={generateCaptcha} aria-label="Refresh captcha">
+            <button type="button" className="sos-captcha-refresh" onClick={generateCaptcha} aria-label={t('sos.captcha.refresh')}>
               🔄
             </button>
           </div>
@@ -392,7 +394,7 @@ const SOS = () => {
             name="captcha"
             value={formData.captcha}
             onChange={handleInputChange}
-            placeholder="Enter the characters shown above"
+            placeholder={t('sos.captcha.placeholder')}
             className="sos-captcha-input"
             required
           />
@@ -401,10 +403,10 @@ const SOS = () => {
         {/* BUTTONS */}
         <div className="sos-form-actions">
           <button type="button" onClick={handleClear} className="sos-btn-clear">
-            <span>Clear Form</span>
+            <span>{t('sos.buttons.clearForm')}</span>
           </button>
           <button type="submit" className="sos-btn-submit">
-            <span>🚨 Request Emergency Help</span>
+            <span>🚨 {t('sos.buttons.submitRequest')}</span>
           </button>
         </div>
       </form>

@@ -25,6 +25,8 @@ import ManageGallery from './pages/admin/ManageGallery'
 import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
 import Copyright from './pages/Copyright'
+import AboutUs from './pages/AboutUs'
+import ImageGallery from './pages/ImageGallery'
 
 const RootLayout = () => {
   return (
@@ -116,6 +118,14 @@ const router = createBrowserRouter([
       {
         path: "Copyright",
         element: <Copyright />
+      },
+      {
+        path: "about",
+        element: <AboutUs />
+      },
+      {
+        path: "image-gallery",
+        element: <ImageGallery />
       }
 
     ],

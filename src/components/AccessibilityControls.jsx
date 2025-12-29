@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../styles/AccessibilityControls.css';
 
@@ -6,6 +6,7 @@ const AccessibilityControls = () => {
   const { i18n } = useTranslation();
   const [fontSize, setFontSize] = useState('medium');
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
   const languages = [
     { code: 'en', name: 'English', nativeName: 'English' },
@@ -15,6 +16,20 @@ const AccessibilityControls = () => {
 
   // Sync state with current i18n language
   const currentLang = languages.find(l => l.code === i18n.resolvedLanguage) || languages[0];
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowLanguageDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Apply font size to document root
   useEffect(() => {
@@ -79,7 +94,7 @@ const AccessibilityControls = () => {
       </div>
 
       {/* Language Selector */}
-      <div className="language-selector">
+      <div className="language-selector" ref={dropdownRef}>
         <button 
           className="language-btn"
           onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}

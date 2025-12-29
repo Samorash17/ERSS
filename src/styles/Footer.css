@@ -325,6 +325,16 @@
   grid-column: span 1;
 }
 
+/* Map Section - Hidden by default, shown only on mobile */
+.mobile-map {
+  display: none;
+}
+
+/* Desktop map - shown by default */
+.desktop-map {
+  display: block;
+}
+
 .location-content {
   display: flex;
   flex-direction: column;
@@ -478,23 +488,44 @@
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "resources follow"
+      "quick-links location"
+      "map map";
+    gap: 30px;
     padding: 40px 20px;
-    text-align: center;
+  }
+
+  /* Assign grid areas to specific sections */
+  .footer-section:nth-child(1) { /* Quick Links */
+    grid-area: quick-links;
+  }
+
+  .footer-section:nth-child(2) { /* Resources */
+    grid-area: resources;
+  }
+
+  .footer-section:nth-child(3) { /* Follow Us */
+    grid-area: follow;
+  }
+
+  .footer-section:nth-child(4) { /* Location */
+    grid-area: location;
+  }
+
+  .footer-section:nth-child(5) { /* Map Section */
+    grid-area: map;
   }
 
   .footer-section {
-    align-items: center;
-  }
-
-  .location-section {
-    grid-column: span 1;
+    align-items: flex-start;
     text-align: left;
   }
 
   .footer-links {
-    text-align: center;
+    text-align: left;
   }
 
   .footer-title {
@@ -503,17 +534,12 @@
   }
 
   .footer-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .location-section .footer-title::after {
     left: 0;
     transform: none;
   }
 
   .footer-links li:hover {
-    transform: translateX(0) scale(1.05);
+    transform: translateX(5px);
   }
 
   .pageview-counter {
@@ -524,19 +550,108 @@
     font-size: 36px;
   }
 
+  /* Map section styling for mobile */
+  .map-section {
+    margin-top: 20px;
+  }
+
+  .map-section .map-container {
+    margin-top: 0;
+  }
+
   .map-container iframe {
-    height: 140px;
+    height: 200px;
+  }
+
+  /* Hide map section on desktop */
+  .map-section {
+    display: none;
+  }
+}
+
+/* Show map section only on mobile */
+@media (max-width: 768px) {
+  .mobile-map {
+    display: block !important;
+  }
+  
+  /* Hide desktop map from location section on mobile */
+  .desktop-map {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "resources"
+      "quick-links"
+      "follow"
+      "location"
+      "map";
+    gap: 25px;
+    padding: 35px 18px;
+  }
+
+  .footer-title {
+    font-size: 17px;
+    margin-bottom: 18px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    padding: 7px 11px;
+  }
+
+  .pageview-counter {
+    padding: 25px 18px;
+  }
+
+  .pageview-number {
+    font-size: 34px;
+  }
+
+  .pageview-label {
+    font-size: 13px;
+  }
+
+  .copyright {
+    font-size: 14px;
+    padding: 0 18px;
+  }
+
+  .social-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .map-container iframe {
+    height: 180px;
+  }
+
+  .contact-item {
+    padding: 11px;
+  }
+
+  .contact-text strong {
+    font-size: 13px;
+  }
+
+  .contact-text p {
+    font-size: 13px;
   }
 }
 
 @media (max-width: 480px) {
   .footer-content {
     padding: 30px 15px;
-    gap: 35px;
+    gap: 22px;
   }
 
   .footer-title {
     font-size: 16px;
+    margin-bottom: 16px;
   }
 
   .footer-links a {
@@ -567,14 +682,83 @@
   }
 
   .contact-item {
-    padding: 12px;
+    padding: 10px;
   }
 
   .contact-text strong {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .contact-text p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-content {
+    padding: 25px 12px;
+    gap: 20px;
+  }
+
+  .footer-title {
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  .footer-links a {
     font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  .pageview-counter {
+    padding: 20px 15px;
+  }
+
+  .pageview-number {
+    font-size: 28px;
+  }
+
+  .pageview-label {
+    font-size: 11px;
+  }
+
+  .copyright {
+    font-size: 12px;
+    padding: 0 12px;
+  }
+
+  .social-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .social-icon-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .map-container iframe {
+    height: 140px;
+  }
+
+  .contact-item {
+    padding: 8px;
+  }
+
+  .contact-text strong {
+    font-size: 11px;
+  }
+
+  .contact-text p {
+    font-size: 11px;
+  }
+
+  .contact-row {
+    gap: 8px;
+  }
+
+  .contact-icon {
+    font-size: 16px;
+    min-width: 20px;
   }
 }

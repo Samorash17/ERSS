@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import api from '../utils/api';
 import "../styles/faq.css";
 
 const FAQ = () => {
@@ -9,44 +8,10 @@ const FAQ = () => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        const fetchFaqs = async () => {
-            try {
-                const data = await api.get('/public/faqs');
-                setFaqData(data);
-            } catch (error) {
-                console.error('Failed to fetch FAQs', error);
-                // Fallback FAQ data for demo
-                setFaqData([
-                    {
-                        _id: '1',
-                        question: 'What is Telangana 112?',
-                        answer: 'Telangana 112 is an integrated emergency response system that provides immediate assistance for police, medical, fire, and disaster emergencies through a single number - 112.'
-                    },
-                    {
-                        _id: '2',
-                        question: 'How do I contact emergency services?',
-                        answer: 'Simply dial <b>112</b> from any phone (mobile or landline) to reach our emergency response center. The call is free and available 24/7.'
-                    },
-                    {
-                        _id: '3',
-                        question: 'What services are available through 112?',
-                        answer: '<ul><li>Police Emergency Services</li><li>Medical Emergency & Ambulance</li><li>Fire Emergency Services</li><li>Disaster Response</li><li>Women Safety Services</li><li>Child Protection Services</li></ul>'
-                    },
-                    {
-                        _id: '4',
-                        question: 'Is the 112 service available in multiple languages?',
-                        answer: 'Yes, our emergency response system supports multiple languages including Telugu, Hindi, English, and other regional languages to ensure effective communication.'
-                    },
-                    {
-                        _id: '5',
-                        question: 'How quickly can I expect help after calling 112?',
-                        answer: 'Our target response time varies by emergency type and location, but we strive to dispatch help within <b>5-15 minutes</b> for critical emergencies in urban areas.'
-                    }
-                ]);
-            }
-        };
-        fetchFaqs();
-    }, []);
+        // Use translation data directly instead of API call
+        const translatedFaqs = t('faq.questions', { returnObjects: true });
+        setFaqData(translatedFaqs);
+    }, [t]);
 
     const toggleAccordion = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -63,10 +28,10 @@ const FAQ = () => {
 
             <div className="faq-container">
                 <div className="faq-header">
-                    <h1 className="faq-title">Frequently Asked Questions</h1>
-                    <div className="faq-title-underline">TELANGANA 112</div>
+                    <h1 className="faq-title">{t('faq.title')}</h1>
+                    <div className="faq-title-underline">{t('faq.titleUnderline')}</div>
                     <p className="faq-subtitle">
-                        Find answers to common questions about our emergency response services and how to access help when you need it most.
+                        {t('faq.subtitle')}
                     </p>
                 </div>
                 
@@ -74,7 +39,7 @@ const FAQ = () => {
                     {faqData.map((item, index) => (
                         <div 
                             className={`faq-item ${activeIndex === index ? 'open' : ''}`} 
-                            key={item._id || index}
+                            key={index}
                         >
                             <button 
                                 className="faq-question" 

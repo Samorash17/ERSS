@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import enTranslation from '../locales/en/translation.json';
+import hiTranslation from '../locales/hi/translation.json'; 
 import teTranslation from '../locales/te/translation.json';
 
 i18n
@@ -25,6 +26,9 @@ i18n
       },
       te: {
         translation: teTranslation
+      },
+      hi: {                    // Add Hindi resource
+        translation: hiTranslation
       }
     }
   });

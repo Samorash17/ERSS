@@ -1,13 +1,16 @@
 import '../styles/MarqueeBanner.css';
+import { useTranslation } from 'react-i18next';
 
 const MarqueeBanner = () => {
+  const { t } = useTranslation();
+  
   const announcements = [
-    "🚨 Emergency Helpline: Dial 112 for immediate assistance",
-    "⚡ 24/7 Emergency Response Services Available",
-    "🏥 Medical, Police, Fire & Disaster Response - All in One Call",
-    "📱 Download the Telangana 112 App for Quick Access",
-    "🎯 Your Safety is Our Priority - Stay Alert, Stay Safe",
-    "🚑 Fastest Response Time in Emergency Services",
+    t('marquee.item1'),
+    t('marquee.item2'),
+    t('marquee.item3'),
+    t('marquee.item4'),
+    t('marquee.item5'),
+    t('marquee.item6'),
   ];
 
   return (

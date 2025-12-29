@@ -367,6 +367,29 @@
 }
 
 /* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .helpline-content {
+    gap: 45px;
+    padding: 50px 35px;
+  }
+
+  .icon-wrapper {
+    right: -35px;
+  }
+
+  .helpline-banner {
+    padding: 50px 35px;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.9rem;
+  }
+
+  .dial-number {
+    font-size: 2.3rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .helpline-content {
     gap: 50px;
@@ -375,6 +398,59 @@
 
   .icon-wrapper {
     right: -40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .helpline-container {
+    min-height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .helpline-banner {
+    margin: 35px auto 35px;
+    padding: 45px 30px;
+    width: 92%;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.7rem;
+  }
+
+  .dial-number {
+    font-size: 2.1rem;
+  }
+
+  .helpline-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 25px;
+    gap: 35px;
+  }
+
+  .text-card {
+    padding: 40px 30px;
+  }
+
+  .helpline-text-wrapper {
+    width: 100%;
+  }
+
+  .helpline-paragraph {
+    text-align: left;
+  }
+
+  .icon-wrapper {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .helpline-heading {
+    font-size: 1.6rem;
+  }
+
+  .helpline-subheading {
+    font-size: 1.15rem;
   }
 }
 
@@ -431,6 +507,54 @@
   }
 }
 
+@media (max-width: 640px) {
+  .helpline-banner {
+    padding: 35px 25px;
+    width: 96%;
+  }
+
+  .helpline-banner-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.4rem;
+  }
+
+  .dial-number {
+    font-size: 1.8rem;
+  }
+
+  .helpline-banner-text {
+    font-size: 1.05rem;
+  }
+
+  .agent-image {
+    height: 320px;
+  }
+
+  .icon-247 {
+    width: 60px;
+  }
+
+  .text-card {
+    padding: 30px 22px;
+  }
+
+  .helpline-heading {
+    font-size: 1.4rem;
+  }
+
+  .helpline-subheading {
+    font-size: 1.05rem;
+  }
+
+  .helpline-paragraph {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
   .helpline-banner {
     padding: 30px 20px;
@@ -476,5 +600,59 @@
 
   .helpline-paragraph {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .helpline-banner {
+    padding: 25px 16px;
+  }
+
+  .helpline-banner-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.1rem;
+  }
+
+  .dial-number {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .helpline-banner-text {
+    font-size: 0.95rem;
+  }
+
+  .agent-image {
+    height: 220px;
+  }
+
+  .icon-247 {
+    width: 45px;
+  }
+
+  .text-card {
+    padding: 22px 18px;
+  }
+
+  .helpline-heading {
+    font-size: 1.1rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .heading-line {
+    max-width: 50px;
+  }
+
+  .helpline-subheading {
+    font-size: 0.95rem;
+  }
+
+  .helpline-paragraph {
+    font-size: 0.9rem;
   }
 }

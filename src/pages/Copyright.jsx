@@ -1,6 +1,9 @@
 import "../styles/copyright.css";
+import { useTranslation } from 'react-i18next';
 
 const Copyright = () => {
+    const { t } = useTranslation();
+    
     return (
         <div className="copyright-container">
             {/* Background Effects */}
@@ -11,19 +14,19 @@ const Copyright = () => {
 
             {/* Main Card */}
             <div className="copyright-card">
-                <h1 className="copyright-title">Copyright Notice</h1>
+                <h1 className="copyright-title">{t('copyright.title')}</h1>
                 <p className="copyright-subtitle">
-                    Emergency Response & Safety System (ERSS)
+                    {t('copyright.subtitle')}
                 </p>
 
                 <div className="copyright-section">
                     <p>
-                        Material featured on this Portal may be reproduced free of charge after taking proper permission by sending a mail to us. However, the material has to be reproduced accurately and not to be used in a derogatory manner or in a misleading context. Wherever the material is being published or issued to others, the source must be prominently acknowledged. However, the permission to reproduce this material shall not extend to any material which is identified as being copyright of a third party. Authorisation to reproduce such material must be obtained from the departments/copyright holders concerned.
+                        {t('copyright.content')}
                     </p>
                 </div>
 
                 <div className="copyright-footer">
-                    © {new Date().getFullYear()} Telangana Police. All Rights Reserved.
+                    © {new Date().getFullYear()} {t('copyright.footer')}
                 </div>
             </div>
         </div>

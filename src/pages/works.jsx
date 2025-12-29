@@ -1,4 +1,5 @@
 import { useTranslation, Trans } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import "../styles/works.css"
 import callOperatorImage from "../assets/emergency-call-operator-receiving-phone-call.jpg"
 import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
@@ -6,6 +7,11 @@ import emergencyVehiclesImage from "../assets/emergency-vehicles-police-ambulanc
 
 const Works = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleRequestHelp = () => {
+    navigate('/request-help');
+  };
 
   return (
     <div className="works-container">
@@ -87,7 +93,7 @@ const Works = () => {
             ></iframe>
           </div>
 
-          <div className="request-help-section">
+          <div className="request-help-section" onClick={handleRequestHelp}>
             <div className="request-help-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

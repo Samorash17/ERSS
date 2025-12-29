@@ -4,7 +4,7 @@ import quickRescueImage from "../assets/quick-rescue.jpg"
 import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
 import multiTranslationImage from "../assets/multi-translation.jpg"
 import availability from "../assets/24-by-7.jpg"
-import multiService from "../assets/multi-service.jpg"
+import multiService from "../assets/multi-service.png"
 import advancedIvrImage from "../assets/advanced.png"
 import gps from "../assets/GPS.png"
 import vehicletracking from "../assets/vehicletracking.png"
@@ -102,9 +102,9 @@ function Features() {
                 <img src={advancedIvrImage} alt="Advanced IVR Filtering" className="feature-icon-img" />
               </div>
             </div>
-            <h3 className="feature-title">Advanced IVR Filtering</h3>
+            <h3 className="feature-title">{t('features.items.advancedIvr.title')}</h3>
             <p className="feature-description">
-              ERSS uses an intelligent Interactive Voice Response (IVR) system to quickly filter and prioritize emergency calls, ensuring critical cases are routed to the right responders without delay.
+              {t('features.items.advancedIvr.desc')}
             </p>
           </div>
 
@@ -114,9 +114,9 @@ function Features() {
                 <img src={ai} alt="Artificial Intelligence" className="feature-icon-img" />
               </div>
             </div>
-            <h3 className="feature-title">Artificial Intelligence</h3>
+            <h3 className="feature-title">{t('features.items.artificialIntelligence.title')}</h3>
             <p className="feature-description">
-              By leveraging Artificial Intelligence, ERSS analyzes incoming data to assess emergency severity, recommend actions, and support faster, smarter decision-making. 
+              {t('features.items.artificialIntelligence.desc')}
             </p>
           </div>
 
@@ -126,21 +126,21 @@ function Features() {
                 <img src={drone} alt="Drone Patrolling & Surveillance" className="feature-icon-img" />
               </div>
             </div>
-            <h3 className="feature-title">Drone Patrolling & Surveillance</h3>
+            <h3 className="feature-title">{t('features.items.dronePatrolling.title')}</h3>
             <p className="feature-description">
-              Autonomous drone patrolling enables real-time aerial monitoring of emergency locations, helping authorities assess situations quickly and respond more effectively. 
+              {t('features.items.dronePatrolling.desc')}
             </p>
           </div>
 
           <div className="feature-card" style={{ "--delay": "0.9s" }}>
             <div className="feature-icon-wrapper">
               <div className="feature-icon-circle">
-                <img src={gps} alt="Advanced IVR Filtering" className="feature-icon-img" />
+                <img src={gps} alt="Advanced Location Tracking System" className="feature-icon-img" />
               </div>
             </div>
-            <h3 className="feature-title">Advanced Location Tracking System</h3>
+            <h3 className="feature-title">{t('features.items.advancedLocationTracking.title')}</h3>
             <p className="feature-description">
-              An enhanced location detection system provides precise, real-time tracking of caller and incidents, ensuring accurate navigation and faster emergency response. 
+              {t('features.items.advancedLocationTracking.desc')}
             </p>
           </div>
 
@@ -150,9 +150,9 @@ function Features() {
                 <img src={vehicletracking} alt="Active Vehicle Tracking" className="feature-icon-img" />
               </div>
             </div>
-            <h3 className="feature-title">Active Vehicle Tracking</h3>
+            <h3 className="feature-title">{t('features.items.activeVehicleTracking.title')}</h3>
             <p className="feature-description">
-              ERSS enables real-time tracking of emergency vehicles, allowing control centers to monitor movement, optimize routes, and ensure the fastest possible response to incidents. 
+              {t('features.items.activeVehicleTracking.desc')}
             </p>
           </div>
 
@@ -162,9 +162,9 @@ function Features() {
                 <img src={forensic} alt="Forensic Desk (Live Video Assistance)" className="feature-icon-img" />
               </div>
             </div>
-            <h3 className="feature-title">Forensic Desk (Live Video Assistance)</h3>
+            <h3 className="feature-title">{t('features.items.forensicDesk.title')}</h3>
             <p className="feature-description">
-              The Forensic Desk feature enables real-time video communication between victims, field officers, and forensic experts. Through secure video calls, experts can visually assess the situation, guide immediate actions, and help collect critical evidence during emergencies. 
+              {t('features.items.forensicDesk.desc')}
             </p>
           </div>
         </div>

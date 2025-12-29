@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import "../styles/login.css"
 import logoDial from '../assets/logo-dial-112.jpg'
 
@@ -15,11 +17,14 @@ const Login = () => {
   const [errors, setErrors] = useState({})
   const [showPassword, setShowPassword] = useState(false)
 
-  // Generate random captcha
+  const { login } = useAuth()
+  const navigate = useNavigate()
+
+  // Generate random captcha (simplified for easier testing)
   const generateCaptcha = () => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     let result = ""
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 4; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length))
     }
     return result
@@ -47,19 +52,15 @@ const Login = () => {
 
     if (!formData.username.trim()) {
       newErrors.username = "Username is required"
-    } else if (formData.username.length < 3) {
-      newErrors.username = "Username must be at least 3 characters"
     }
 
     if (!formData.password) {
       newErrors.password = "Password is required"
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters"
     }
 
     if (!formData.captcha.trim()) {
       newErrors.captcha = "Captcha is required"
-    } else if (formData.captcha !== captchaText) {
+    } else if (formData.captcha.toLowerCase() !== captchaText.toLowerCase()) {
       newErrors.captcha = "Captcha does not match"
     }
 
@@ -75,6 +76,31 @@ const Login = () => {
     }
 
     setIsLoading(true)
+    setErrors({}) // Clear any previous errors
+
+    try {
+      // Use the login function from AuthContext
+      const result = await login(formData.username, formData.password)
+      
+      if (result.success) {
+        // Navigate to admin panel on successful login
+        navigate('/admin')
+      } else {
+        // Set error message from the login result
+        setErrors({ general: result.message || 'Login failed. Please check your credentials.' })
+        // Refresh captcha after failed login attempt
+        setCaptchaText(generateCaptcha())
+        setFormData(prev => ({ ...prev, captcha: "" }))
+      }
+    } catch (error) {
+      console.error('Login error:', error)
+      setErrors({ general: 'An unexpected error occurred. Please try again.' })
+      // Refresh captcha after error
+      setCaptchaText(generateCaptcha())
+      setFormData(prev => ({ ...prev, captcha: "" }))
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const refreshCaptcha = () => {
@@ -117,24 +143,7 @@ const Login = () => {
         {/* Right Section - Login Form */} 
         <div className="login-form-section">
           <div className="login-form-container">
-            <div className="security-icon">
-              <div className="login-icon-card officer-icon-card">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-              <div className="login-icon-card lock-icon-card">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-            </div>
+
 
             <h3 className="login-form-title">Secure Login</h3>  
                       

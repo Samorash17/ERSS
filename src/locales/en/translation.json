@@ -120,6 +120,30 @@
             "multiLanguage": {
                 "title": "Multi-Language Support",
                 "desc": "Available in multiple languages to ensure accessibility for all citizens of Telangana."
+            },
+            "advancedIvr": {
+                "title": "Advanced IVR Filtering",
+                "desc": "ERSS uses an intelligent Interactive Voice Response (IVR) system to quickly filter and prioritize emergency calls, ensuring critical cases are routed to the right responders without delay."
+            },
+            "artificialIntelligence": {
+                "title": "Artificial Intelligence",
+                "desc": "By leveraging Artificial Intelligence, ERSS analyzes incoming data to assess emergency severity, recommend actions, and support faster, smarter decision-making."
+            },
+            "dronePatrolling": {
+                "title": "Drone Patrolling & Surveillance",
+                "desc": "Autonomous drone patrolling enables real-time aerial monitoring of emergency locations, helping authorities assess situations quickly and respond more effectively."
+            },
+            "advancedLocationTracking": {
+                "title": "Advanced Location Tracking System",
+                "desc": "An enhanced location detection system provides precise, real-time tracking of caller and incidents, ensuring accurate navigation and faster emergency response."
+            },
+            "activeVehicleTracking": {
+                "title": "Active Vehicle Tracking",
+                "desc": "ERSS enables real-time tracking of emergency vehicles, allowing control centers to monitor movement, optimize routes, and ensure the fastest possible response to incidents."
+            },
+            "forensicDesk": {
+                "title": "Forensic Desk (Live Video Assistance)",
+                "desc": "The Forensic Desk feature enables real-time video communication between victims, field officers, and forensic experts. Through secure video calls, experts can visually assess the situation, guide immediate actions, and help collect critical evidence during emergencies."
             }
         }
     },
@@ -194,6 +218,8 @@
     "sos": {
         "title": "Emergency Assistance Request",
         "subtitle": "Please fill out the form below to request immediate assistance. Our team is ready to help 24/7.",
+        "warningBanner": "THIS IS AN EMERGENCY FACILITY. USERS ARE ADVISED TO USE THIS SERVICE CAREFULLY.",
+        "pageTitle": "Request Emergency Help",
         "personalInfo": {
             "title": "Personal Information",
             "name": "Full Name",
@@ -201,17 +227,26 @@
             "mobile": "Mobile Number",
             "mobilePlaceholder": "Enter your mobile number",
             "email": "Email Address (Optional)",
-            "emailPlaceholder": "Enter your email address"
+            "emailPlaceholder": "Enter your email address",
+            "gender": "Gender",
+            "male": "Male",
+            "female": "Female",
+            "transgender": "Others",
+            "additionalInfo": "Additional Info",
+            "additionalInfoPlaceholder": "Provide any additional details about the emergency"
         },
         "emergencyDetails": {
             "title": "Emergency Details",
             "nature": "Nature of Emergency",
             "selectNature": "Select Emergency Type",
+            "selectEmergencyType": "-- Select Emergency Type --",
             "medical": "Medical Emergency",
             "fire": "Fire Accident",
             "police": "Police Assistance",
             "accident": "Road Accident",
             "womenSafety": "Women Safety",
+            "crime": "Crime",
+            "naturalDisaster": "Natural Disaster",
             "other": "Other",
             "description": "Description",
             "descriptionPlaceholder": "Briefly describe the emergency situation...",
@@ -222,21 +257,71 @@
         },
         "locationDetails": {
             "title": "Location Details",
+            "emergencyLocation": "Emergency Location",
+            "addressDetails": "Address Details",
+            "searchLocation": "Search your location here...",
+            "mapNote": "Drag the marker to adjust your exact location",
+            "latitude": "Latitude",
+            "longitude": "Longitude",
             "note": "Note",
             "instruction": "Tap on the map to pinpoint your exact location for faster response.",
             "address": "Current Address / Landmark",
             "addressPlaceholder": "E.g., Near Main Bus Stop, MG Road",
+            "fullAddress": "Address",
+            "fullAddressPlaceholder": "Enter complete address with landmarks",
             "district": "District",
             "districtPlaceholder": "Enter District",
+            "selectDistrict": "-- Select District --",
+            "state": "State",
+            "place": "Place",
+            "placePlaceholder": "Enter area/locality name",
             "pincode": "Pincode",
             "pincodePlaceholder": "Enter Pincode"
         },
+        "captcha": {
+            "placeholder": "Enter the characters shown above",
+            "refresh": "Refresh captcha"
+        },
+        "buttons": {
+            "clearForm": "Clear Form",
+            "submitRequest": "Request Emergency Help"
+        },
+        "validation": {
+            "mandatoryFields": "Please fill all mandatory fields",
+            "invalidCaptcha": "Invalid captcha. Please try again.",
+            "successMessage": "Emergency request submitted successfully!"
+        },
+        "mandatoryNote": "* Fields are mandatory",
         "submitBtn": "Submit Request"
     },
     "faq": {
         "title": "Frequently Asked Questions",
+        "subtitle": "Find answers to common questions about our emergency response services and how to access help when you need it most.",
+        "titleUnderline": "TELANGANA 112",
         "contactLink": "Contact Support",
         "footerText": "Still have questions?",
+        "fallbackQuestions": [
+            {
+                "question": "What is Telangana 112?",
+                "answer": "Telangana 112 is an integrated emergency response system that provides immediate assistance for police, medical, fire, and disaster emergencies through a single number - 112."
+            },
+            {
+                "question": "How do I contact emergency services?",
+                "answer": "Simply dial <b>112</b> from any phone (mobile or landline) to reach our emergency response center. The call is free and available 24/7."
+            },
+            {
+                "question": "What services are available through 112?",
+                "answer": "<ul><li>Police Emergency Services</li><li>Medical Emergency & Ambulance</li><li>Fire Emergency Services</li><li>Disaster Response</li><li>Women Safety Services</li><li>Child Protection Services</li></ul>"
+            },
+            {
+                "question": "Is the 112 service available in multiple languages?",
+                "answer": "Yes, our emergency response system supports multiple languages including Telugu, Hindi, English, and other regional languages to ensure effective communication."
+            },
+            {
+                "question": "How quickly can I expect help after calling 112?",
+                "answer": "Our target response time varies by emergency type and location, but we strive to dispatch help within <b>5-15 minutes</b> for critical emergencies in urban areas."
+            }
+        ],
         "questions": [
             {
                 "question": "What is ERSS (Dial 112)?",
@@ -301,6 +386,7 @@
         "links": {
             "requestHelp": "Request Help",
             "officerLogin": "Officer Login",
+            "downloadApp": "Download 112 India App",
             "faq": "FAQ",
             "police": "Telangana Police",
             "stories": "Success Stories",
@@ -311,5 +397,46 @@
             "privacy": "Privacy Policy"
         },
         "address": "Telangana State Police Integrated Command and Control Centre, Road No. 12, Banjara Hills, Hyderabad, Telangana 500034"
-    }
+    },
+  "admin": {
+    "panel": "Admin Panel",
+    "welcome": "Welcome",
+    "dashboard": "Dashboard",
+    "overview": "Dashboard Overview",
+    "welcomeBack": "Welcome back",
+    "manageStories": "Manage Stories",
+    "manageFaqs": "Manage FAQs",
+    "manageGallery": "Manage Gallery",
+    "logout": "Logout",
+    "successStories": "Success Stories",
+    "mediaGallery": "Media Gallery",
+    "storiesDescription": "Manage stories shared by citizens and officers.",
+    "faqsDescription": "Update Frequently Asked Questions.",
+    "galleryDescription": "Upload and manage images in the gallery."
+  },
+  "auth": {
+    "loginFailed": "Login failed",
+    "logoutFailed": "Logout failed"
+  },
+  "copyright": {
+    "title": "Copyright Notice",
+    "subtitle": "Emergency Response & Safety System (ERSS)",
+    "content": "Material featured on this Portal may be reproduced free of charge after taking proper permission by sending a mail to us. However, the material has to be reproduced accurately and not to be used in a derogatory manner or in a misleading context. Wherever the material is being published or issued to others, the source must be prominently acknowledged. However, the permission to reproduce this material shall not extend to any material which is identified as being copyright of a third party. Authorisation to reproduce such material must be obtained from the departments/copyright holders concerned.",
+    "footer": "Telangana Police. All Rights Reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Emergency Response & Safety System (ERSS)",
+    "content1": "This portal does not automatically capture any specific personal information from you, (like name, phone number or e-mail address), that allows us to identify you individually",
+    "content2": "If this Portal requests you to provide personal information, you will be informed for the particular purposes for which the information is gathered and adequate security measures will be taken to protect your personal information.",
+    "content3": "We do not sell or share any personally identifiable information volunteered on this Portal site to any third party (public/private). Any information provided to this Portal will be protected from loss, misuse, unauthorized access or disclosure, alteration, or destruction",
+    "content4": "We gather certain information about the User, such as Internet protocol (IP) addresses, domain name, browser type, operating system, the date and time of the visit and the pages visited. We make no attempt to link these addresses with the identity of individuals visiting our site unless an attempt to damage the site has been detected.",
+    "lastUpdated": "Last updated: January 2025"
+  },
+  "gallery": {
+    "title": "Image Gallery",
+    "subtitle": "Explore our collection of emergency response activities and achievements",
+    "failedToFetch": "Failed to fetch gallery"
+  }
 }
+

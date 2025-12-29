@@ -593,6 +593,24 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) {
+  .sos-container {
+    padding: 35px 18px;
+  }
+
+  .sos-page-title {
+    font-size: 42px;
+  }
+
+  .sos-form-sections {
+    gap: 25px;
+  }
+
+  .sos-form-section {
+    padding: 25px;
+  }
+}
+
 @media (max-width: 1200px) {
   .sos-form-sections {
     grid-template-columns: 1fr;
@@ -600,6 +618,33 @@
 
   .sos-page-title {
     font-size: 36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sos-container {
+    padding: 30px 16px;
+  }
+
+  .sos-page-title {
+    font-size: 32px;
+  }
+
+  .sos-emergency-banner {
+    font-size: 15px;
+    padding: 18px 25px;
+  }
+
+  .sos-form-section {
+    padding: 22px;
+  }
+
+  .sos-captcha-section {
+    padding: 25px;
+  }
+
+  .sos-captcha-input {
+    width: 280px;
   }
 }
 
@@ -643,5 +688,254 @@
 
   .sos-coordinates-display {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .sos-container {
+    padding: 18px 12px;
+  }
+
+  .sos-page-title {
+    font-size: 26px;
+  }
+
+  .sos-emergency-banner {
+    font-size: 13px;
+    padding: 14px 18px;
+  }
+
+  .sos-form-section {
+    padding: 18px;
+  }
+
+  .sos-section-header h2 {
+    font-size: 18px;
+  }
+
+  .sos-form-group input[type="text"],
+  .sos-form-group input[type="tel"],
+  .sos-form-group select,
+  .sos-form-group textarea,
+  .sos-location-input {
+    padding: 11px 14px;
+    font-size: 13px;
+  }
+
+  .sos-captcha-section {
+    padding: 18px;
+  }
+
+  .sos-captcha-text {
+    font-size: 24px;
+    letter-spacing: 6px;
+  }
+
+  .sos-btn-clear,
+  .sos-btn-submit {
+    padding: 14px 40px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sos-container {
+    padding: 15px 10px;
+  }
+
+  .sos-page-title {
+    font-size: 24px;
+  }
+
+  .sos-emergency-banner {
+    font-size: 12px;
+    padding: 12px 15px;
+  }
+
+  .sos-form-section {
+    padding: 16px;
+  }
+
+  .sos-section-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+
+  .sos-section-header h2 {
+    font-size: 17px;
+  }
+
+  .sos-section-icon {
+    font-size: 24px;
+  }
+
+  .sos-step-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .sos-form-group {
+    margin-bottom: 18px;
+  }
+
+  .sos-form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .sos-form-group input[type="text"],
+  .sos-form-group input[type="tel"],
+  .sos-form-group select,
+  .sos-form-group textarea,
+  .sos-location-input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .sos-radio-label {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .sos-captcha-section {
+    padding: 16px;
+  }
+
+  .sos-captcha-display {
+    padding: 10px 12px;
+  }
+
+  .sos-captcha-text {
+    font-size: 22px;
+    letter-spacing: 5px;
+    padding: 5px 12px;
+  }
+
+  .sos-captcha-refresh {
+    padding: 6px;
+  }
+
+  .sos-captcha-refresh svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sos-btn-clear,
+  .sos-btn-submit {
+    padding: 12px 32px;
+    font-size: 14px;
+  }
+
+  .sos-coordinate-item {
+    padding: 10px;
+  }
+
+  .sos-coord-label {
+    font-size: 11px;
+  }
+
+  .sos-coord-value {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sos-container {
+    padding: 12px 8px;
+  }
+
+  .sos-page-title {
+    font-size: 22px;
+  }
+
+  .sos-emergency-banner {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+
+  .sos-form-section {
+    padding: 14px;
+  }
+
+  .sos-section-header h2 {
+    font-size: 16px;
+  }
+
+  .sos-section-icon {
+    font-size: 22px;
+  }
+
+  .sos-step-badge {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .sos-form-group {
+    margin-bottom: 16px;
+  }
+
+  .sos-form-group label {
+    font-size: 12px;
+  }
+
+  .sos-form-group input[type="text"],
+  .sos-form-group input[type="tel"],
+  .sos-form-group select,
+  .sos-form-group textarea,
+  .sos-location-input {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .sos-radio-label {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .sos-captcha-section {
+    padding: 14px;
+  }
+
+  .sos-captcha-display {
+    padding: 8px 10px;
+  }
+
+  .sos-captcha-text {
+    font-size: 20px;
+    letter-spacing: 4px;
+    padding: 4px 10px;
+  }
+
+  .sos-captcha-refresh {
+    padding: 5px;
+  }
+
+  .sos-captcha-refresh svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .sos-btn-clear,
+  .sos-btn-submit {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+
+  .sos-coordinate-item {
+    padding: 8px;
+  }
+
+  .sos-coord-label {
+    font-size: 10px;
+  }
+
+  .sos-coord-value {
+    font-size: 12px;
+  }
+
+  .warning-icon {
+    font-size: 24px;
   }
 }
