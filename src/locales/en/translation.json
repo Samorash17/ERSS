@@ -291,6 +291,15 @@
             "invalidCaptcha": "Invalid captcha. Please try again.",
             "successMessage": "Emergency request submitted successfully!"
         },
+        "location": {
+            "notSupported": "Geolocation is not supported by your browser",
+            "permissionDenied": "Location access denied. Please enable location permissions.",
+            "unavailable": "Location information is unavailable.",
+            "timeout": "Location request timed out.",
+            "error": "An error occurred while getting your location.",
+            "detecting": "Detecting...",
+            "useMyLocation": "Use My Location"
+        },
         "mandatoryNote": "* Fields are mandatory",
         "submitBtn": "Submit Request"
     },

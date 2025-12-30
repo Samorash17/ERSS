@@ -115,7 +115,6 @@ const ImageGallery = () => {
             />
             <div className="image-overlay">
               <div className="overlay-content">
-                <span className="view-icon">👁️</span>
                 <p className="image-title">{image.alt}</p>
               </div>
             </div>

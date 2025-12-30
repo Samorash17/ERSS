@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
 import { useTranslation } from 'react-i18next'
 import "../styles/sos.css"
@@ -29,11 +29,184 @@ const SOS = () => {
 
   const [locationInput, setLocationInput] = useState("")
   const [captchaText, setCaptchaText] = useState("gfy5yi")
+  const [locationLoading, setLocationLoading] = useState(false)
+  const [locationError, setLocationError] = useState("")
+
+  // List of valid Telangana districts for matching
+  const telanganaDistricts = [
+    "Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagitial", "Jangaon",
+    "Jayashankar Bhupalapally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar",
+    "Khammam", "Kumuram Bheem Asifabad", "Mahabubabad", "Mahabubnagar",
+    "Mancherial", "Medak", "Medchal–Malkajgiri", "Mulugu", "Nagarkurnool",
+    "Nalgonda", "Narayanpet", "Nirmal", "Nizamabad", "Peddapalli",
+    "Rajanna Sircilla", "Ranga Reddy", "Sangareddy", "Siddipet", "Suryapet",
+    "Vikarabad", "Wanaparthy", "Warangal Rural", "Yadadri Bhuvanagiri"
+  ]
+
+  // Match district name from Google Maps to our dropdown options
+  const matchDistrict = (googleDistrict) => {
+    if (!googleDistrict) return ""
+    
+    const normalizedInput = googleDistrict.toLowerCase().replace(/[^a-z]/g, '')
+    
+    // Direct match first
+    const exactMatch = telanganaDistricts.find(d => 
+      d.toLowerCase() === googleDistrict.toLowerCase()
+    )
+    if (exactMatch) return exactMatch
+    
+    // Fuzzy match - check if district name contains or is contained
+    const fuzzyMatch = telanganaDistricts.find(d => {
+      const normalizedDistrict = d.toLowerCase().replace(/[^a-z]/g, '')
+      return normalizedDistrict.includes(normalizedInput) || 
+             normalizedInput.includes(normalizedDistrict)
+    })
+    if (fuzzyMatch) return fuzzyMatch
+    
+    // Common variations
+    const variations = {
+      'rangareddy': 'Ranga Reddy',
+      'rangareddi': 'Ranga Reddy',
+      'medchalmalkajgiri': 'Medchal–Malkajgiri',
+      'medchal': 'Medchal–Malkajgiri',
+      'warangal': 'Warangal Rural',
+      'bhadradrikothagudem': 'Bhadradri Kothagudem',
+      'jayashankarbhupalapally': 'Jayashankar Bhupalapally',
+      'jogulambagadwal': 'Jogulamba Gadwal',
+      'kurumbheemasiabad': 'Kumuram Bheem Asifabad',
+      'asifabad': 'Kumuram Bheem Asifabad',
+      'rajannasircilla': 'Rajanna Sircilla',
+      'sircilla': 'Rajanna Sircilla',
+      'yadadribhuvanagiri': 'Yadadri Bhuvanagiri',
+    }
+    
+    return variations[normalizedInput] || ""
+  }
 
   const mapContainerStyle = {
     width: "100%",
     height: "300px",
   }
+
+  // Reverse geocode coordinates to get address details
+  const reverseGeocode = async (lat, lng) => {
+    try {
+      const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+      if (!apiKey) {
+        console.warn("Google Maps API key not found")
+        return null
+      }
+
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`
+      )
+      const data = await response.json()
+
+      if (data.status === "OK" && data.results.length > 0) {
+        const result = data.results[0]
+        const addressComponents = result.address_components
+
+        let state = ""
+        let district = ""
+        let place = ""
+        let fullAddress = result.formatted_address || ""
+
+        // Parse address components
+        addressComponents.forEach((component) => {
+          const types = component.types
+
+          if (types.includes("administrative_area_level_1")) {
+            state = component.long_name
+          }
+          if (types.includes("administrative_area_level_3") || types.includes("locality")) {
+            district = component.long_name
+          }
+          if (types.includes("sublocality_level_1") || types.includes("sublocality")) {
+            place = component.long_name
+          }
+          if (!place && types.includes("neighborhood")) {
+            place = component.long_name
+          }
+        })
+
+        return { state, district, place, address: fullAddress }
+      }
+      return null
+    } catch (error) {
+      console.error("Reverse geocoding error:", error)
+      return null
+    }
+  }
+
+  // Get user's current location
+  const getCurrentLocation = useCallback(async () => {
+    if (!navigator.geolocation) {
+      setLocationError(t('sos.location.notSupported', 'Geolocation is not supported by your browser'))
+      return
+    }
+
+    setLocationLoading(true)
+    setLocationError("")
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const lat = position.coords.latitude
+        const lng = position.coords.longitude
+
+        // Update marker and coordinates
+        setMarkerPosition({ lat, lng })
+        setFormData((prev) => ({
+          ...prev,
+          latitude: lat.toFixed(6),
+          longitude: lng.toFixed(6),
+        }))
+
+        // Reverse geocode to get address details
+        const addressData = await reverseGeocode(lat, lng)
+        if (addressData) {
+          const matchedDistrict = matchDistrict(addressData.district)
+          setFormData((prev) => ({
+            ...prev,
+            latitude: lat.toFixed(6),
+            longitude: lng.toFixed(6),
+            state: addressData.state || prev.state,
+            district: matchedDistrict || prev.district,
+            place: addressData.place || prev.place,
+            address: addressData.address || prev.address,
+          }))
+          setLocationInput(addressData.address || "")
+        }
+
+        setLocationLoading(false)
+      },
+      (error) => {
+        setLocationLoading(false)
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            setLocationError(t('sos.location.permissionDenied', 'Location access denied. Please enable location permissions.'))
+            break
+          case error.POSITION_UNAVAILABLE:
+            setLocationError(t('sos.location.unavailable', 'Location information is unavailable.'))
+            break
+          case error.TIMEOUT:
+            setLocationError(t('sos.location.timeout', 'Location request timed out.'))
+            break
+          default:
+            setLocationError(t('sos.location.error', 'An error occurred while getting your location.'))
+        }
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0,
+      }
+    )
+  }, [t])
+
+  // Request location on component mount
+  useEffect(() => {
+    getCurrentLocation()
+  }, [getCurrentLocation])
 
   // Generate random captcha
   const generateCaptcha = () => {
@@ -55,7 +228,7 @@ const SOS = () => {
   }
 
   // Map click
-  const onMapClick = useCallback((e) => {
+  const onMapClick = useCallback(async (e) => {
     const lat = e.latLng.lat()
     const lng = e.latLng.lng()
 
@@ -65,10 +238,24 @@ const SOS = () => {
       latitude: lat.toFixed(6),
       longitude: lng.toFixed(6),
     }))
+
+    // Reverse geocode to fill address details
+    const addressData = await reverseGeocode(lat, lng)
+    if (addressData) {
+      const matchedDistrict = matchDistrict(addressData.district)
+      setFormData((prev) => ({
+        ...prev,
+        state: addressData.state || prev.state,
+        district: matchedDistrict || prev.district,
+        place: addressData.place || prev.place,
+        address: addressData.address || prev.address,
+      }))
+      setLocationInput(addressData.address || "")
+    }
   }, [])
 
   // Marker drag
-  const onMarkerDragEnd = useCallback((e) => {
+  const onMarkerDragEnd = useCallback(async (e) => {
     const lat = e.latLng.lat()
     const lng = e.latLng.lng()
 
@@ -78,6 +265,20 @@ const SOS = () => {
       latitude: lat.toFixed(6),
       longitude: lng.toFixed(6),
     }))
+
+    // Reverse geocode to fill address details
+    const addressData = await reverseGeocode(lat, lng)
+    if (addressData) {
+      const matchedDistrict = matchDistrict(addressData.district)
+      setFormData((prev) => ({
+        ...prev,
+        state: addressData.state || prev.state,
+        district: matchedDistrict || prev.district,
+        place: addressData.place || prev.place,
+        address: addressData.address || prev.address,
+      }))
+      setLocationInput(addressData.address || "")
+    }
   }, [])
 
   // Submit
@@ -261,7 +462,25 @@ const SOS = () => {
                 placeholder={`🔍 ${t('sos.locationDetails.searchLocation')}`}
                 className="sos-location-input"
               />
+              <button 
+                type="button" 
+                className="sos-get-location-btn"
+                onClick={getCurrentLocation}
+                disabled={locationLoading}
+              >
+                {locationLoading ? (
+                  <span>📍 {t('sos.location.detecting', 'Detecting...')}</span>
+                ) : (
+                  <span>📍 {t('sos.location.useMyLocation', 'Use My Location')}</span>
+                )}
+              </button>
             </div>
+
+            {locationError && (
+              <div className="sos-location-error">
+                <span>⚠️ {locationError}</span>
+              </div>
+            )}
 
             <div className="sos-map-container">
               <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}>

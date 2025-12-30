@@ -17,8 +17,15 @@ const Login = () => {
   const [errors, setErrors] = useState({})
   const [showPassword, setShowPassword] = useState(false)
 
-  const { login } = useAuth()
+  const { login, user } = useAuth()
   const navigate = useNavigate()
+
+  // Redirect to admin dashboard if already logged in
+  useEffect(() => {
+    if (user) {
+      navigate('/admin', { replace: true })
+    }
+  }, [user, navigate])
 
   // Generate random captcha (simplified for easier testing)
   const generateCaptcha = () => {

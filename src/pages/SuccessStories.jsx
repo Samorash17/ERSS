@@ -5,40 +5,6 @@ import { getLocalizedData } from '../utils/i18nHelper';
 import "../styles/SuccessStories.css"
 import storyimg from '../assets/Success.png';
 
-const ImageCarousel = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (images.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 3000);
-      return () => clearInterval(interval);
-    }
-  }, [images.length]);
-
-  return (
-    <div className="carousel-container">
-      <img
-        src={images[currentIndex]}
-        className="story-img"
-        alt="Success Story"
-      />
-      {images.length > 1 && (
-        <div className="carousel-dots">
-          {images.map((_, idx) => (
-            <span 
-              key={idx} 
-              className={`dot ${idx === currentIndex ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(idx)}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
-
 export default function SuccessStories() {
   const [expandedStories, setExpandedStories] = useState({});
   const [stories, setStories] = useState([]);
@@ -158,7 +124,7 @@ export default function SuccessStories() {
               const isExpanded = expandedStories[globalIndex];
               const storyText = getLocalizedData(story.text, i18n.language);
               const shouldTruncate = storyText.length > 150;
-              const images = story.images && story.images.length > 0 ? story.images : [storyimg, storyimg, storyimg];
+              const storyImage = story.imageUrl || storyimg;
               
               return (
               <div 
@@ -169,7 +135,7 @@ export default function SuccessStories() {
               >
                 <div className={`story-card-inner ${isExpanded ? 'expanded' : ''}`}>
                   <div className="story-image-wrapper">
-                    <ImageCarousel images={images} />
+                    <img src={storyImage} className="story-img" alt="Success Story" />
                     <div className="story-badge">
                       <span className="badge-icon">⚡</span>
                       <span className="badge-text">{t('successStories.rapidResponse', 'Rapid Response')}</span>

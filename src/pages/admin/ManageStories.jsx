@@ -12,7 +12,8 @@ const ManageStories = () => {
     district: { en: '', hi: '', te: '' },
     date: '',
     time: '',
-    text: { en: '', hi: '', te: '' }
+    text: { en: '', hi: '', te: '' },
+    imageUrl: ''
   });
 
   const fetchStories = async () => {
@@ -48,7 +49,8 @@ const ManageStories = () => {
       district: typeof story.district === 'string' ? { en: story.district, hi: '', te: '' } : story.district,
       date: story.date,
       time: story.time,
-      text: typeof story.text === 'string' ? { en: story.text, hi: '', te: '' } : story.text
+      text: typeof story.text === 'string' ? { en: story.text, hi: '', te: '' } : story.text,
+      imageUrl: story.imageUrl || ''
     });
   };
 
@@ -60,7 +62,8 @@ const ManageStories = () => {
       district: { en: '', hi: '', te: '' }, 
       date: '', 
       time: '', 
-      text: { en: '', hi: '', te: '' } 
+      text: { en: '', hi: '', te: '' },
+      imageUrl: '' 
     });
   };
 
@@ -130,6 +133,26 @@ const ManageStories = () => {
               required={true}
               type="textarea"
             />
+            <div style={{ marginBottom: '15px' }}>
+              <label>Image URL</label>
+              <input 
+                type="url" 
+                className="admin-input"
+                placeholder="https://example.com/image.jpg"
+                value={storyForm.imageUrl} 
+                onChange={e => setStoryForm({...storyForm, imageUrl: e.target.value})}
+              />
+              {storyForm.imageUrl && (
+                <div style={{ marginTop: '10px' }}>
+                  <img 
+                    src={storyForm.imageUrl} 
+                    alt="Preview" 
+                    style={{ maxWidth: '200px', maxHeight: '150px', borderRadius: '8px', border: '1px solid #333' }}
+                    onError={(e) => e.target.style.display = 'none'}
+                  />
+                </div>
+              )}
+            </div>
             <div className="btn-group">
               <button type="button" className="admin-btn btn-cancel" onClick={handleCancel}>Cancel</button>
               <button type="submit" className="admin-btn btn-submit">{isEditing ? 'Update Story' : 'Save Story'}</button>
