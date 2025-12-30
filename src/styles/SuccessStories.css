@@ -218,7 +218,7 @@
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  height: 600px;
+  height: 650px;
 }
 
 /* Enable internal scroll when expanded */
@@ -396,10 +396,25 @@
   margin-bottom: 20px;
   transition: all 0.3s ease;
   scroll-margin-top: 100px; /* Adds space when scrolling to this element */
+  
+  /* Limit to 4 lines when not expanded */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .story-text.expanded {
   animation: expandText 0.3s ease-out;
+  /* Remove line clamping when expanded */
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+  text-overflow: unset;
 }
 
 @keyframes expandText {
@@ -615,6 +630,14 @@
 
   .story-text {
     font-size: 0.9rem;
+    /* Adjust line clamping for smaller screens */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .story-text.expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
   }
 }
 
@@ -685,6 +708,14 @@
 
   .story-text {
     font-size: 0.85rem;
+    /* Further adjust line clamping for mobile */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .story-text.expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
   }
 
   .story-footer {
@@ -767,6 +798,14 @@
   .story-text {
     font-size: 0.8rem;
     margin-bottom: 16px;
+    /* Mobile line clamping */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .story-text.expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
   }
 
   .story-footer {
@@ -850,6 +889,14 @@
   .story-text {
     font-size: 0.75rem;
     margin-bottom: 14px;
+    /* Smallest screens line clamping */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .story-text.expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
   }
 
   .story-footer {

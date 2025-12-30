@@ -64,9 +64,10 @@ export default function SuccessStories() {
     });
   };
 
-  const truncateText = (text, maxLength = 150) => {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + "...";
+  // Check if text needs truncation (more than 4 lines worth of content)
+  const needsTruncation = (text) => {
+    // More accurate estimation: assuming ~60 characters per line at current font size and line height
+    return text.length > 240; // Approximately 4 lines worth of text (60 chars × 4 lines)
   };
 
   const nextPage = () => {
@@ -123,7 +124,7 @@ export default function SuccessStories() {
               const globalIndex = currentPage * storiesPerPage + index;
               const isExpanded = expandedStories[globalIndex];
               const storyText = getLocalizedData(story.text, i18n.language);
-              const shouldTruncate = storyText.length > 150;
+              const shouldShowReadMore = needsTruncation(storyText);
               const storyImage = story.imageUrl || storyimg;
               
               return (
@@ -171,7 +172,7 @@ export default function SuccessStories() {
                     </div>
 
                     <p className={`story-text ${isExpanded ? 'expanded' : ''}`}>
-                      {isExpanded ? getLocalizedData(story.text, i18n.language) : truncateText(getLocalizedData(story.text, i18n.language))}
+                      {getLocalizedData(story.text, i18n.language)}
                     </p>
 
                     <div className="story-footer">
@@ -181,7 +182,7 @@ export default function SuccessStories() {
                         </svg>
                         {t('successStories.postedBy', 'Posted by')}: <span>{story.postedBy || 'tg_admin'}</span>
                       </p>
-                      {shouldTruncate && (
+                      {shouldShowReadMore && (
                         <button 
                           className="more-btn" 
                           onClick={() => toggleExpanded(globalIndex)}

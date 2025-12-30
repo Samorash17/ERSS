@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import api from '../utils/api';
-import { getLocalizedData } from '../utils/i18nHelper';
 import '../styles/ImageGallery.css';
 
 // Import all gallery images
@@ -18,28 +16,23 @@ import m10 from '../assets/gallery/m10.png';
 import m11 from '../assets/gallery/m11.png';
 
 const ImageGallery = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(null);
-  const [galleryImages, setGalleryImages] = useState([]);
 
-  useEffect(() => {
-    const fetchGallery = async () => {
-      try {
-        const data = await api.get('/public/gallery');
-        // Map API data to component structure if needed, or use directly
-        // Assuming API returns array of objects with { _id, title, imageUrl }
-        const formattedImages = data.map(img => ({
-          id: img._id,
-          src: img.imageUrl,
-          alt: getLocalizedData(img.title, i18n.language)
-        }));
-        setGalleryImages(formattedImages);
-      } catch (error) {
-        console.error('Failed to fetch gallery', error);
-      }
-    };
-    fetchGallery();
-  }, [i18n.language]);
+  // Hardcoded gallery images with local imports
+  const galleryImages = [
+    { id: 1, src: m1, alt: t('gallery.images.psap1', 'Public Safety Answering Point - Control Room') },
+    { id: 2, src: m2, alt: t('gallery.images.psap2', 'Emergency Response Center Operations') },
+    { id: 3, src: m3, alt: t('gallery.images.psap3', 'Call Center Emergency Dispatch') },
+    { id: 4, src: m4, alt: t('gallery.images.psap4', 'Public Safety Communication Hub') },
+    { id: 5, src: m5, alt: t('gallery.images.psap5', 'Emergency Services Coordination Center') },
+    { id: 6, src: m6, alt: t('gallery.images.psap6', 'Crisis Response Command Center') },
+    { id: 7, src: m7, alt: t('gallery.images.psap7', 'Public Safety Monitoring Station') },
+    { id: 8, src: m8, alt: t('gallery.images.psap8', 'Emergency Call Processing Center') },
+    { id: 9, src: m9, alt: t('gallery.images.psap9', 'Public Safety Operations Center') },
+    { id: 10, src: m10, alt: t('gallery.images.psap10', 'Emergency Response Dispatch Hub') },
+    { id: 11, src: m11, alt: t('gallery.images.psap11', 'Public Safety Answering Point Facility') }
+  ];
 
   const openModal = (image) => {
     setSelectedImage(image);
@@ -148,7 +141,7 @@ const ImageGallery = () => {
             </button>
             <div className="modal-info">
               <h3>{selectedImage.alt}</h3>
-              <p>{selectedImage.id} of {galleryImages.length}</p>
+              {/* <p>{selectedImage.id} of {galleryImages.length}</p> */}
             </div>
           </div>
         </div>

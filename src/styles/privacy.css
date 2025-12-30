@@ -17,6 +17,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 0;
 }
 
 .privacy-orb {
@@ -60,11 +61,12 @@
 /* Title */
 .privacy-title {
     text-align: center;
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     font-weight: 800;
     margin-bottom: 10px;
-    background: linear-gradient(135deg, #b0f3fa 0%, #dcb9ff 100%);
+    background: #ffda1f;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 20px rgba(176, 243, 250, 0.6);
 }
@@ -72,7 +74,7 @@
 .privacy-subtitle {
     text-align: center;
     color: #ffd700;
-    font-size: 0.9rem;
+    font-size: 1rem;
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 40px;
@@ -94,9 +96,10 @@
 
 .privacy-section p,
 .privacy-section li {
-    color: #f1f1f1;
-    font-size: 0.95rem;
+    color: #ffffff;
+    font-size: 1.2rem;
     line-height: 1.8;
+    opacity: 0.95;
 }
 
 .privacy-section ul {
@@ -115,6 +118,19 @@
     text-align: center;
     color: #ccc;
     font-size: 0.85rem;
+}
+
+/* Floating animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, 30px) scale(1.1);
+    }
 }
 
 /* Responsive */

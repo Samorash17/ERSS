@@ -15,9 +15,7 @@ const Copyright = () => {
             {/* Main Card */}
             <div className="copyright-card">
                 <h1 className="copyright-title">{t('copyright.title')}</h1>
-                <p className="copyright-subtitle">
-                    {t('copyright.subtitle')}
-                </p>
+            <br/>
 
                 <div className="copyright-section">
                     <p>

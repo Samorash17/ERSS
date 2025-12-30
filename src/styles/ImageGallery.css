@@ -134,6 +134,8 @@
 
 .masonry-item {
   position: relative;
+  width: 100%;
+  height: 350px; /* Fixed height for all items */
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -167,11 +169,11 @@
   border-color: rgba(255, 215, 0, 0.4);
 }
 
-/* Different heights for masonry effect */
-.masonry-item.item-1 { grid-row-end: span 20; }
-.masonry-item.item-2 { grid-row-end: span 25; }
-.masonry-item.item-3 { grid-row-end: span 22; }
-.masonry-item.item-4 { grid-row-end: span 18; }
+/* Different heights for masonry effect - Optional variations */
+.masonry-item.item-1 { height: 320px; }
+.masonry-item.item-2 { height: 380px; }
+.masonry-item.item-3 { height: 350px; }
+.masonry-item.item-4 { height: 300px; }
 
 .masonry-image {
   width: 100%;
@@ -255,11 +257,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .modal-image {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 75vh;
   object-fit: contain;
   border-radius: 15px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -268,8 +271,8 @@
 
 .modal-close {
   position: absolute;
-  top: -50px;
-  right: -10px;
+  top: -60px;
+  right: 0;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 215, 0, 0.3);
@@ -330,9 +333,11 @@
 
 .modal-info {
   position: absolute;
-  bottom: -80px;
-  left: 0;
-  right: 0;
+  bottom: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
   text-align: center;
   color: white;
   background: rgba(255, 255, 255, 0.05);
@@ -371,6 +376,16 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 1.2rem;
   }
+
+  .masonry-item {
+    height: 320px; /* Slightly smaller for tablet */
+  }
+
+  /* Adjust masonry heights for tablet */
+  .masonry-item.item-1 { height: 300px; }
+  .masonry-item.item-2 { height: 350px; }
+  .masonry-item.item-3 { height: 320px; }
+  .masonry-item.item-4 { height: 280px; }
 }
 
 @media (max-width: 900px) {
@@ -391,11 +406,15 @@
     grid-gap: 1rem;
   }
 
-  /* Adjust masonry heights for tablet */
-  .masonry-item.item-1 { grid-row-end: span 18; }
-  .masonry-item.item-2 { grid-row-end: span 22; }
-  .masonry-item.item-3 { grid-row-end: span 20; }
-  .masonry-item.item-4 { grid-row-end: span 16; }
+  .masonry-item {
+    height: 300px; /* Standard height for mobile */
+  }
+
+  /* Adjust masonry heights for mobile */
+  .masonry-item.item-1 { height: 280px; }
+  .masonry-item.item-2 { height: 320px; }
+  .masonry-item.item-3 { height: 300px; }
+  .masonry-item.item-4 { height: 260px; }
 
   .modal-nav {
     width: 50px;
@@ -441,11 +460,15 @@
     grid-gap: 1rem;
   }
 
+  .masonry-item {
+    height: 280px; /* Smaller height for smaller screens */
+  }
+
   /* Adjust masonry heights for mobile */
-  .masonry-item.item-1 { grid-row-end: span 15; }
-  .masonry-item.item-2 { grid-row-end: span 18; }
-  .masonry-item.item-3 { grid-row-end: span 16; }
-  .masonry-item.item-4 { grid-row-end: span 14; }
+  .masonry-item.item-1 { height: 260px; }
+  .masonry-item.item-2 { height: 300px; }
+  .masonry-item.item-3 { height: 280px; }
+  .masonry-item.item-4 { height: 240px; }
 
   .modal-nav {
     width: 40px;
@@ -492,6 +515,10 @@
     grid-gap: 0.8rem;
   }
 
+  .masonry-item {
+    height: 260px; /* Compact height for small screens */
+  }
+
   .modal-info {
     bottom: -60px;
     padding: 10px;
@@ -526,6 +553,10 @@
   .masonry-grid {
     grid-template-columns: 1fr;
     grid-gap: 1rem;
+  }
+
+  .masonry-item {
+    height: 250px; /* Single column height */
   }
 
   .modal-nav {

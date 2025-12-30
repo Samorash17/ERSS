@@ -59,11 +59,12 @@
 /* Page title */
 .about-title {
     text-align: center;
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     font-weight: 800;
     margin-bottom: 10px;
-    background: #f5d000;
+    background: #ffda1f;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 20px rgba(176, 243, 250, 0.6);
 }

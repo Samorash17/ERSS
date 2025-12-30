@@ -14,12 +14,11 @@ const Privacy = () => {
 
             {/* Main Card */}
             <div className="privacy-card">
-                <h1 className="privacy-title">{t('privacy.title')}</h1>
-                <p className="privacy-subtitle">
-                    {t('privacy.subtitle')}
-                </p>
+                <h1  className="privacy-title">{t('privacy.title')}</h1>
+                <br/>
 
                 <div className="privacy-section">
+                    
                     <p>{t('privacy.content1')}</p>
                     <p>{t('privacy.content2')}</p>
                     <p>{t('privacy.content3')}</p>

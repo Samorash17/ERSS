@@ -128,7 +128,7 @@ const Footer = () => {
                 <span className="social-icon">
                   <img src={xIcon} alt="X (Twitter)" className="social-icon-img" />
                 </span>
-                <span>Twitter</span>
+                <span>X</span>
               </a>
             </li>
             <li>

@@ -288,7 +288,7 @@ const Navbar = () => {
           </li>
           <li className="dropdown-container">
             <NavLink to='/image-gallery' className="nav-link dropdown-trigger">
-              {t('navbar.links.mediaGallery')}
+              {t('navbar.links.imageGallery')}
               {/* <span className="dropdown-arrow">▼</span> */}
             </NavLink>
             {/* <div className="dropdown-menu">

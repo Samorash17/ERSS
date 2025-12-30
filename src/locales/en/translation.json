@@ -440,12 +440,34 @@
     "content2": "If this Portal requests you to provide personal information, you will be informed for the particular purposes for which the information is gathered and adequate security measures will be taken to protect your personal information.",
     "content3": "We do not sell or share any personally identifiable information volunteered on this Portal site to any third party (public/private). Any information provided to this Portal will be protected from loss, misuse, unauthorized access or disclosure, alteration, or destruction",
     "content4": "We gather certain information about the User, such as Internet protocol (IP) addresses, domain name, browser type, operating system, the date and time of the visit and the pages visited. We make no attempt to link these addresses with the identity of individuals visiting our site unless an attempt to damage the site has been detected.",
-    "lastUpdated": "Last updated: January 2025"
+    "lastUpdated": "Last updated: January 2026"
   },
   "gallery": {
     "title": "Image Gallery",
     "subtitle": "Explore our collection of emergency response activities and achievements",
-    "failedToFetch": "Failed to fetch gallery"
+    "failedToFetch": "Failed to fetch gallery",
+    "images": {
+      "psap1": "Public Safety Answering Point - Control Room",
+      "psap2": "Emergency Response Center Operations",
+      "psap3": "Call Center Emergency Dispatch",
+      "psap4": "Public Safety Communication Hub",
+      "psap5": "Emergency Services Coordination Center",
+      "psap6": "Crisis Response Command Center",
+      "psap7": "Public Safety Monitoring Station",
+      "psap8": "Emergency Call Processing Center",
+      "psap9": "Public Safety Operations Center",
+      "psap10": "Emergency Response Dispatch Hub",
+      "psap11": "Public Safety Answering Point Facility"
+    }
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "subtitle": "Emergency Response & Safety System",
+    "intro": "This Portal is designed, developed and hosted by Dial - 112, Telangana",
+    "accuracy": "Though all efforts have been made to ensure the accuracy and currency of the content on this Portal, the same should not be construed as a statement of law or used for any legal purposes. Telangana Dial-112 accepts no responsibility in relation to the accuracy, completeness, usefulness or otherwise, of the contents. Users are advised to verify/check any information with the relevant Government department(s) and/or other source(s), and to obtain any appropriate professional advice before acting on the information provided in the Portal.",
+    "liability": "In no event will the Government or Telangana Dial-112 be liable for any expense, loss or damage including, without limitation, indirect or consequential loss or damage, or any expense, loss or damage whatsoever arising from use, or loss of use, of data, arising out of or in connection with the use of this Portal",
+    "links": "Links to other websites that have been included on this Portal are provided for public convenience only. Telangana Dial-112 is not responsible for the contents or reliability of linked websites and does not necessarily endorse the view expressed within them. We cannot guarantee the availability of such linked pages at all times",
+    "jurisdiction": "These terms and conditions shall be governed by and construed in accordance with the Indian Laws. Any dispute arising under these terms and conditions shall be subject to the exclusive jurisdiction of the courts of India"
   }
 }
 

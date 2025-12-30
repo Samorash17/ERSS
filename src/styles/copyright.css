@@ -3,20 +3,24 @@
    Matches Hero / Terms / Privacy
 ============================ */
 
+/* Page wrapper */
 .copyright-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+    padding: 60px 20px;
     background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    padding: 60px 20px;
-    position: relative;
     overflow: hidden;
 }
 
-/* Background */
+/* Background floating orbs */
 .copyright-background {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 0;
 }
 
 .copyright-orb {
@@ -43,7 +47,7 @@
     right: -120px;
 }
 
-/* Card */
+/* Main content card (glassmorphism) */
 .copyright-card {
     position: relative;
     z-index: 1;
@@ -57,22 +61,24 @@
     padding: 50px;
 }
 
-/* Title */
+/* Page title */
 .copyright-title {
     text-align: center;
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     font-weight: 800;
     margin-bottom: 10px;
-    background: linear-gradient(135deg, #b0f3fa 0%, #dcb9ff 100%);
+    background: #ffda1f;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 20px rgba(176, 243, 250, 0.6);
 }
 
+/* Subtitle */
 .copyright-subtitle {
     text-align: center;
     color: #ffd700;
-    font-size: 0.9rem;
+    font-size: 1rem;
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 40px;
@@ -92,13 +98,24 @@
     text-shadow: 0 2px 10px rgba(255, 107, 107, 0.5);
 }
 
-.copyright-section p {
-    color: #f1f1f1;
-    font-size: 0.95rem;
+.copyright-section p,
+.copyright-section li {
+    color: #ffffff;
+    font-size: 1.2rem;
     line-height: 1.8;
+    opacity: 0.95;
 }
 
-/* Footer */
+/* List */
+.copyright-section ul {
+    padding-left: 20px;
+}
+
+.copyright-section li {
+    margin-bottom: 8px;
+}
+
+/* Footer note */
 .copyright-footer {
     margin-top: 40px;
     padding-top: 20px;
@@ -106,6 +123,19 @@
     text-align: center;
     color: #ccc;
     font-size: 0.85rem;
+}
+
+/* Floating animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, 30px) scale(1.1);
+    }
 }
 
 /* Responsive */
