@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../../utils/api';
+import LanguageInput from '../../components/LanguageInput';
+import { getLocalizedData } from '../../utils/i18nHelper';
 
 const ManageFAQs = () => {
   const [faqs, setFaqs] = useState([]);
@@ -7,8 +9,8 @@ const ManageFAQs = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const [faqForm, setFaqForm] = useState({
-    question: '',
-    answer: ''
+    question: { en: '', hi: '', te: '' },
+    answer: { en: '', hi: '', te: '' }
   });
 
   const fetchFaqs = async () => {
@@ -41,8 +43,8 @@ const ManageFAQs = () => {
     setIsAdding(true);
     setCurrentId(faq._id);
     setFaqForm({
-      question: faq.question,
-      answer: faq.answer
+      question: typeof faq.question === 'string' ? { en: faq.question, hi: '', te: '' } : faq.question,
+      answer: typeof faq.answer === 'string' ? { en: faq.answer, hi: '', te: '' } : faq.answer
     });
   };
 
@@ -50,7 +52,10 @@ const ManageFAQs = () => {
     setIsAdding(false);
     setIsEditing(false);
     setCurrentId(null);
-    setFaqForm({ question: '', answer: '' });
+    setFaqForm({ 
+      question: { en: '', hi: '', te: '' }, 
+      answer: { en: '', hi: '', te: '' } 
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -84,26 +89,19 @@ const ManageFAQs = () => {
         <div className="admin-form-container">
           <h3>{isEditing ? 'Edit FAQ' : 'Add New FAQ'}</h3>
           <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <label>Question</label>
-              <input 
-                type="text" 
-                className="admin-input"
-                value={faqForm.question} 
-                onChange={e => setFaqForm({...faqForm, question: e.target.value})}
-                required 
-              />
-            </div>
-            <div className="form-row">
-              <label>Answer (HTML allowed)</label>
-              <textarea 
-                rows="4" 
-                className="admin-textarea"
-                value={faqForm.answer} 
-                onChange={e => setFaqForm({...faqForm, answer: e.target.value})}
-                required 
-              />
-            </div>
+            <LanguageInput 
+              label="Question" 
+              value={faqForm.question} 
+              onChange={val => setFaqForm({...faqForm, question: val})}
+              required={true}
+            />
+            <LanguageInput 
+              label="Answer (HTML allowed)" 
+              value={faqForm.answer} 
+              onChange={val => setFaqForm({...faqForm, answer: val})}
+              required={true}
+              type="textarea"
+            />
             <div className="btn-group">
               <button type="button" className="admin-btn btn-cancel" onClick={handleCancel}>Cancel</button>
               <button type="submit" className="admin-btn btn-submit">{isEditing ? 'Update FAQ' : 'Save FAQ'}</button>
@@ -125,8 +123,8 @@ const ManageFAQs = () => {
           {faqs.map(faq => (
             <tr key={faq._id}>
               <td>{faq._id}</td>
-              <td>{faq.question}</td>
-              <td dangerouslySetInnerHTML={{ __html: faq.answer.substring(0, 50) + '...' }}></td>
+              <td>{getLocalizedData(faq.question, 'en')}</td>
+              <td dangerouslySetInnerHTML={{ __html: getLocalizedData(faq.answer, 'en').substring(0, 50) + '...' }}></td>
               <td>
                 <button className="action-btn btn-edit" onClick={() => startEdit(faq)}>Edit</button>
                 <button className="action-btn btn-delete" onClick={() => handleDelete(faq._id)}>Delete</button>

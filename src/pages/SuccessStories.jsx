@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 import api from '../utils/api';
+import { getLocalizedData } from '../utils/i18nHelper';
 import "../styles/SuccessStories.css"
 import storyimg from '../assets/Success.png';
 
@@ -44,7 +45,7 @@ export default function SuccessStories() {
   const [currentPage, setCurrentPage] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const storyRefs = useRef({});
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   // Check if mobile view
   useEffect(() => {
@@ -155,7 +156,8 @@ export default function SuccessStories() {
             {getCurrentStories().map((story, index) => {
               const globalIndex = currentPage * storiesPerPage + index;
               const isExpanded = expandedStories[globalIndex];
-              const shouldTruncate = story.text.length > 150;
+              const storyText = getLocalizedData(story.text, i18n.language);
+              const shouldTruncate = storyText.length > 150;
               const images = story.images && story.images.length > 0 ? story.images : [storyimg, storyimg, storyimg];
               
               return (
@@ -176,7 +178,7 @@ export default function SuccessStories() {
 
                   <div className="story-content">
                     <h2 className="story-title">
-                      {story.district} <span className="story-id">{story.id}</span>
+                      {getLocalizedData(story.district, i18n.language)} <span className="story-id">{story.id}</span>
                     </h2>
 
                     <div className="story-meta">
@@ -203,7 +205,7 @@ export default function SuccessStories() {
                     </div>
 
                     <p className={`story-text ${isExpanded ? 'expanded' : ''}`}>
-                      {isExpanded ? story.text : truncateText(story.text)}
+                      {isExpanded ? getLocalizedData(story.text, i18n.language) : truncateText(getLocalizedData(story.text, i18n.language))}
                     </p>
 
                     <div className="story-footer">

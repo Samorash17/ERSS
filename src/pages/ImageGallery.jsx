@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import api from '../utils/api';
+import { getLocalizedData } from '../utils/i18nHelper';
 import '../styles/ImageGallery.css';
 
 // Import all gallery images
@@ -16,23 +18,28 @@ import m10 from '../assets/gallery/m10.png';
 import m11 from '../assets/gallery/m11.png';
 
 const ImageGallery = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [galleryImages, setGalleryImages] = useState([]);
 
-  // Gallery images array
-  const galleryImages = [
-    { id: 1, src: m1, alt: 'Emergency Response Team 1' },
-    { id: 2, src: m2, alt: 'Emergency Response Team 2' },
-    { id: 3, src: m3, alt: 'Emergency Response Team 3' },
-    { id: 4, src: m4, alt: 'Emergency Response Team 4' },
-    { id: 5, src: m5, alt: 'Emergency Response Team 5' },
-    { id: 6, src: m6, alt: 'Emergency Response Team 6' },
-    { id: 7, src: m7, alt: 'Emergency Response Team 7' },
-    { id: 8, src: m8, alt: 'Emergency Response Team 8' },
-    { id: 9, src: m9, alt: 'Emergency Response Team 9' },
-    { id: 10, src: m10, alt: 'Emergency Response Team 10' },
-    { id: 11, src: m11, alt: 'Emergency Response Team 11' },
-  ];
+  useEffect(() => {
+    const fetchGallery = async () => {
+      try {
+        const data = await api.get('/public/gallery');
+        // Map API data to component structure if needed, or use directly
+        // Assuming API returns array of objects with { _id, title, imageUrl }
+        const formattedImages = data.map(img => ({
+          id: img._id,
+          src: img.imageUrl,
+          alt: getLocalizedData(img.title, i18n.language)
+        }));
+        setGalleryImages(formattedImages);
+      } catch (error) {
+        console.error('Failed to fetch gallery', error);
+      }
+    };
+    fetchGallery();
+  }, [i18n.language]);
 
   const openModal = (image) => {
     setSelectedImage(image);

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../../utils/api';
+import LanguageInput from '../../components/LanguageInput';
+import { getLocalizedData } from '../../utils/i18nHelper';
 
 const ManageGallery = () => {
   const [images, setImages] = useState([]);
@@ -7,7 +9,7 @@ const ManageGallery = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const [galleryForm, setGalleryForm] = useState({
-    title: '',
+    title: { en: '', hi: '', te: '' },
     imageUrl: '',
     date: new Date().toISOString().split('T')[0]
   });
@@ -42,7 +44,7 @@ const ManageGallery = () => {
     setIsAdding(true);
     setCurrentId(img._id);
     setGalleryForm({
-      title: img.title,
+      title: typeof img.title === 'string' ? { en: img.title, hi: '', te: '' } : img.title,
       imageUrl: img.imageUrl,
       date: img.date
     });
@@ -52,7 +54,11 @@ const ManageGallery = () => {
     setIsAdding(false);
     setIsEditing(false);
     setCurrentId(null);
-    setGalleryForm({ title: '', imageUrl: '', date: new Date().toISOString().split('T')[0] });
+    setGalleryForm({ 
+      title: { en: '', hi: '', te: '' }, 
+      imageUrl: '', 
+      date: new Date().toISOString().split('T')[0] 
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -91,16 +97,12 @@ const ManageGallery = () => {
             </p>
           </div>
           <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <label>Title</label>
-              <input 
-                type="text" 
-                className="admin-input"
-                value={galleryForm.title} 
-                onChange={e => setGalleryForm({...galleryForm, title: e.target.value})}
-                required 
-              />
-            </div>
+            <LanguageInput 
+              label="Title" 
+              value={galleryForm.title} 
+              onChange={val => setGalleryForm({...galleryForm, title: val})}
+              required={true}
+            />
             <div className="form-row">
               <label>Image URL</label>
               <input 
@@ -137,7 +139,7 @@ const ManageGallery = () => {
               <img src={img.imageUrl} alt={img.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => e.target.src = 'https://via.placeholder.com/300x200?text=Error+Loading+Image'} />
             </div>
             <div style={{ padding: '20px' }}>
-              <h4 style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '18px' }}>{img.title}</h4>
+              <h4 style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '18px' }}>{getLocalizedData(img.title, 'en')}</h4>
               <p style={{ margin: '0 0 20px 0', fontSize: '0.9em', color: 'rgba(255,255,255,0.6)' }}>{img.date}</p>
               <div style={{ display: 'flex', gap: '10px' }}>
                 <button className="action-btn btn-edit" style={{ flex: 1 }} onClick={() => startEdit(img)}>Edit</button>

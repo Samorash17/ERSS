@@ -151,3 +151,32 @@ button:focus-visible {
     color-scheme: dark;
   }
 }
+
+/* Admin Language Inputs */
+.language-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-label {
+  width: 30px;
+  font-weight: bold;
+  color: #aaa;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.input-group input,
+.input-group textarea {
+  flex: 1;
+}

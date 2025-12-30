@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../../utils/api';
+import LanguageInput from '../../components/LanguageInput';
+import { getLocalizedData } from '../../utils/i18nHelper';
 
 const ManageStories = () => {
   const [stories, setStories] = useState([]);
@@ -7,10 +9,10 @@ const ManageStories = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const [storyForm, setStoryForm] = useState({
-    district: '',
+    district: { en: '', hi: '', te: '' },
     date: '',
     time: '',
-    text: ''
+    text: { en: '', hi: '', te: '' }
   });
 
   const fetchStories = async () => {
@@ -43,10 +45,10 @@ const ManageStories = () => {
     setIsAdding(true);
     setCurrentId(story._id);
     setStoryForm({
-      district: story.district,
+      district: typeof story.district === 'string' ? { en: story.district, hi: '', te: '' } : story.district,
       date: story.date,
       time: story.time,
-      text: story.text
+      text: typeof story.text === 'string' ? { en: story.text, hi: '', te: '' } : story.text
     });
   };
 
@@ -54,7 +56,12 @@ const ManageStories = () => {
     setIsAdding(false);
     setIsEditing(false);
     setCurrentId(null);
-    setStoryForm({ district: '', date: '', time: '', text: '' });
+    setStoryForm({ 
+      district: { en: '', hi: '', te: '' }, 
+      date: '', 
+      time: '', 
+      text: { en: '', hi: '', te: '' } 
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -88,16 +95,12 @@ const ManageStories = () => {
         <div className="admin-form-container">
           <h3>{isEditing ? 'Edit Story' : 'Add New Story'}</h3>
           <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <label>District</label>
-              <input 
-                type="text" 
-                className="admin-input"
-                value={storyForm.district} 
-                onChange={e => setStoryForm({...storyForm, district: e.target.value})}
-                required 
-              />
-            </div>
+            <LanguageInput 
+              label="District" 
+              value={storyForm.district} 
+              onChange={val => setStoryForm({...storyForm, district: val})}
+              required={true}
+            />
             <div className="form-row" style={{ display: 'flex', gap: '20px' }}>
               <div style={{ flex: 1 }}>
                 <label>Date</label>
@@ -120,16 +123,13 @@ const ManageStories = () => {
                 />
               </div>
             </div>
-            <div className="form-row">
-              <label>Story Text</label>
-              <textarea 
-                rows="4" 
-                className="admin-textarea"
-                value={storyForm.text} 
-                onChange={e => setStoryForm({...storyForm, text: e.target.value})}
-                required 
-              />
-            </div>
+            <LanguageInput 
+              label="Story Text" 
+              value={storyForm.text} 
+              onChange={val => setStoryForm({...storyForm, text: val})}
+              required={true}
+              type="textarea"
+            />
             <div className="btn-group">
               <button type="button" className="admin-btn btn-cancel" onClick={handleCancel}>Cancel</button>
               <button type="submit" className="admin-btn btn-submit">{isEditing ? 'Update Story' : 'Save Story'}</button>
@@ -152,9 +152,9 @@ const ManageStories = () => {
           {stories.map(story => (
             <tr key={story._id}>
               <td>{story._id}</td>
-              <td>{story.district}</td>
+              <td>{getLocalizedData(story.district, 'en')}</td>
               <td>{story.date}</td>
-              <td>{story.text.substring(0, 50)}...</td>
+              <td>{getLocalizedData(story.text, 'en').substring(0, 50)}...</td>
               <td>
                 <button className="action-btn btn-edit" onClick={() => startEdit(story)}>Edit</button>
                 <button className="action-btn btn-delete" onClick={() => handleDelete(story._id)}>Delete</button>
