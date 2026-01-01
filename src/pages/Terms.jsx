@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import BackButton from "../components/BackButton";
 import "../styles/terms.css";
 
 export default function Terms() {
@@ -6,6 +7,7 @@ export default function Terms() {
 
     return (
         <div className="terms-container">
+            <BackButton />
             {/* Background Effects */}
             <div className="terms-background">
                 <div className="terms-orb terms-orb-1"></div>

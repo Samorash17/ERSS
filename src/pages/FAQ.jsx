@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import api from '../utils/api';
 import { getLocalizedData } from '../utils/i18nHelper';
+import BackButton from '../components/BackButton';
 import "../styles/faq.css";
 
 const FAQ = () => {
@@ -32,6 +33,7 @@ const FAQ = () => {
 
     return (
         <div className="faq-section">
+            <BackButton />
             {/* Background elements matching Hero */}
             <div className="faq-background">
                 <div className="faq-gradient-orb faq-gradient-orb-1"></div>

@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react"
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
 import { useTranslation } from 'react-i18next'
+import BackButton from '../components/BackButton'
 import "../styles/sos.css"
 
 const SOS = () => {
@@ -324,6 +325,7 @@ const SOS = () => {
 
   return (
     <div className="sos-container">
+      <BackButton />
       {/* Animated floating orbs background */}
       <div className="floating-orb orb-1"></div>
       <div className="floating-orb orb-2"></div>

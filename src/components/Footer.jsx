@@ -198,7 +198,7 @@ const Footer = () => {
                     <span className="contact-icon">📞</span>
                     <div className="contact-text">
                       <strong>{t('footer.contact.phone')}:</strong>
-                      <p><a href="tel:04023261166">87126 74112</a></p>
+                      <p><a href="tel:112">112</a></p>
                     </div>
                   </div>
                 </div>

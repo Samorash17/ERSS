@@ -1,4 +1,7 @@
 {
+    "common": {
+        "backToHome": "Back to Home"
+    },
     "navbar": {
         "contactEmail": "helpline@telangana.gov.in",
         "contactPhone": "+91 8712674000",
@@ -27,7 +30,7 @@
         }
     },
     "hero": {
-        "subtitle": "TELANGANA 112",
+        "subtitle": "DIAL 112 TELANGANA",
         "title": "EMERGENCY RESPONSE SUPPORT SYSTEM",
         "leadership": "OUR LEADERSHIP",
         "cmName": "A. REVANTH REDDY",
@@ -53,8 +56,8 @@
         "bannerText": "Telangana-Helpline, empowers the caller to get prompt response from the Police response team.",
         "heading": "HELPLINE 112",
         "subheading": "Call us for any emergency support response immediately",
-        "paragraph1": "Dial 112 is a nationwide emergency helpline implemented by Government of India designed to provide swift and efficient responses during emergencies. In Telangana this services is available 24*7 ensuring that citizens can easily connect with emergency services like police, fire, and medical assistance all through a single number <strong>112</strong>.",
-        "paragraph2": "The Telangana Government in collaboration with various services, aims to offer timely help in critical situations, reducing responses times, saving lives and improving the overall safety of its citizen."
+        "paragraph1": "Dial 112 is a nationwide emergency helpline implemented by Government of India designed to provide swift and efficient response during emergencies. In Telangana this services is available 24*7 ensuring that citizens can easily connect with emergency services like police, fire, and medical assistance all through a single number <strong>112</strong>.",
+        "paragraph2": "The Telangana Government in collaboration with various services, aims to offer timely help in critical situations, reducing response times, saving lives and improving the overall safety of its citizen."
     },
     "notFound": {
         "title": "404 - Page Not Found",
@@ -101,16 +104,12 @@
         "heading": "Key Features of Dial 112 in Telangana",
         "subtitle": "Advanced emergency response system powered by technology and dedicated teams",
         "items": {
-            "oneNumber": {
-                "title": "One Number for All Emergencies",
-                "desc": "Whether it's a medical emergency, fire, law enforcement, or a road accident, you can dial 112 to reach the relevant emergency services instantly."
-            },
-            "quickResponse": {
-                "title": "Quick Response",
-                "desc": "The system quickly connects callers to the appropriate response teams, reducing delays in crucial situations."
+            "unifiedEmergencyResponse": {
+                "title": "Unified Emergency Response",
+                "desc": "Dial 112 for instant access to all emergency services, with fast connections and 24/7 support whenever you need help."
             },
             "geolocation": {
-                "title": "Geolocation Technology",
+                "title": "Location Fusion",
                 "desc": "Uses GPS and mapping technology to pinpoint your location accurately for faster assistance."
             },
             "availability": {
@@ -126,24 +125,12 @@
                 "desc": "ERSS uses an intelligent Interactive Voice Response (IVR) system to quickly filter and prioritize emergency calls, ensuring critical cases are routed to the right responders without delay."
             },
             "artificialIntelligence": {
-                "title": "Artificial Intelligence",
+                "title": "AI Voice Bot",
                 "desc": "By leveraging Artificial Intelligence, ERSS analyzes incoming data to assess emergency severity, recommend actions, and support faster, smarter decision-making."
             },
             "dronePatrolling": {
-                "title": "Drone Patrolling & Surveillance",
+                "title": "Autonomous Drone Response",
                 "desc": "Autonomous drone patrolling enables real-time aerial monitoring of emergency locations, helping authorities assess situations quickly and respond more effectively."
-            },
-            "advancedLocationTracking": {
-                "title": "Advanced Location Tracking System",
-                "desc": "An enhanced location detection system provides precise, real-time tracking of caller and incidents, ensuring accurate navigation and faster emergency response."
-            },
-            "activeVehicleTracking": {
-                "title": "Active Vehicle Tracking",
-                "desc": "ERSS enables real-time tracking of emergency vehicles, allowing control centers to monitor movement, optimize routes, and ensure the fastest possible response to incidents."
-            },
-            "forensicDesk": {
-                "title": "Forensic Desk (Live Video Assistance)",
-                "desc": "The Forensic Desk feature enables real-time video communication between victims, field officers, and forensic experts. Through secure video calls, experts can visually assess the situation, guide immediate actions, and help collect critical evidence during emergencies."
             }
         }
     },

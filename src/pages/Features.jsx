@@ -1,16 +1,14 @@
 import React from "react";
 import "../styles/Features.css"
+import BackButton from "../components/BackButton";
 import quickRescueImage from "../assets/quick-rescue.jpg"
 import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
 import multiTranslationImage from "../assets/multi-translation.jpg"
 import availability from "../assets/24-7.png"
 import multiService from "../assets/multi-service.png"
 import advancedIvrImage from "../assets/advanced.png"
-import gps from "../assets/GPS.png"
-import vehicletracking from "../assets/vehicletracking.png"
-import forensic from "../assets/forensic.png"
-import drone from "../assets/drone.png"
 import ai from "../assets/AI.png"
+import drone from "../assets/drone.png"
 
 import { useTranslation } from 'react-i18next';
 
@@ -19,6 +17,7 @@ function Features() {
 
   return (
     <div className="features-section">
+      <BackButton />
       {/* Background animated orbs */}
       <div className="features-orb features-orb-1"></div>
       <div className="features-orb features-orb-2"></div>
@@ -32,7 +31,7 @@ function Features() {
 
         <div className="features-grid">
           {/* Feature 1 - One Number for All */}
-          <div className="feature-card" style={{ "--delay": "0.1s" }}>
+          {/* <div className="feature-card" style={{ "--delay": "0.1s" }}>
             <div className="feature-icon-wrapper">
               <div className="feature-icon-circle">
                 <img src={multiService} alt="112 Emergency Services" className="feature-icon-img" />
@@ -42,7 +41,7 @@ function Features() {
             <p className="feature-description">
               {t('features.items.oneNumber.desc')}
             </p>
-          </div>
+          </div> */}
 
           {/* Feature 2 - Quick Response */}
           <div className="feature-card" style={{ "--delay": "0.2s" }}>
@@ -51,9 +50,9 @@ function Features() {
                 <img src={quickRescueImage} alt="Quick Response Time" className="feature-icon-img" />
               </div>
             </div>
-            <h3 className="feature-title">{t('features.items.quickResponse.title')}</h3>
+            <h3 className="feature-title">{t('features.items.unifiedEmergencyResponse.title')}</h3>
             <p className="feature-description">
-              {t('features.items.quickResponse.desc')}
+              {t('features.items.unifiedEmergencyResponse.desc')}
             </p>
           </div>
 
@@ -70,7 +69,7 @@ function Features() {
             </p>
           </div>
 
-          {/* Feature 4 - 24/7 Availability */}
+          {/* Feature 4 - 24/7 Availability
           <div className="feature-card" style={{ "--delay": "0.4s" }}>
             <div className="feature-icon-wrapper">
               <div className="feature-icon-circle">
@@ -81,7 +80,7 @@ function Features() {
             <p className="feature-description">
               {t('features.items.availability.desc')}
             </p>
-          </div>
+          </div> */}
 
           {/* Feature 5 - Multi-Language Support */}
           <div className="feature-card" style={{ "--delay": "0.5s" }}>
@@ -131,44 +130,8 @@ function Features() {
               {t('features.items.dronePatrolling.desc')}
             </p>
           </div>
-
-          <div className="feature-card" style={{ "--delay": "0.9s" }}>
-            <div className="feature-icon-wrapper">
-              <div className="feature-icon-circle">
-                <img src={gps} alt="Advanced Location Tracking System" className="feature-icon-img" />
-              </div>
-            </div>
-            <h3 className="feature-title">{t('features.items.advancedLocationTracking.title')}</h3>
-            <p className="feature-description">
-              {t('features.items.advancedLocationTracking.desc')}
-            </p>
+</div>
           </div>
-
-          <div className="feature-card" style={{ "--delay": "1.0s" }}>
-            <div className="feature-icon-wrapper">
-              <div className="feature-icon-circle">
-                <img src={vehicletracking} alt="Active Vehicle Tracking" className="feature-icon-img" />
-              </div>
-            </div>
-            <h3 className="feature-title">{t('features.items.activeVehicleTracking.title')}</h3>
-            <p className="feature-description">
-              {t('features.items.activeVehicleTracking.desc')}
-            </p>
-          </div>
-
-          <div className="feature-card" style={{ "--delay": "1.1s" }}>
-            <div className="feature-icon-wrapper">
-              <div className="feature-icon-circle">
-                <img src={forensic} alt="Forensic Desk (Live Video Assistance)" className="feature-icon-img" />
-              </div>
-            </div>
-            <h3 className="feature-title">{t('features.items.forensicDesk.title')}</h3>
-            <p className="feature-description">
-              {t('features.items.forensicDesk.desc')}
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

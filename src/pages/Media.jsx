@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import api from '../utils/api';
+import BackButton from '../components/BackButton';
 
 function Media() {
   const { t } = useTranslation();
@@ -20,6 +21,7 @@ function Media() {
 
   return (
     <div className="media-container" style={{ padding: "80px 20px", textAlign: "center" }}>
+      <BackButton />
       <h1>{t('media.title', 'Media Gallery')}</h1>
       {gallery.length === 0 ? (
         <p>{t('media.comingSoon', 'Coming Soon...')}</p>

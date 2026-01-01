@@ -11,7 +11,8 @@ const AccessibilityControls = () => {
   const languages = [
     { code: 'en', name: 'English', nativeName: 'English' },
     { code: 'hi', name: 'Hindi', nativeName: 'हिंदी' },
-    { code: 'te', name: 'Telugu', nativeName: 'తెలుగు' }
+    { code: 'te', name: 'Telugu', nativeName: 'తెలుగు' },
+    { code: 'ur', name: 'Urdu', nativeName: 'اردو' }
   ];
 
   // Sync state with current i18n language

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import BackButton from '../components/BackButton'
 import "../styles/login.css"
 import logoDial from '../assets/logo-dial-112.jpg'
 
@@ -120,6 +121,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      <BackButton />
       <div className="login-background-orb login-orb-1"></div>
       <div className="login-background-orb login-orb-2"></div>
       <div className="login-background-orb login-orb-3"></div>

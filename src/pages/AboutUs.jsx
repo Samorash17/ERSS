@@ -1,10 +1,12 @@
 // AboutUs.jsx
 import React from "react";
 import "../styles/aboutus.css";
+import BackButton from "../components/BackButton";
 
 const AboutUs = () => {
     return (
         <div className="about-container">
+            <BackButton />
             {/* Background floating orbs */}
             <div className="about-background">
                 <div className="about-orb about-orb-1"></div>

@@ -1,5 +1,6 @@
 import { useTranslation, Trans } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 import "../styles/works.css"
 import callOperatorImage from "../assets/emergency-call-operator-receiving-phone-call.jpg"
 import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
@@ -15,6 +16,7 @@ const Works = () => {
 
   return (
     <div className="works-container">
+      <BackButton />
       <div className="works-background-orbs">
         <div className="works-orb works-orb-1"></div>
         <div className="works-orb works-orb-2"></div>

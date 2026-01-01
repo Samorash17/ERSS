@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 import api from '../utils/api';
 import { getLocalizedData } from '../utils/i18nHelper';
+import BackButton from '../components/BackButton';
 import "../styles/SuccessStories.css"
 import storyimg from '../assets/Success.png';
 
@@ -89,6 +90,7 @@ export default function SuccessStories() {
 
   return (
     <div className="success-container">
+      <BackButton />
       {/* Animated background orbs matching Hero section */}
       <div className="success-orb success-orb-1"></div>
       <div className="success-orb success-orb-2"></div>
