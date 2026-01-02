@@ -26,11 +26,11 @@ const Footer = () => {
         <div className="footer-section" data-aos="fade-up" data-aos-delay="100">
           <h3 className="footer-title">{t('footer.quickLinks')}</h3>
           <ul className="footer-links">
-            <li>
+            {/* <li>
               <Link to="/request-help">
                 <span className="link-icon">→</span>{t('footer.links.requestHelp')}
               </Link>
-            </li>
+            </li> */}
             {/* <li>
               {/* <Link to="/citizen-login">
                 <span className="link-icon">→</span>Citizen Signup
@@ -46,11 +46,11 @@ const Footer = () => {
                 <span className="link-icon">→</span>Complaint Status
               </Link>
             </li> */}
-            <li>
+            {/* <li>
               <Link to="/officer-login">
                 <span className="link-icon">→</span>{t('footer.links.officerLogin')}
               </Link>
-            </li>
+            </li> */}
             <li>
                <a href="https://play.google.com/store/apps/details?id=in.cdac.ners.psa.mobile.android.national&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                 <span className="link-icon">→</span>{t('footer.links.downloadApp')}
@@ -78,7 +78,7 @@ const Footer = () => {
                 <span className="link-icon">→</span>{t('footer.links.police')}
               </a>
             </li>
-            <li>
+            {/* <li>
               <Link to="/success-stories">
                 <span className="link-icon">→</span>{t('footer.links.stories')}
               </Link>
@@ -87,7 +87,7 @@ const Footer = () => {
               <Link to="/image-gallery">
                 <span className="link-icon">→</span>{t('navbar.links.imageGallery')}
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/about">
                 <span className="link-icon">→</span>{t('footer.links.about')}
@@ -161,7 +161,7 @@ const Footer = () => {
         <div className="location-content">
 
           {/* Desktop Map */}
-          <div className="map-container desktop-map">
+          {/* <div className="map-container desktop-map">
             <a
               href="https://maps.app.goo.gl/N92U6FUJZEZUvZw7A"
               target="_blank"
@@ -183,8 +183,8 @@ const Footer = () => {
                 title="TSICCC Location - Road No. 12, Banjara Hills"
               />
             </a>
-          </div>
-            <div className="contact-details">
+          </div> */}
+            {/* <div className="contact-details">
               <div className="contact-item">
                 <div className="contact-info">
                   <div className="contact-row">
@@ -193,7 +193,7 @@ const Footer = () => {
                       <strong>{t('footer.contact.address')}:</strong>
                       <p>{t('footer.contact.addressText')}</p>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="contact-row">
                     <span className="contact-icon">📞</span>
                     <div className="contact-text">
@@ -204,11 +204,11 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
 
         {/* Map Section - Separate for mobile layout */}
-        <div
+        {/* <div
         className="footer-section map-section mobile-map"
         data-aos="fade-up"
         data-aos-delay="500"
@@ -236,8 +236,8 @@ const Footer = () => {
             />
           </a>
         </div>
-      </div>
-</div>
+      </div> */}
+{/* </div> */}
 
       {/* Copyright Section */}
       <div className="footer-bottom">

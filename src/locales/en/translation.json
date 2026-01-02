@@ -57,7 +57,7 @@
         "heading": "HELPLINE 112",
         "subheading": "Call us for any emergency support response immediately",
         "paragraph1": "Dial 112 is a nationwide emergency helpline implemented by Government of India designed to provide swift and efficient response during emergencies. In Telangana this services is available 24*7 ensuring that citizens can easily connect with emergency services like police, fire, and medical assistance all through a single number <strong>112</strong>.",
-        "paragraph2": "The Telangana Government in collaboration with various services, aims to offer timely help in critical situations, reducing response times, saving lives and improving the overall safety of its citizen."
+        "paragraph2": "The Telangana Government in collaboration with various services, aims to offer timely help in critical situations, reducing response time, saving lives and improving the overall safety of its citizen."
     },
     "notFound": {
         "title": "404 - Page Not Found",
@@ -371,7 +371,7 @@
         "resources": "Resources",
         "contactUs": "Contact Us",
         "followUs": "Follow Us",
-        "location": "Location & Contact",
+        "location": "Contact",
         "pageviews": "Total Pageviews",
         "copyright": "Copyright © 2025 <span className=\"highlight\">Telangana Police</span> All rights reserved",
         "contact": {

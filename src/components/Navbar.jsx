@@ -268,7 +268,7 @@ const Navbar = () => {
               {t('navbar.links.howItWorks')}
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/request-help"
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
@@ -290,7 +290,7 @@ const Navbar = () => {
             <NavLink to='/image-gallery' className="nav-link dropdown-trigger">
               {t('navbar.links.imageGallery')}
               {/* <span className="dropdown-arrow">▼</span> */}
-            </NavLink>
+            {/* </NavLink> */}
             {/* <div className="dropdown-menu">
               <NavLink to="/awards" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                 {t('navbar.links.awards')}
@@ -311,8 +311,8 @@ const Navbar = () => {
                 {t('navbar.links.news')}
               </NavLink>
             </div> */}
-          </li>
-          <li>
+          {/* </li> */} 
+          {/* <li>
             <NavLink
               to="/success-stories"
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
@@ -320,7 +320,7 @@ const Navbar = () => {
             >
               {t('navbar.links.successStories')}
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to="/faqs"

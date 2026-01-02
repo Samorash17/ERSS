@@ -21,10 +21,10 @@ const Privacy = () => {
 
                 <div className="privacy-section">
                     
-                    <p>{t('privacy.content1')}</p>
-                    <p>{t('privacy.content2')}</p>
-                    <p>{t('privacy.content3')}</p>
-                    <p>{t('privacy.content4')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('privacy.content1')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('privacy.content2')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('privacy.content3')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('privacy.content4')}</p>
                 </div>
                 <div className="privacy-footer">
                     {t('privacy.lastUpdated')}

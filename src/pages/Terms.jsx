@@ -20,15 +20,15 @@ export default function Terms() {
                 <br/>
 
                 <div className="terms-section">
-                    <p>{t('terms.intro')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('terms.intro')}</p>
                     
-                    <p>{t('terms.accuracy')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('terms.accuracy')}</p>
 
-                    <p>{t('terms.liability')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('terms.liability')}</p>
 
-                    <p>{t('terms.links')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('terms.links')}</p>
                     
-                    <p>{t('terms.jurisdiction')}</p>
+                    <p style={{ textIndent: '80px' }}>{t('terms.jurisdiction')}</p>
                 </div>
             </div>
         </div>
