@@ -70,8 +70,7 @@ const Navbar = () => {
           </div>
           <div className="mobile-header-text">
             <div className="mobile-header-title">
-              Government of Telangana<br />
-              Official Portal
+              DAIL 112 TELANGANA<br />
             </div>
             <div className="mobile-header-subtitle">
               Emergency Response Support System<br />
