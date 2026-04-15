@@ -67,10 +67,10 @@ const router = createBrowserRouter([
         path: "citizen-login",
         element: <LoginForm />,
       },
-      {
-        path: "officer-login",
-        element: <OfficerLogin />,
-      },
+      // {
+      //   path: "officer-login",
+      //   element: <OfficerLogin />,
+      // },
       {
         path: "success-stories",
         element: <SuccessStories />,

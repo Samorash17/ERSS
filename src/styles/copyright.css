@@ -11,7 +11,6 @@
     min-height: 100vh;
     padding: 60px 20px;
     background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
 }
 
@@ -125,7 +124,6 @@
     font-size: 0.85rem;
 }
 
-/* Floating animation */
 @keyframes float {
 
     0%,

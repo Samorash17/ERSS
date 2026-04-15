@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/Features.css"
-import BackButton from "../components/BackButton";
 import quickRescueImage from "../assets/quick-rescue.jpg"
 import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
 import multiTranslationImage from "../assets/multi-translation.jpg"
@@ -17,7 +16,6 @@ function Features() {
 
   return (
     <div className="features-section">
-      <BackButton />
       {/* Background animated orbs */}
       <div className="features-orb features-orb-1"></div>
       <div className="features-orb features-orb-2"></div>

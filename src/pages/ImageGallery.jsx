@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import BackButton from '../components/BackButton';
 import '../styles/ImageGallery.css';
 
 // Import all gallery images
@@ -78,7 +77,6 @@ const ImageGallery = () => {
 
   return (
     <div className="image-gallery-container">
-      <BackButton />
       {/* Animated background elements */}
       <div className="gallery-background">
         <div className="gallery-gradient-orb gallery-gradient-orb-1"></div>

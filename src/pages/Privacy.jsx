@@ -1,13 +1,11 @@
 import "../styles/privacy.css";
 import { useTranslation } from 'react-i18next';
-import BackButton from '../components/BackButton';
 
 const Privacy = () => {
     const { t } = useTranslation();
     
     return (
         <div className="privacy-container">
-            <BackButton />
             {/* Background Effects */}
             <div className="privacy-background">
                 <div className="privacy-orb privacy-orb-1"></div>

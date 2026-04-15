@@ -1,6 +1,5 @@
 import { useTranslation, Trans } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import BackButton from '../components/BackButton';
 import "../styles/works.css"
 import callOperatorImage from "../assets/emergency-call-operator-receiving-phone-call.jpg"
 import gpsLocationImage from "../assets/gps-location-tracking-map-pin-icon.jpg"
@@ -16,7 +15,6 @@ const Works = () => {
 
   return (
     <div className="works-container">
-      <BackButton />
       <div className="works-background-orbs">
         <div className="works-orb works-orb-1"></div>
         <div className="works-orb works-orb-2"></div>
@@ -95,7 +93,7 @@ const Works = () => {
             ></iframe>
           </div>
 
-          <div className="request-help-section" onClick={handleRequestHelp}>
+          {/* <div className="request-help-section" onClick={handleRequestHelp}>
             <div className="request-help-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -105,7 +103,7 @@ const Works = () => {
               </svg>
             </div>
             <span className="request-help-text">{t('works.requestHelp')}</span>
-          </div>
+          </div> */}
 
           <div className="emergency-notice">
             <div className="notice-icon">

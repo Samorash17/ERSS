@@ -7,7 +7,6 @@
   width: 100%;
   margin: 0 auto;
   gap: 60px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 90vh;
   box-sizing: border-box;
   overflow: hidden;
@@ -259,7 +258,6 @@
 
 .subtitle-mission {
   color: #fbfbfb;
-  /* font-family: 'Times New Roman', Times, serif; */
   font-size: 1.5rem;
   font-weight: 500;
 }
@@ -644,11 +642,7 @@
     font-size: 0.75rem;
   }
 
-  .hero-services-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 400px;
-  }
+ 
 
   .service-icon-wrapper {
     width: 60px;
@@ -722,12 +716,7 @@
     font-size: 0.7rem;
   }
 
-  .hero-services-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    max-width: 350px;
-  }
-
+ 
   .service-icon-wrapper {
     width: 55px;
     height: 55px;

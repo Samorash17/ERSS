@@ -27,8 +27,7 @@
   --glass-border: rgba(255, 255, 255, 0.2);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   
-  /* Typography */
-  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Typography — font is set globally in index.css */
   
   /* Animations */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -41,7 +40,6 @@
   width: 100%;
   min-height: 100vh;
   background: var(--primary-gradient);
-  font-family: var(--font-family);
   overflow: hidden;
 }
 

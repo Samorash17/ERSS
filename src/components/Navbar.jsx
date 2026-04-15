@@ -126,16 +126,16 @@ const Navbar = () => {
               {t('navbar.links.howItWorks')}
             </NavLink>
           </li>
-          <li className="mobile-nav-item">
-            <NavLink
+          {/* <li className="mobile-nav-item">
+             <NavLink
               to="/request-help"
               className={({ isActive }) => (isActive ? "mobile-nav-link active" : "mobile-nav-link")}
               onClick={closeMobileSidebar}
             >
               {t('navbar.links.requestHelp')}
             </NavLink>
-          </li>
-          <li className="mobile-nav-item">
+          </li>  */}
+          {/* <li className="mobile-nav-item">
             <NavLink
               to="/officer-login"
               className={({ isActive }) => (isActive ? "mobile-nav-link active" : "mobile-nav-link")}
@@ -143,8 +143,8 @@ const Navbar = () => {
             >
               {t('navbar.links.officerLogin')}
             </NavLink>
-          </li>
-          <li className={`mobile-nav-item mobile-dropdown-container ${mobileDropdownOpen ? 'open' : ''}`}>
+          </li> */}
+          {/* <li className={`mobile-nav-item mobile-dropdown-container ${mobileDropdownOpen ? 'open' : ''}`}>
             <div className="mobile-nav-link mobile-dropdown-trigger" onClick={toggleMobileDropdown}>
               <span>{t('navbar.links.mediaGallery')}</span>
               <span className="mobile-dropdown-arrow">▼</span>
@@ -178,7 +178,7 @@ const Navbar = () => {
             >
               {t('navbar.links.successStories')}
             </NavLink>
-          </li>
+          </li>*/}
           <li className="mobile-nav-item">
             <NavLink
               to="/faqs"
@@ -188,7 +188,7 @@ const Navbar = () => {
               {t('navbar.links.faqs')}
             </NavLink>
           </li>
-        </ul>
+        </ul> 
 
         <div className="mobile-sidebar-accessibility">
           <div className="mobile-accessibility-title">Accessibility</div>

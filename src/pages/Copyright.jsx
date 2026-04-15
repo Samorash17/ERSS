@@ -1,13 +1,11 @@
 import "../styles/copyright.css";
 import { useTranslation } from 'react-i18next';
-import BackButton from '../components/BackButton';
 
 const Copyright = () => {
     const { t } = useTranslation();
     
     return (
         <div className="copyright-container">
-            <BackButton />
             {/* Background Effects */}
             <div className="copyright-background">
                 <div className="copyright-orb copyright-orb-1"></div>

@@ -223,17 +223,7 @@
   margin: 0;
 }
 
-/* Fade in up animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
 
 /* Responsive design */
 @media (max-width: 1024px) {

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import '../styles/Feedback.css';
-import BackButton from '../components/BackButton';
 
 import { useTranslation } from 'react-i18next';
 
@@ -72,7 +71,6 @@ const Feedback = () => {
 
     return (
         <div className="feedback-container">
-            <BackButton />
             <h1 className="feedback-title">Feedback</h1>
             
             {/* Step Navigation */}

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useTranslation } from 'react-i18next';
-import BackButton from '../components/BackButton';
 import "../styles/LoginForm.css"
 import RequiredLabel from "../components/RequiredLabel";
 
@@ -21,7 +20,6 @@ export default function LoginForm() {
 
   return (
     <div className="login-container">
-      <BackButton />
       {/* Background Orbs */}
       <div className="login-orb login-orb-1"></div>
       <div className="login-orb login-orb-2"></div>
