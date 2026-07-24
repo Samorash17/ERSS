@@ -7,6 +7,7 @@ import MarqueeBanner from './MarqueeBanner';
 
 import cmImage from '../assets/CM.png';
 import dgpImage from '../assets/DGP.jpg';
+import directorImage from '../assets/director.jpg';
 import buildingImageDay from '../assets/tsiccc_building_day1.jpg';
 import buildingImageNight from '../assets/tsiccc_building_night.png';
 import risingLogo from '../assets/pic-hero-rising.jpg';
@@ -228,6 +229,31 @@ const Hero = () => {
                 <p className="leader-title" dangerouslySetInnerHTML={{ __html: t('hero.dgpTitle') }} />
               </div>
             </motion.div>
+
+            {/* Director General of Police Container */}
+            <motion.div
+              className="leader-profile"
+              variants={scaleIn}
+              whileHover={{
+                y: -10,
+                transition: { type: "spring", stiffness: 300 },
+              }}
+            >
+              <div className="leader-card">
+                <div className="leader-img-wrapper-director">
+                  <motion.img
+                    src={directorImage}
+                    alt={t('hero.directorname')}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <div className="leader-img-border"></div>
+                </div>
+                <h4 className="leader-name">{t('hero.directorName')}</h4>
+                <p className="leader-title" dangerouslySetInnerHTML={{ __html: t('hero.directorTitle') }} />
+              </div>
+            </motion.div>
+
           </motion.div>
         </motion.div>
       </motion.div>
