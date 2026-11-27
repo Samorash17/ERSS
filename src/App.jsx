@@ -1,34 +1,140 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+import Home from './pages/home'
+import NotFound from './pages/NotFound'
+import SOS from './pages/sos'
+import Features from './pages/Features'
+import Works from './pages/works'
+import LoginForm from './pages/LoginForm'
+import OfficerLogin from './pages/officer_login';
+import SuccessStories from './pages/SuccessStories'
+import FAQ from './pages/FAQ'
+import Media from './pages/Media'
+import Feedback from './pages/Feedback'
+
+// Admin Components
+import AdminLayout from './layouts/AdminLayout'
+import PrivateRoute from './components/PrivateRoute'
+import DashboardHome from './pages/admin/DashboardHome'
+import ManageStories from './pages/admin/ManageStories'
+import ManageFAQs from './pages/admin/ManageFAQs'
+import ManageGallery from './pages/admin/ManageGallery'
+import Terms from './pages/Terms'
+import Privacy from './pages/Privacy'
+import Copyright from './pages/Copyright'
+import AboutUs from './pages/AboutUs'
+import ImageGallery from './pages/ImageGallery'
+
+const RootLayout = () => {
+  return (
+    <div className="app-layout">
+      <ScrollToTop />
+      <Navbar />
+      <main className="main-content">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "request-help",
+        element: <SOS />
+      },
+      {
+        path: "features",
+        element: <Features />,
+      },
+      {
+        path: "how-it-works",
+        element: <Works />,
+      },
+      {
+        path: "citizen-login",
+        element: <LoginForm />,
+      },
+      // {
+      //   path: "officer-login",
+      //   element: <OfficerLogin />,
+      // },
+      {
+        path: "success-stories",
+        element: <SuccessStories />,
+      },
+      {
+        path: "faqs",
+        element: <FAQ />,
+      },
+      {
+        path: "media",
+        element: <Media />,
+      },
+      {
+        path: "feedback",
+        element: <Feedback />,
+      },
+      // Admin Routes
+      {
+        path: "admin",
+        element: <PrivateRoute />,
+        children: [
+          {
+            element: <AdminLayout />,
+            children: [
+              { index: true, element: <DashboardHome /> },
+              { path: "stories", element: <ManageStories /> },
+              { path: "faqs", element: <ManageFAQs /> },
+              { path: "gallery", element: <ManageGallery /> }
+            ]
+          }
+        ]
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+      {
+        path: "Terms-and-Conditions",
+        element: <Terms />
+      },
+      {
+        path: "Privacy-Policy",
+        element: <Privacy />
+      },
+      {
+        path: "Copyright",
+        element: <Copyright />
+      },
+      {
+        path: "about",
+        element: <AboutUs />
+      },
+      {
+        path: "image-gallery",
+        element: <ImageGallery />
+      }
+
+    ],
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <RouterProvider router={router} />
   )
 }
 

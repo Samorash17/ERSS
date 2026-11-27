@@ -1,0 +1,260 @@
+.accessibility-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 5px 10px;
+  background-color: rgba(37, 52, 163, 0.1);
+  border-radius: 4px;
+  z-index: 99999;
+  position: relative;
+}
+
+/* Font Size Controls */
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.font-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.font-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.font-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.font-btn.decrease {
+  font-size: 12px;
+}
+
+.font-btn.normal {
+  font-size: 14px;
+}
+
+.font-btn.increase {
+  font-size: 16px;
+}
+
+/* Language Selector */
+.language-selector {
+  position: relative;
+  z-index: 999999;
+}
+
+.language-selector::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 10px;
+  z-index: 999998;
+  pointer-events: none;
+}
+
+.language-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 99999;
+  position: relative;
+}
+
+.language-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  min-width: 220px;
+  z-index: 999999;
+  overflow: hidden;
+  margin-top: 8px;
+  backdrop-filter: blur(20px);
+}
+
+.language-option {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+  z-index: 99999;
+  color: #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.language-option::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #38bdf8 0%, #60a5fa 100%);
+  transform: scaleY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.language-option:hover::before {
+  transform: scaleY(1);
+}
+
+.language-option:last-child {
+  border-bottom: none;
+}
+
+.language-option:hover {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  padding-left: 22px;
+}
+
+.language-option.active {
+  background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
+  color: white;
+  padding-left: 22px;
+}
+
+.language-option.active::before {
+  transform: scaleY(1);
+  background: white;
+}
+
+.language-option.active:hover {
+  background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+  color: white;
+}
+
+.lang-english {
+  display: block;
+  font-weight: 600;
+  color: inherit;
+  font-size: 14px;
+}
+
+.lang-native {
+  display: block;
+  font-size: 16px;
+  margin-top: 4px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.language-option.active .lang-native {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.language-option:hover .lang-native {
+  color: rgba(56, 189, 248, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .accessibility-controls {
+    gap: 10px;
+    padding: 3px 6px;
+  }
+  
+  .font-btn {
+    padding: 3px 6px;
+    font-size: 12px;
+    min-width: 25px;
+    height: 25px;
+  }
+  
+  .font-btn.decrease {
+    font-size: 10px;
+  }
+  
+  .font-btn.normal {
+    font-size: 12px;
+  }
+  
+  .font-btn.increase {
+    font-size: 14px;
+  }
+  
+  .language-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  .language-dropdown {
+    min-width: 150px;
+    right: -20px;
+    z-index: 10;
+  }
+  
+  .language-option {
+    padding: 10px 12px;
+  }
+  
+  .lang-native {
+    font-size: 14px;
+  }
+}
+
+/* Force dropdown to appear above all elements */
+.language-dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  z-index: 2147483647 !important; /* Maximum z-index value */
+  transform: translateZ(0); /* Force hardware acceleration */
+  will-change: transform;
+}
+
+/* Ensure parent containers don't clip the dropdown */
+.accessibility-controls,
+.top-bar,
+.header-container,
+.main-nav {
+  overflow: visible !important;
+}
+
+/* Create a stacking context for the language selector */
+.language-selector {
+  isolation: isolate;
+  transform: translateZ(0);
+}

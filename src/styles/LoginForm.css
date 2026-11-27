@@ -1,0 +1,161 @@
+/* Ensure full page fills screen */
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.login-top-image {
+    width: 140px;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+/* Center container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+}
+
+
+
+
+/* The login form */
+.login-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Form groups */
+.form-group,
+.captcha-group,
+.remember-me-group {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Required field red star
+label::after {
+    content: " *";
+    color: red;
+} */
+
+/* Input fields */
+.login-form input[type="text"],
+.login-form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* CAPTCHA input */
+.login-form input[placeholder="Enter captcha here"] {
+    background-color: #e6ffe6;
+    border: 1px solid #90ee90;
+}
+
+.captcha-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.captcha-display-area {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.captcha-image {
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border: 1px dotted #000;
+    margin-right: 10px;
+    letter-spacing: 2px;
+    transform: rotate(-1deg);
+    -webkit-text-stroke: 0.5px black;
+    color: black;
+    width: 150px;
+    text-align: center;
+}
+
+.refresh-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #888;
+}
+
+/* Remember me */
+.remember-me-group {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me-group label {
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #4ac6d9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #3aa6b9;
+}
+
+/* @media (prefers-color-scheme: dark) {
+    .login-form {
+        background: #1f1f1f;
+    }
+
+    .login-form label {
+        color: #f2f2f2;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        background: #2a2a2a;
+        border: 1px solid #555;
+        color: #fff;
+    }
+} */

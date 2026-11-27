@@ -1,0 +1,462 @@
+{
+    "common": {
+        "backToHome": "Back to Home"
+    },
+    "navbar": {
+        "contactEmail": "helpline@telangana.gov.in",
+        "contactPhone": "+91 8712674000",
+        "downloadApp": "Download App",
+        "govTitle": "GOVERNMENT OF TELANGANA",
+        "govSubtitle": "Official Portal",
+        "erssTitle": "EMERGENCY RESPONSE SUPPORT SYSTEM",
+        "erssSubtitle": "24/7 Emergency Services",
+        "links": {
+            "home": "HOME",
+            "features": "KEY FEATURES",
+            "howItWorks": "HOW IT WORKS",
+            "requestHelp": "REQUEST HELP",
+            "citizenLogin": "CITIZEN LOGIN",
+            "officerLogin": "OFFICER LOGIN",
+            "mediaGallery": "MEDIA GALLERY",
+            "awards": "Awards and Recognition",
+            "imageGallery": "Image Gallery",
+            "videoGallery": "Video Gallery",
+            "pressRelease": "Press Release",
+            "articles": "Articles",
+            "news": "112 News",
+            "successStories": "SUCCESS STORIES",
+            "faqs": "FAQs",
+            "feedback": "FEEDBACK"
+        }
+    },
+    "hero": {
+        "subtitle": "DIAL 112 TELANGANA",
+        "title": "EMERGENCY RESPONSE SUPPORT SYSTEM",
+        "leadership": "OUR LEADERSHIP",
+        "cmName": "A. REVANTH REDDY",
+        "cmTitle": "HON'BLE CHIEF MINISTER,<br />TELANGANA",
+        "dgpName": "C. V. ANAND",
+        "dgpTitle": "DIRECTOR GENERAL OF POLICE,<br />TELANGANA",
+        "directorName": "V. B. KAMALASAN REDDY",
+        "directorTitle": "DIRECTOR, TGiCCC",
+        "welcomeTitle": "TELANGANA POLICE",
+        "welcomeSubtitle": "WELCOMES YOU",
+        "missionTitle": "MISSION & VISION",
+        "missionSubtitle": "This system is designed to provide prompt, integrated emergency public safety and security services across the state of Telangana, leveraging drones, artificial intelligence, and evidence-based systems to ensure rapid response anytime and anywhere.",
+        "services": {
+            "police": "Police",
+            "ambulance": "Ambulance",
+            "fire": "Fire Service",
+            "disaster": "Disaster Response",
+            "womenSafety": "Women Safety",
+            "childProtection": "Child Protection"
+        }
+    },
+    "helpline": {
+        "bannerSubtitle": "24/7 HELPLINE SUPPORT",
+        "bannerTitle": "Welcome to<br />Telangana Emergency Response Support System<br />Dial - 112",
+        "bannerText": "Telangana-Helpline, empowers the caller to get prompt response from the Police response team.",
+        "heading": "HELPLINE 112",
+        "subheading": "Call us for any emergency support response immediately",
+        "paragraph1": "Dial 112 is a nationwide emergency helpline implemented by Government of India designed to provide swift and efficient response during emergencies. In Telangana this services is available 24*7 ensuring that citizens can easily connect with emergency services like police, fire, and medical assistance all through a single number <strong>112</strong>.",
+        "paragraph2": "The Telangana Government in collaboration with various services, aims to offer timely help in critical situations, reducing response time, saving lives and improving the overall safety of its citizen."
+    },
+    "notFound": {
+        "title": "404 - Page Not Found",
+        "message": "The page you are looking for does not exist.",
+        "homeLink": "Go Back to Home"
+    },
+    "feedback": {
+        "title": "We Value Your Feedback",
+        "subtitle": "Help us improve our emergency services by sharing your experience.",
+        "step1": {
+            "title": "Personal Information",
+            "nameLabel": "Name",
+            "namePlaceholder": "Enter your full name",
+            "mobileLabel": "Mobile Number",
+            "mobilePlaceholder": "Enter your mobile number",
+            "emailLabel": "Email (Optional)",
+            "emailPlaceholder": "Enter your email"
+        },
+        "step2": {
+            "title": "Rate Our Service",
+            "ratingLabel": "How would you rate your experience with Dial 112?",
+            "categoryLabel": "Category",
+            "selectCategory": "Select a category",
+            "policeIntervention": "Police Intervention",
+            "ambulanceService": "Ambulance Service",
+            "appExperience": "App Experience",
+            "other": "Other"
+        },
+        "step3": {
+            "title": "Your Message",
+            "messageLabel": "Message / Suggestion",
+            "messagePlaceholder": "Write your feedback here..."
+        },
+        "nextBtn": "Next",
+        "backBtn": "Back",
+        "submitBtn": "Submit Feedback",
+        "submitSuccess": "Thank you for your feedback! We appreciate your input."
+    },
+    "media": {
+        "title": "Media Gallery",
+        "comingSoon": "Coming Soon..."
+    },
+    "features": {
+        "heading": "Key Features of Dial 112 in Telangana",
+        "subtitle": "Advanced emergency response system powered by technology and dedicated teams",
+        "items": {
+            "unifiedEmergencyResponse": {
+                "title": "Unified Emergency Response",
+                "desc": "Dial 112 for instant access to all emergency services, with fast connections and 24/7 support whenever you need help."
+            },
+            "geolocation": {
+                "title": "Location Fusion",
+                "desc": "Uses GPS and mapping technology to pinpoint your location accurately for faster assistance."
+            },
+            "availability": {
+                "title": "24/7 Availability",
+                "desc": "Help is available at all times — day or night — with dedicated teams on standby."
+            },
+            "multiLanguage": {
+                "title": "Multi-Language Support",
+                "desc": "Available in multiple languages to ensure accessibility for all citizens of Telangana."
+            },
+            "advancedIvr": {
+                "title": "Advanced IVR Filtering",
+                "desc": "ERSS uses an intelligent Interactive Voice Response (IVR) system to quickly filter and prioritize emergency calls, ensuring critical cases are routed to the right responders without delay."
+            },
+            "artificialIntelligence": {
+                "title": "AI Voice Bot",
+                "desc": "By leveraging Artificial Intelligence, ERSS analyzes incoming data to assess emergency severity, recommend actions, and support faster, smarter decision-making."
+            },
+            "dronePatrolling": {
+                "title": "Autonomous Drone Response",
+                "desc": "Autonomous drone patrolling enables real-time aerial monitoring of emergency locations, helping authorities assess situations quickly and respond more effectively."
+            }
+        }
+    },
+    "works": {
+        "title": "How Dial 112 Works in Telangana",
+        "description": "When you dial <span className=\"emergency-number-inline\">112</span>, your call is automatically routed to the nearest emergency response centre. Here's how the system works:",
+        "steps": {
+            "reception": {
+                "title": "Call Reception",
+                "desc": "The operator receives your call and quickly assesses the nature of the emergency situation."
+            },
+            "location": {
+                "title": "Location Detection",
+                "desc": "Your GPS data is instantly shared with the operator to accurately determine your location."
+            },
+            "dispatch": {
+                "title": "Dispatch Assistance",
+                "desc": "The appropriate emergency team (police, fire, ambulance) is rapidly dispatched to your location."
+            }
+        },
+        "videoHeader": "WATCH HOW IT WORKS",
+        "requestHelp": "Request Emergency Help",
+        "notice": {
+            "label": "Emergency Notice",
+            "text": "This is a critical emergency facility. Please use this service responsibly and only for genuine emergency cases."
+        }
+    },
+    "successStories": {
+        "title": "Inspirational Success Stories",
+        "subtitle": "Witness the swift and effective response of our Emergency Response Vehicles across Telangana, bringing safety and justice to our communities through rapid action and dedication.",
+        "readMore": "Read More",
+        "readLess": "Read Less",
+        "rapidResponse": "Rapid Response",
+        "postedBy": "Posted by",
+        "stories": [
+            {
+                "id": "TG99-0599",
+                "district": "Hyderabad",
+                "date": "28/09/2025",
+                "time": "14:16 hrs",
+                "text": "A call was received informing that one boy theft a mobile phone from a patient at NIMS BanjaraHills. ERV 0599 was dispatched immediately. ERV reached on the spot within 03 minutes and caught the boy nearby medical turn."
+            },
+            {
+                "id": "TG99-0418",
+                "district": "Warangal",
+                "date": "02/08/2025",
+                "time": "15:18 hrs",
+                "text": "A call was received informing that a person had been assaulted by individuals and Rs. 12000 was snatched. ERV 0418 reached on spot within 01 minute and apprehended three boys."
+            },
+            {
+                "id": "TG99-0600",
+                "district": "Nirmal",
+                "date": "10/07/2025",
+                "time": "11:11 hrs",
+                "text": "Some persons in a black Scorpio snatched a woman's phone and fled. ERV 0600 reached within 03 minutes and caught the suspects."
+            }
+        ]
+    },
+    "login": {
+        "title": "Citizen Login",
+        "mobileLabel": "Mobile Number",
+        "mobilePlaceholder": "Enter 10-digit mobile number",
+        "otpLabel": "Enter OTP",
+        "otpPlaceholder": "Enter 6-digit OTP",
+        "loginBtn": "Login Securely",
+        "sendOtpBtn": "Send OTP",
+        "registerPrompt": "New user?",
+        "registerLink": "Register here",
+        "otpSentAlert": "OTP sent successfully to your mobile number!",
+        "invalidMobileAlert": "Please enter a valid 10-digit mobile number."
+    },
+    "sos": {
+        "title": "Emergency Assistance Request",
+        "subtitle": "Please fill out the form below to request immediate assistance. Our team is ready to help 24/7.",
+        "warningBanner": "THIS IS AN EMERGENCY FACILITY. USERS ARE ADVISED TO USE THIS SERVICE CAREFULLY.",
+        "pageTitle": "Request Emergency Help",
+        "personalInfo": {
+            "title": "Personal Information",
+            "name": "Full Name",
+            "namePlaceholder": "Enter your full name",
+            "mobile": "Mobile Number",
+            "mobilePlaceholder": "Enter your mobile number",
+            "email": "Email Address (Optional)",
+            "emailPlaceholder": "Enter your email address",
+            "gender": "Gender",
+            "male": "Male",
+            "female": "Female",
+            "transgender": "Others",
+            "additionalInfo": "Additional Info",
+            "additionalInfoPlaceholder": "Provide any additional details about the emergency"
+        },
+        "emergencyDetails": {
+            "title": "Emergency Details",
+            "nature": "Nature of Emergency",
+            "selectNature": "Select Emergency Type",
+            "selectEmergencyType": "-- Select Emergency Type --",
+            "medical": "Medical Emergency",
+            "fire": "Fire Accident",
+            "police": "Police Assistance",
+            "accident": "Road Accident",
+            "womenSafety": "Women Safety",
+            "crime": "Crime",
+            "naturalDisaster": "Natural Disaster",
+            "other": "Other",
+            "description": "Description",
+            "descriptionPlaceholder": "Briefly describe the emergency situation...",
+            "severity": "Severity Level",
+            "critical": "Critical",
+            "moderate": "Moderate",
+            "low": "Low"
+        },
+        "locationDetails": {
+            "title": "Location Details",
+            "emergencyLocation": "Emergency Location",
+            "addressDetails": "Address Details",
+            "searchLocation": "Search your location here...",
+            "mapNote": "Drag the marker to adjust your exact location",
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "note": "Note",
+            "instruction": "Tap on the map to pinpoint your exact location for faster response.",
+            "address": "Current Address / Landmark",
+            "addressPlaceholder": "E.g., Near Main Bus Stop, MG Road",
+            "fullAddress": "Address",
+            "fullAddressPlaceholder": "Enter complete address with landmarks",
+            "district": "District",
+            "districtPlaceholder": "Enter District",
+            "selectDistrict": "-- Select District --",
+            "state": "State",
+            "place": "Place",
+            "placePlaceholder": "Enter area/locality name",
+            "pincode": "Pincode",
+            "pincodePlaceholder": "Enter Pincode"
+        },
+        "captcha": {
+            "placeholder": "Enter the characters shown above",
+            "refresh": "Refresh captcha"
+        },
+        "buttons": {
+            "clearForm": "Clear Form",
+            "submitRequest": "Request Emergency Help"
+        },
+        "validation": {
+            "mandatoryFields": "Please fill all mandatory fields",
+            "invalidCaptcha": "Invalid captcha. Please try again.",
+            "successMessage": "Emergency request submitted successfully!"
+        },
+        "location": {
+            "notSupported": "Geolocation is not supported by your browser",
+            "permissionDenied": "Location access denied. Please enable location permissions.",
+            "unavailable": "Location information is unavailable.",
+            "timeout": "Location request timed out.",
+            "error": "An error occurred while getting your location.",
+            "detecting": "Detecting...",
+            "useMyLocation": "Use My Location"
+        },
+        "mandatoryNote": "* Fields are mandatory",
+        "submitBtn": "Submit Request"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Find answers to common questions about our emergency response services and how to access help when you need it most.",
+        "titleUnderline": "TELANGANA 112",
+        "contactLink": "Contact Support",
+        "footerText": "Still have questions?",
+        "fallbackQuestions": [
+            {
+                "question": "What is Telangana 112?",
+                "answer": "Telangana 112 is an integrated emergency response system that provides immediate assistance for police, medical, fire, and disaster emergencies through a single number - 112."
+            },
+            {
+                "question": "How do I contact emergency services?",
+                "answer": "Simply dial <b>112</b> from any phone (mobile or landline) to reach our emergency response center. The call is free and available 24/7."
+            },
+            {
+                "question": "What services are available through 112?",
+                "answer": "<ul><li>Police Emergency Services</li><li>Medical Emergency & Ambulance</li><li>Fire Emergency Services</li><li>Disaster Response</li><li>Women Safety Services</li><li>Child Protection Services</li></ul>"
+            },
+            {
+                "question": "Is the 112 service available in multiple languages?",
+                "answer": "Yes, our emergency response system supports multiple languages including Telugu, Hindi, English, and other regional languages to ensure effective communication."
+            },
+            {
+                "question": "How quickly can I expect help after calling 112?",
+                "answer": "Our target response time varies by emergency type and location, but we strive to dispatch help within <b>5-15 minutes</b> for critical emergencies in urban areas."
+            }
+        ],
+        "questions": [
+            {
+                "question": "What is ERSS (Dial 112)?",
+                "answer": "Emergency Response Support System (ERSS) is a pan-India single number (112) based emergency response system for citizens in emergencies. Each State/UT is required to designate a dedicated Emergency Response Centres (ERC) to handle emergency requests. ERSS connects citizens to the appropriate emergency services like Police, Fire, Health, and other disaster management services."
+            },
+            {
+                "question": "When should I call 112?",
+                "answer": "You should call 112 in any emergency situation where immediate assistance is required from Police, Fire, or Ambulance services. Examples include: <br/><ul><li>Medical emergencies</li><li>Fire outbreaks</li><li>Crimes in progress</li><li>Road accidents</li><li>Women safety issues</li><li>Natural disasters</li></ul>"
+            },
+            {
+                "question": "Is 112 available 24/7?",
+                "answer": "Yes, the 112 service is available 24 hours a day, 7 days a week, and 365 days a year."
+            },
+            {
+                "question": "Can I call 112 from a mobile phone without a SIM card?",
+                "answer": "Yes, in most cases, you can dial 112 from a mobile phone even without a SIM card or if the keypad is locked, provided there is network coverage from any service provider."
+            },
+            {
+                "question": "What information should I provide when I call 112?",
+                "answer": "When you call 112, try to stay calm and provide the following information clearly:<br/><ul><li><strong>Your location:</strong> Give the exact address or landmarks.</li><li><strong>Nature of emergency:</strong> Explain what has happened.</li><li><strong>Details:</strong> Provide details about the number of people involved, injuries, etc.</li><li><strong>Your contact number:</strong> So that the emergency team can call you back if needed.</li></ul>"
+            },
+            {
+                "question": "Is there an app for 112?",
+                "answer": "Yes, the '112 India' mobile app is available for both Android and iOS devices. It provides a panic button and allows you to send your location and details to the ERC instantly."
+            },
+            {
+                "question": "What happens if I call 112 by mistake?",
+                "answer": "If you call 112 by mistake, please do not hang up immediately. Stay on the line and tell the operator that everything is fine. Otherwise, the operator may assume there is an emergency and dispatch help."
+            },
+            {
+                "question": "Does 112 replace other emergency numbers like 100, 101, and 108?",
+                "answer": "112 is designed to be a consolidated single number. However, the existing emergency numbers (100 for Police, 101 for Fire, 108 for Ambulance) continue to be in operation and are integrated into the 112 system."
+            }
+        ]
+    },
+    "marquee": {
+        "item1": "🚨 Emergency Helpline: Dial 112 for immediate assistance",
+        "item2": "⚡ 24/7 Emergency Response Services Available",
+        "item3": "🏥 Medical, Police, Fire & Disaster Response - All in One Call",
+        "item4": "📱 Download the Telangana 112 App for Quick Access",
+        "item5": "🎯 Your Safety is Our Priority - Stay Alert, Stay Safe",
+        "item6": "🚑 Fastest Response Time in Emergency Services"
+    },
+    "accessibility": {
+        "decreaseFont": "Decrease font size",
+        "normalFont": "Normal font size",
+        "increaseFont": "Increase font size"
+    },
+    "footer": {
+        "quickLinks": "Quick Links",
+        "resources": "Resources",
+        "contactUs": "Contact Us",
+        "followUs": "Follow Us",
+        "location": "Contact",
+        "pageviews": "Total Pageviews",
+        "copyright": "Copyright © 2025 <span className=\"highlight\">Telangana Police</span> All rights reserved",
+        "contact": {
+            "address": "Address",
+            "phone": "Phone",
+            "addressText": "Road No. 12, adj. Puri Jagannath Temple, Bhavani Nagar, Banjara Hills, Hyderabad, Telangana 500034"
+        },
+        "links": {
+            "requestHelp": "Request Help",
+            "officerLogin": "Officer Login",
+            "downloadApp": "Download 112 India App",
+            "faq": "FAQ",
+            "police": "Telangana Police",
+            "stories": "Success Stories",
+            "feedback": "Feedback",
+            "about": "About Us",
+            "contact": "Contact",
+            "terms": "Terms & Condition",
+            "privacy": "Privacy Policy"
+        },
+        "address": "Telangana State Police Integrated Command and Control Centre, Road No. 12, Banjara Hills, Hyderabad, Telangana 500034"
+    },
+  "admin": {
+    "panel": "Admin Panel",
+    "welcome": "Welcome",
+    "dashboard": "Dashboard",
+    "overview": "Dashboard Overview",
+    "welcomeBack": "Welcome back",
+    "manageStories": "Manage Stories",
+    "manageFaqs": "Manage FAQs",
+    "manageGallery": "Manage Gallery",
+    "logout": "Logout",
+    "successStories": "Success Stories",
+    "mediaGallery": "Media Gallery",
+    "storiesDescription": "Manage stories shared by citizens and officers.",
+    "faqsDescription": "Update Frequently Asked Questions.",
+    "galleryDescription": "Upload and manage images in the gallery."
+  },
+  "auth": {
+    "loginFailed": "Login failed",
+    "logoutFailed": "Logout failed"
+  },
+  "copyright": {
+    "title": "Copyright Notice",
+    "subtitle": "Emergency Response & Safety System (ERSS)",
+    "content": "Material featured on this Portal may be reproduced free of charge after taking proper permission by sending a mail to us. However, the material has to be reproduced accurately and not to be used in a derogatory manner or in a misleading context. Wherever the material is being published or issued to others, the source must be prominently acknowledged. However, the permission to reproduce this material shall not extend to any material which is identified as being copyright of a third party. Authorisation to reproduce such material must be obtained from the departments/copyright holders concerned.",
+    "footer": "Telangana Police. All Rights Reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Emergency Response & Safety System (ERSS)",
+    "content1": "This portal does not automatically capture any specific personal information from you, (like name, phone number or e-mail address), that allows us to identify you individually",
+    "content2": "If this Portal requests you to provide personal information, you will be informed for the particular purposes for which the information is gathered and adequate security measures will be taken to protect your personal information.",
+    "content3": "We do not sell or share any personally identifiable information volunteered on this Portal site to any third party (public/private). Any information provided to this Portal will be protected from loss, misuse, unauthorized access or disclosure, alteration, or destruction",
+    "content4": "We gather certain information about the User, such as Internet protocol (IP) addresses, domain name, browser type, operating system, the date and time of the visit and the pages visited. We make no attempt to link these addresses with the identity of individuals visiting our site unless an attempt to damage the site has been detected.",
+    "lastUpdated": "Last updated: January 2026"
+  },
+  "gallery": {
+    "title": "Image Gallery",
+    "subtitle": "Explore our collection of emergency response activities and achievements",
+    "failedToFetch": "Failed to fetch gallery",
+    "images": {
+      "psap1": "Public Safety Answering Point - Control Room",
+      "psap2": "Emergency Response Center Operations",
+      "psap3": "Call Center Emergency Dispatch",
+      "psap4": "Public Safety Communication Hub",
+      "psap5": "Emergency Services Coordination Center",
+      "psap6": "Crisis Response Command Center",
+      "psap7": "Public Safety Monitoring Station",
+      "psap8": "Emergency Call Processing Center",
+      "psap9": "Public Safety Operations Center",
+      "psap10": "Emergency Response Dispatch Hub",
+      "psap11": "Public Safety Answering Point Facility"
+    }
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "subtitle": "Emergency Response & Safety System",
+    "intro": "This Portal is designed, developed and hosted by Dial - 112, Telangana",
+    "accuracy": "Though all efforts have been made to ensure the accuracy and currency of the content on this Portal, the same should not be construed as a statement of law or used for any legal purposes. Telangana Dial-112 accepts no responsibility in relation to the accuracy, completeness, usefulness or otherwise, of the contents. Users are advised to verify/check any information with the relevant Government department(s) and/or other source(s), and to obtain any appropriate professional advice before acting on the information provided in the Portal.",
+    "liability": "In no event will the Government or Telangana Dial-112 be liable for any expense, loss or damage including, without limitation, indirect or consequential loss or damage, or any expense, loss or damage whatsoever arising from use, or loss of use, of data, arising out of or in connection with the use of this Portal",
+    "links": "Links to other websites that have been included on this Portal are provided for public convenience only. Telangana Dial-112 is not responsible for the contents or reliability of linked websites and does not necessarily endorse the view expressed within them. We cannot guarantee the availability of such linked pages at all times",
+    "jurisdiction": "These terms and conditions shall be governed by and construed in accordance with the Indian Laws. Any dispute arising under these terms and conditions shall be subject to the exclusive jurisdiction of the courts of India"
+  }
+}
+

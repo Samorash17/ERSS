@@ -1,0 +1,248 @@
+/* Marquee Banner Styles */
+.marquee-banner {
+  width: 100%;
+  background: linear-gradient(135deg, #dc9f26 0%, #ef9144 50%, #dc7e26 100%);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+}
+
+.marquee-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 25%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    rgba(255, 255, 255, 0.1) 75%, 
+    transparent 100%
+  );
+  animation: shimmerEffect 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerEffect {
+  0%, 100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+
+.marquee-content {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-text {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marqueeScroll 55s linear infinite;
+  gap: 80px;
+  will-change: transform;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-item {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.marquee-item::after {
+  content: "•";
+  color: #fbbf24;
+  font-size: 20px;
+  margin-left: 40px;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.marquee-item:last-child::after {
+  display: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Emergency glow effect */
+.marquee-banner {
+  animation: emergencyGlow 2s ease-in-out infinite;
+}
+
+@keyframes emergencyGlow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(220, 38, 38, 0.6), 0 0 40px rgba(220, 38, 38, 0.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .marquee-content {
+    height: 50px;
+  }
+  
+  .marquee-item {
+    font-size: 15px;
+    padding: 0 18px;
+  }
+  
+  .marquee-item::after {
+    margin-left: 35px;
+    font-size: 19px;
+  }
+  
+  .marquee-text {
+    gap: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-content {
+    height: 45px;
+  }
+  
+  .marquee-item {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+  
+  .marquee-item::after {
+    margin-left: 30px;
+    font-size: 18px;
+  }
+  
+  .marquee-text {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .marquee-content {
+    height: 42px;
+  }
+  
+  .marquee-item {
+    font-size: 13px;
+    padding: 0 12px;
+  }
+  
+  .marquee-item::after {
+    margin-left: 25px;
+    font-size: 17px;
+  }
+  
+  .marquee-text {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-content {
+    height: 40px;
+  }
+  
+  .marquee-item {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+  
+  .marquee-item::after {
+    margin-left: 20px;
+    font-size: 16px;
+  }
+  
+  .marquee-text {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .marquee-content {
+    height: 38px;
+  }
+  
+  .marquee-item {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+  
+  .marquee-item::after {
+    margin-left: 16px;
+    font-size: 15px;
+  }
+  
+  .marquee-text {
+    gap: 32px;
+  }
+}
+
+/* Pause animation on hover */
+.marquee-banner:hover .marquee-text {
+  animation-play-state: paused;
+}
+
+/* Add subtle gradient overlay for better text readability */
+.marquee-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(220, 38, 38, 1) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.marquee-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(270deg, rgba(220, 38, 38, 1) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}

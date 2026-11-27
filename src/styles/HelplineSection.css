@@ -1,0 +1,657 @@
+.helpline-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Same gradient background as Hero section */
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  overflow: hidden;
+  /* padding-bottom: 4rem; */
+}
+
+/* Added animated gradient orbs and grid pattern for visual consistency */
+.helpline-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.helpline-grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+.helpline-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 20s infinite ease-in-out;
+}
+
+.helpline-gradient-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.helpline-gradient-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: 5s;
+}
+
+.helpline-gradient-orb-3 {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-50px, 50px) scale(0.9);
+  }
+}
+
+/* Transformed banner with glassmorphism and glow effects */
+.helpline-banner {
+  position: relative;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  color: white;
+  text-align: center;
+  padding: 60px 40px;
+  margin: 80px auto 60px;
+  max-width: 1200px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.banner-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  animation: bannerGlow 8s infinite ease-in-out;
+}
+
+@keyframes bannerGlow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(10%, 10%);
+    opacity: 0.5;
+  }
+}
+
+.helpline-banner-subtitle {
+  position: relative;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #60a5fa;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+}
+
+/* Added pulsing indicator dots */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #60a5fa;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px #60a5fa, 0 0 20px #60a5fa;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.helpline-banner-title {
+  position: relative;
+  font-size: 2rem;
+  margin: 0 0 25px 0;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #ffd700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Added gradient highlight effect */
+.banner-title-highlight {
+  background: linear-gradient(135deg, #f2eac4 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.5));
+}
+
+.dial-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fbbf24;
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.6), 0 0 50px rgba(251, 191, 36, 0.4);
+  letter-spacing: 2px;
+  display: inline-block;
+  animation: numberGlow 2s infinite alternate;
+}
+
+@keyframes numberGlow {
+  from {
+    text-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
+  }
+  to {
+    text-shadow: 0 0 50px rgba(251, 191, 36, 0.9), 0 0 80px rgba(251, 191, 36, 0.5);
+  }
+}
+
+.helpline-banner-text {
+  position: relative;
+  font-size: 1.15rem;
+  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced content section with better spacing */
+.helpline-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 80px;
+  z-index: 1;
+}
+
+/* Added glassmorphism frame and glow to image */
+.helpline-image-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.agent-image-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  padding: 8px;
+}
+
+.agent-image {
+  height: 380px;
+  width: auto;
+  display: block;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.agent-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.agent-image-frame:hover .agent-glow {
+  opacity: 1;
+}
+
+/* Enhanced 24/7 icon with glassmorphism and glow ring */
+.icon-wrapper {
+  position: absolute;
+  bottom: 20px;
+  right: -60px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-glow-ring {
+  position: absolute;
+  inset: -10px;
+  border: 2px solid rgba(96, 165, 250, 0.5);
+  border-radius: 50%;
+  animation: ringPulse 2s infinite;
+}
+
+@keyframes ringPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.icon-247 {
+  width: 70px;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Added glassmorphism card for text content */
+.helpline-text-wrapper {
+  flex: 1;
+  max-width: 700px;
+}
+
+.text-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.helpline-heading {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(96, 165, 250, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Added decorative lines */
+.heading-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #60a5fa 50%, transparent 100%);
+  max-width: 80px;
+}
+
+.helpline-subheading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+  color: #60a5fa;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(96, 165, 250, 0.3);
+}
+
+.helpline-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 25px;
+  text-align: justify;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Added highlight for emergency number */
+.number-highlight {
+  color: #fbbf24;
+  font-weight: 800;
+  font-size: 1.15em;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .helpline-content {
+    gap: 45px;
+    padding: 50px 35px;
+  }
+
+  .icon-wrapper {
+    right: -35px;
+  }
+
+  .helpline-banner {
+    padding: 50px 35px;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.9rem;
+  }
+
+  .dial-number {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .helpline-content {
+    gap: 50px;
+    padding: 40px 30px;
+  }
+
+  .icon-wrapper {
+    right: -40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .helpline-container {
+    min-height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .helpline-banner {
+    margin: 35px auto 35px;
+    padding: 45px 30px;
+    width: 92%;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.7rem;
+  }
+
+  .dial-number {
+    font-size: 2.1rem;
+  }
+
+  .helpline-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 25px;
+    gap: 35px;
+  }
+
+  .text-card {
+    padding: 40px 30px;
+  }
+
+  .helpline-text-wrapper {
+    width: 100%;
+  }
+
+  .helpline-paragraph {
+    text-align: left;
+  }
+
+  .icon-wrapper {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .helpline-heading {
+    font-size: 1.6rem;
+  }
+
+  .helpline-subheading {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .helpline-container {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+
+  .helpline-banner {
+    margin: 40px auto 40px;
+    padding: 40px 30px;
+    width: 95%;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.5rem;
+  }
+
+  .dial-number {
+    font-size: 2rem;
+  }
+
+  .helpline-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    gap: 40px;
+  }
+
+  .text-card {
+    padding: 35px 25px;
+  }
+
+  .helpline-text-wrapper {
+    width: 100%;
+  }
+
+  .helpline-paragraph {
+    text-align: left;
+  }
+
+  .icon-wrapper {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .helpline-heading {
+    font-size: 1.5rem;
+  }
+
+  .helpline-subheading {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .helpline-banner {
+    padding: 35px 25px;
+    width: 96%;
+  }
+
+  .helpline-banner-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.4rem;
+  }
+
+  .dial-number {
+    font-size: 1.8rem;
+  }
+
+  .helpline-banner-text {
+    font-size: 1.05rem;
+  }
+
+  .agent-image {
+    height: 320px;
+  }
+
+  .icon-247 {
+    width: 60px;
+  }
+
+  .text-card {
+    padding: 30px 22px;
+  }
+
+  .helpline-heading {
+    font-size: 1.4rem;
+  }
+
+  .helpline-subheading {
+    font-size: 1.05rem;
+  }
+
+  .helpline-paragraph {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .helpline-banner {
+    padding: 30px 20px;
+  }
+
+  .helpline-banner-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.2rem;
+  }
+
+  .dial-number {
+    font-size: 1.6rem;
+  }
+
+  .agent-image {
+    height: 250px;
+  }
+
+  .icon-247 {
+    width: 50px;
+  }
+
+  .text-card {
+    padding: 25px 20px;
+  }
+
+  .helpline-heading {
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .heading-line {
+    max-width: 60px;
+  }
+
+  .helpline-subheading {
+    font-size: 1rem;
+  }
+
+  .helpline-paragraph {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .helpline-banner {
+    padding: 25px 16px;
+  }
+
+  .helpline-banner-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  .helpline-banner-title {
+    font-size: 1.1rem;
+  }
+
+  .dial-number {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .helpline-banner-text {
+    font-size: 0.95rem;
+  }
+
+  .agent-image {
+    height: 220px;
+  }
+
+  .icon-247 {
+    width: 45px;
+  }
+
+  .text-card {
+    padding: 22px 18px;
+  }
+
+  .helpline-heading {
+    font-size: 1.1rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .heading-line {
+    max-width: 50px;
+  }
+
+  .helpline-subheading {
+    font-size: 0.95rem;
+  }
+
+  .helpline-paragraph {
+    font-size: 0.9rem;
+  }
+}

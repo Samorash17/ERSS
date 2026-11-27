@@ -1,0 +1,266 @@
+/* Enhanced Back Button - Circular design matching the app theme */
+.enhanced-back-button {
+  position: fixed;
+  top: 120px;
+  left: 20px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(56, 189, 248, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* Slide in animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Inner circle with gradient */
+.back-button-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #38bdf8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect */
+.back-button-circle::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg) translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+/* Icon styling */
+.back-icon {
+  color: #ffffff;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  z-index: 1;
+  position: relative;
+}
+
+/* Hover effects */
+.enhanced-back-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 2px rgba(56, 189, 248, 0.4),
+    0 0 20px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.enhanced-back-button:hover .back-button-circle {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #06b6d4 100%);
+  transform: scale(1.1);
+}
+
+.enhanced-back-button:hover .back-button-circle::before {
+  transform: rotate(45deg) translateX(100%);
+}
+
+.enhanced-back-button:hover .back-icon {
+  transform: translateX(-2px);
+  color: #ffffff;
+}
+
+/* Active state */
+.enhanced-back-button:active {
+  transform: translateY(0) scale(0.95);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(56, 189, 248, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip */
+.back-tooltip {
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: #e2e8f0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.back-tooltip::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #1e293b;
+}
+
+.enhanced-back-button:hover .back-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(5px);
+}
+
+/* Pulse animation for attention */
+.enhanced-back-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(59, 130, 246, 0.4);
+  animation: pulse 2s infinite;
+  opacity: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .enhanced-back-button {
+    top: 90px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .back-button-circle {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .back-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .back-tooltip {
+    left: 60px;
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .enhanced-back-button {
+    top: 80px;
+    left: 12px;
+    width: 44px;
+    height: 44px;
+  }
+  
+  .back-button-circle {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .back-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .back-tooltip {
+    display: none; /* Hide tooltip on very small screens */
+  }
+}
+
+/* Focus states for accessibility */
+.enhanced-back-button:focus-visible {
+  outline: none;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 3px rgba(59, 130, 246, 0.5),
+    0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .enhanced-back-button {
+    animation: none;
+    transition: none;
+  }
+  
+  .enhanced-back-button::after {
+    animation: none;
+  }
+  
+  .back-button-circle::before {
+    display: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .enhanced-back-button {
+    background: #000000;
+    border: 2px solid #ffffff;
+  }
+  
+  .back-button-circle {
+    background: #ffffff;
+  }
+  
+  .back-icon {
+    color: #000000;
+  }
+}
